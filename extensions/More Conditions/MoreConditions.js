@@ -8,6 +8,8 @@
 (function (Scratch) {
   "use strict";
 
+  
+
   class lmsmcutils {
     getInfo() {
       return {              
@@ -22,22 +24,6 @@
           {
             blockType: "label",
             text: "Is cloud data server up?",
-          },
-          {
-            opcode: "commentC",
-            blockType: Scratch.BlockType.CONDITIONAL,
-            text: "if [IF] then [THEN] else [ELSE]",
-            arguments: {
-              IF: {
-                type: Scratch.ArgumentType.BOOLEAN,
-              },
-              THEN: {
-                type: Scratch.ArgumentType.STRING,
-              },
-              ELSE: {
-                type: Scratch.ArgumentType.STRING,
-              },
-            },
           },
           {
             opcode: 'A',
@@ -112,6 +98,50 @@
             blockType: Scratch.BlockType.BOOLEAN,
             text: 'false'
           },
+          {
+            opcode: "isUserMobile",
+            blockType: Scratch.BlockType.BOOLEAN,
+            text: "is this a phone?",
+          },
+          {
+            opcode: "Boolean",
+            blockType: Scratch.BlockType.BOOLEAN,
+            text: "[STRING]",
+            arguments: {
+              STRING: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "true",
+              },
+            },
+          },
+          {
+            opcode: "FreeBoolean",
+            blockType: Scratch.BlockType.REPORTER,
+            text: "[STRING]",
+            arguments: {
+              STRING: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "apple",
+              },
+            },
+          },
+          {
+            opcode: 'NumPi',
+            blockType: Scratch.BlockType.REPORTER,
+            text: '𝜋 (Number pi)'
+          },
+          {
+            opcode: 'NumE',
+            blockType: Scratch.BlockType.REPORTER,
+            text: '𝘦 (Euler number)'
+          },
+          {
+            opcode: "NewLine",
+            blockType: Scratch.BlockType.REPORTER,
+            text: "new line",
+            disableMonitor: true,
+            arguments: {},
+          },
           
                     
           "---",
@@ -129,16 +159,49 @@
       return 'false';
     }
 
-    A({IFA,THENA,ELSEA}){
-      return IFA?THENA:ELSEA;
+    A(args) {
+      if (args.IFA) return args.THENA;
+      return "";
     }
 
-    B({IFB,THENB,ELSEB}){
+    B({IFB,THENB,ELSEB}) {
       return IFB?THENB:ELSEB;
     }
 
-    D({IFD,THEND,ELSED}){
+    C(args) {
+      if (args.IFC) return args.THENC;
+      return "";
+    }
+
+    D({IFD,THEND,ELSED}) {
       return IFD?THEND:ELSED;
+    }
+    
+    Boolean({STRING}) {
+      return STRING;
+    }
+    
+    FreeBoolean({STRING}) {
+      return STRING;
+    }
+
+    isUserMobile(args, util) {
+      return (
+        navigator.userAgent.includes("Mobile") ||
+        navigator.userAgent.includes("Android")
+      );
+    }
+
+    NumPi() {
+      return '3.1415926535897932';
+    }
+
+    NumE() {
+      return '2,7182818284590452';
+    }
+
+    NewLine() {
+      return "\n";
     }
     
   }
