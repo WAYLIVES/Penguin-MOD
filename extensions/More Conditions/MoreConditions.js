@@ -1,4 +1,4 @@
-// Name: Free Servers
+// Name: More Conditions
 // Id: WAYLIVES
 // Description: Here you can find a free server for your projects. And also check whether it is working now or not.
 // Created by: WAYLIVES (https://scratch.mit.edu/users/WAYLIVES/)
@@ -11,11 +11,11 @@
   class lmsmcutils {
     getInfo() {
       return {              
-        id: "FreeServers",
-        name: "FREE Servers",
-        color1: "#DFB521",
-        color2: "#9B8122",
-        color3: "#9B8122",
+        id: "MoreConditions",
+        name: "More Conditions",
+        color1: "#FFAB19",
+        color2: "#CC8914",
+        color3: "#CC8914",
         
         blocks: [
           
@@ -40,48 +40,19 @@
             },
           },
           {
-            opcode: 'convert',
-            blockType: Scratch.BlockType.BOOLEAN,
-            text: '[FORMAT]',
-            arguments: {
-              FORMAT: {
-                type: Scratch.ArgumentType.STRING,
-                menu: 'FORMAT_MENU'
-              },
-            },
+            opcode: 'Infinity',
+            blockType: Scratch.BlockType.REPORTER,
+            text: 'Infinity'
           },
           
                     
           "---",
         ],
-        menus: {
-          FORMAT_MENU: {
-            acceptReporters: true,
-            items: [
-              {
-                text: 'True',
-                value: 'True'
-              },
-              {
-                text: 'False',
-                value: 'False'
-              },
-              {
-                text: 'Infinity',
-                value: 'Infinity'
-              },
-            ]
-          }
-        }
       };
     }
     
-    convert (args) {
-      if (args.FORMAT === 'True') {
-        return args.TEXT.toString().toUpperCase();
-      } else {
-        return args.TEXT.toString().toLowerCase();
-      }
+    Infinity() {
+      return 'Infinity';
     }
     
   }
