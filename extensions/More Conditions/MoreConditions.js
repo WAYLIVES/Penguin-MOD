@@ -1,6 +1,6 @@
 // Name: More Conditions
 // Id: WAYLIVES
-// Description: Here you can find a free server for your projects. And also check whether it is working now or not.
+// Description: Here you can find more conditional blocks for your projects.
 // Created by: WAYLIVES (https://scratch.mit.edu/users/WAYLIVES/)
 
 
@@ -8,7 +8,11 @@
 (function (Scratch) {
   "use strict";
 
-  const menuIconURI = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjIiIHk9IjIiIHdpZHRoPSI5NiIgaGVpZ2h0PSI5NiIgcng9IjQ4IiBmaWxsPSIjRkZBQjE5Ii8+CjxyZWN0IHg9IjIiIHk9IjIiIHdpZHRoPSI5NiIgaGVpZ2h0PSI5NiIgcng9IjQ4IiBzdHJva2U9IiNDQzg5MTQiIHN0cm9rZS13aWR0aD0iNCIvPgo8cmVjdCB4PSIyMCIgeT0iMzAiIHdpZHRoPSI2MCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiM0NzJFMDMiLz4KPHJlY3QgeD0iMjAiIHk9IjYwIiB3aWR0aD0iNjAiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSIjNDcyRTAzIi8+CjxjaXJjbGUgY3g9IjQwIiBjeT0iMzUiIHI9IjkiIGZpbGw9IiNGRkFCMTkiIHN0cm9rZT0iIzQ3MkUwMyIgc3Ryb2tlLXdpZHRoPSI4Ii8+CjxjaXJjbGUgY3g9IjYwIiBjeT0iNjUiIHI9IjkiIGZpbGw9IiNGRkFCMTkiIHN0cm9rZT0iIzQ3MkUwMyIgc3Ryb2tlLXdpZHRoPSI4Ii8+Cjwvc3ZnPgo=";
+  if (!Scratch.extensions.unsandboxed) {
+    throw new Error("Error");
+  }
+
+  const menuIconURI = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiByeD0iMTAiIGZpbGw9IiNGRkFCMTkiLz4KPHJlY3QgeD0iMjIiIHk9IjMxIiB3aWR0aD0iNTYiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9IiMzMTFGMDAiLz4KPHJlY3QgeD0iMjIiIHk9IjYxIiB3aWR0aD0iNTYiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9IiMzMTFGMDAiLz4KPGNpcmNsZSBjeD0iNDEiIGN5PSIzNSIgcj0iOS41IiBmaWxsPSIjRkZBQjE5IiBzdHJva2U9IiMzMTFGMDAiIHN0cm9rZS13aWR0aD0iNyIvPgo8Y2lyY2xlIGN4PSI1OSIgY3k9IjY1IiByPSI5LjUiIGZpbGw9IiNGRkFCMTkiIHN0cm9rZT0iIzMxMUYwMCIgc3Ryb2tlLXdpZHRoPSI3Ii8+Cjwvc3ZnPgo=";
 
   class lmsmcutils {
     getInfo() {
