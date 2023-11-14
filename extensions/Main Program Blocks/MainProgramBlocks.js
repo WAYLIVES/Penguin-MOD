@@ -36,48 +36,6 @@
             text: "May not work in normal browser tabs",
           },
           {
-            opcode: "moveTo",
-            blockType: Scratch.BlockType.COMMAND,
-            text: "move window to x: [X] y: [Y]",
-            arguments: {
-              X: {
-                type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "0",
-              },
-              Y: {
-                type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "0",
-              },
-            },
-          },
-          {
-            opcode: "moveToPresets",
-            blockType: Scratch.BlockType.COMMAND,
-            text: "move window to the [PRESETS]",
-            arguments: {
-              PRESETS: {
-                type: Scratch.ArgumentType.STRING,
-                menu: "MOVE",
-              },
-            },
-          },
-
-          "---",
-          {
-            opcode: 'Window',
-            blockType: Scratch.BlockType.REPORTER,
-            text: 'window [FORMAT]',
-            arguments: {
-              FORMAT: {
-                type: Scratch.ArgumentType.STRING,
-                menu: 'FORMAT_MENU'
-              },
-            },
-          },
-
-          "---",
-
-          {
             opcode: "resizeTo",
             blockType: Scratch.BlockType.COMMAND,
             text: "resize window to width: [W] height: [H]",
@@ -99,7 +57,7 @@
             arguments: {
               W: {
                 type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "1000",
+                defaultValue: "480",
               },
             },
           },
@@ -110,7 +68,7 @@
             arguments: {
               H: {
                 type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "1000",
+                defaultValue: "360",
               },
             },
           },
@@ -118,26 +76,34 @@
           "---",
           
           {
-            opcode: "screenW",
-            blockType: Scratch.BlockType.REPORTER,
-            text: "screen width",
+            opcode: "moveToPresets",
+            blockType: Scratch.BlockType.COMMAND,
+            text: "move window to the [PRESETS]",
+            arguments: {
+              PRESETS: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "MOVE",
+              },
+            },
           },
           {
-            opcode: "screenH",
-            blockType: Scratch.BlockType.REPORTER,
-            text: "screen height",
+            opcode: "moveTo",
+            blockType: Scratch.BlockType.COMMAND,
+            text: "move window to x: [X] y: [Y]",
+            arguments: {
+              X: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: "0",
+              },
+              Y: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: "0",
+              },
+            },
           },
 
           "---",
-
-          {
-            opcode: "isFocused",
-            blockType: Scratch.BlockType.BOOLEAN,
-            text: "is window focused?",
-          },
-
-          "---",
-
+          
           {
             opcode: "changeTitleTo",
             blockType: Scratch.BlockType.COMMAND,
@@ -145,7 +111,7 @@
             arguments: {
               TITLE: {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: "Hello World!",
+                defaultValue: "Title",
               },
             },
           },
@@ -161,20 +127,47 @@
             opcode: "exitFullscreen",
             blockType: Scratch.BlockType.COMMAND,
             text: "exit fullscreen",
-          },
-          {
-            opcode: "isFullscreen",
-            blockType: Scratch.BlockType.BOOLEAN,
-            text: "is window fullscreen?",
-          },
-
-          "---",
-
+          },          
           {
             opcode: "closeWindow",
             blockType: Scratch.BlockType.COMMAND,
             isTerminal: true,
             text: "close window",
+          },
+
+          "---",
+          {
+            opcode: 'Window',
+            blockType: Scratch.BlockType.REPORTER,
+            text: 'window [FORMAT]',
+            arguments: {
+              FORMAT: {
+                type: Scratch.ArgumentType.STRING,
+                menu: 'FORMAT_MENU'
+              },
+            },
+          },
+          {
+            opcode: 'Screen',
+            blockType: Scratch.BlockType.REPORTER,
+            text: 'screen [FORMATS]',
+            arguments: {
+              FORMATS: {
+                type: Scratch.ArgumentType.STRING,
+                menu: 'FORMATS_MENU'
+              },
+            },
+          },          
+          {
+            opcode: "isQuestion",
+            blockType: Scratch.BlockType.BOOLEAN,
+            text: "is window [QUESTION]?",
+            arguments: {
+              QUESTION: {
+                type: Scratch.ArgumentType.STRING,
+                menu: 'QUESTION_MENU'
+              },
+            },
           },
           
           "---",
@@ -197,7 +190,15 @@
           },
             FORMAT_MENU: {
             acceptReporters: true,
-            items: ['x', 'y', 'width', 'height', 'title']
+            items: ['width', 'height', 'title', 'x', 'y']
+          },
+            FORMATS_MENU: {
+            acceptReporters: true,
+            items: ['width', 'height']
+          },
+            QUESTION_MENU: {
+            acceptReporters: true,
+            items: ['focused', 'fullscreen']
           },
         },
       };
@@ -257,6 +258,20 @@
         return document.title;
       }
     }
+    Screen(args) {
+      if (args.FORMATS == "width") {
+        return screen.width;
+      } else if (args.FORMATS == "height") {
+        return screen.height;
+      }
+    }
+    isQuestion(args) {
+      if (args.QUESTION == "focused") {
+        return document.hasFocus();
+      } else if (args.QUESTION == "fullscreen") {
+        return document.fullscreenElement !== null;
+      }
+    }
     
     resizeTo(args) {
       window.resizeTo(args.W, args.H);
@@ -272,15 +287,6 @@
       window.resizeTo(currentW, args.H);
       Scratch.vm.runtime.requestRedraw();
     }    
-    screenW() {
-      return screen.width;
-    }
-    screenH() {
-      return screen.height;
-    }
-    isFocused() {
-      return document.hasFocus();
-    }
     changeTitleTo(args) {
       document.title = args.TITLE;
     }
@@ -293,9 +299,6 @@
       if (document.fullscreenElement !== null) {
         document.exitFullscreen();
       }
-    }
-    isFullscreen() {
-      return document.fullscreenElement !== null;
     }
     closeWindow() {
       const editorConfirmation = [
