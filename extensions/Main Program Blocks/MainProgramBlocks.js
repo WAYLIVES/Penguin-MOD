@@ -61,15 +61,18 @@
               },
             },
           },
+
+          "---",
           {
-            opcode: "windowX",
+            opcode: 'Window',
             blockType: Scratch.BlockType.REPORTER,
-            text: "window x",
-          },
-          {
-            opcode: "windowY",
-            blockType: Scratch.BlockType.REPORTER,
-            text: "window y",
+            text: 'window [FORMAT]',
+            arguments: {
+              FORMAT: {
+                type: Scratch.ArgumentType.STRING,
+                menu: 'FORMAT_MENU'
+              },
+            },
           },
 
           "---",
@@ -111,16 +114,6 @@
               },
             },
           },
-          {
-            opcode: "windowW",
-            blockType: Scratch.BlockType.REPORTER,
-            text: "window width",
-          },
-          {
-            opcode: "windowH",
-            blockType: Scratch.BlockType.REPORTER,
-            text: "window height",
-          },
 
           "---",
           
@@ -155,11 +148,6 @@
                 defaultValue: "Hello World!",
               },
             },
-          },
-          {
-            opcode: "windowTitle",
-            blockType: Scratch.BlockType.REPORTER,
-            text: "window title",
           },
 
           "---",
@@ -207,6 +195,10 @@
               "random position",
             ],
           },
+            FORMAT_MENU: {
+            acceptReporters: true,
+            items: ['x', 'y', 'width', 'height', 'title']
+          },
         },
       };
     }
@@ -252,12 +244,20 @@
       }
       Scratch.vm.runtime.requestRedraw();
     }
-    windowX() {
-      return window.screenLeft;
+    Window(args) {
+      if (args.FORMAT == "x") {
+        return window.screenLeft;
+      } else if (args.FORMAT == "y") {
+        return window.screenTop;
+      } else if (args.FORMAT == "width") {
+        return window.outerWidth;
+      } else if (args.FORMAT == "height") {
+        return window.outerHeight;
+      } else if (args.FORMAT == "title") {
+        return document.title;
+      }
     }
-    windowY() {
-      return window.screenTop;
-    }
+    
     resizeTo(args) {
       window.resizeTo(args.W, args.H);
       Scratch.vm.runtime.requestRedraw();
@@ -272,12 +272,6 @@
       window.resizeTo(currentW, args.H);
       Scratch.vm.runtime.requestRedraw();
     }    
-    windowW() {
-      return window.outerWidth;
-    }
-    windowH() {
-      return window.outerHeight;
-    }
     screenW() {
       return screen.width;
     }
@@ -289,9 +283,6 @@
     }
     changeTitleTo(args) {
       document.title = args.TITLE;
-    }
-    windowTitle() {
-      return document.title;
     }
     enterFullscreen() {
       if (document.fullscreenElement == null) {
