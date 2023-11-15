@@ -25,6 +25,8 @@
           moveToPresetsTopRight: "в верхний правый угол",
           moveToPresetsTopLeft: "в верхний левый угол",
           moveToPresetsBottomRight: "в нижний правый угол",
+          moveToPresetsBottomLeft: "в нижний левый угол",
+          moveToPresetsRandomPosition: "на случайную позицию",
       moveTo: "переместить окно в x: [X] y: [Y]",
       changeTitleTo: "задать заголовок окна [TITLE]",
       enterFullscreen: "войти в полноэкранный режим",
