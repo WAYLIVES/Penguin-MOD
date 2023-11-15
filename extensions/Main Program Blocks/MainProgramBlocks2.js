@@ -3,7 +3,7 @@
 // Description: Here you can find more conditional blocks for your projects.
 // Created by: WAYLIVES (https://scratch.mit.edu/users/WAYLIVES/)
 
-// V-1.1.9
+// V-1.2.1
 
 
 
@@ -11,29 +11,24 @@
   "use strict";
 
   Scratch.translate.setup({
-    // Английский язык
-    en: {
-      LabelA: "Controls:",
-    },
     // Русский язык
     ru: {
       LabelA: "Элементы управления:",
+      resizeTo: "задать размер окна по ширине: [W] по высоте: [H]",
+      setW: "задать ширину окна [W]",
+      setH: "задать высоту окна [H]",
+      moveToPresets: "переместить окно [PRESETS]",
+        // menu moveToPresets:
+      moveTo: "переместить окно в x: [X] y: [Y]",
+      changeTitleTo: "задать заголовок окна [TITLE]",
+      enterFullscreen: "войти в полноэкранный режим",
+      exitFullscreen: "выйти из полноэкранного режима",
+      closeWindow: "закрыть окно",
+      Window: "окно [FORMAT]",
+      Screen: "экран [FORMATS]",
+      isQuestion: "окно [QUESTION]?",
     },
-    // Китайский язык
-    zh: {
-      LabelA: "控制:",
-    },
-    // Французский язык
-    fr: {
-      LabelA: "Contrôles:",
-    },
-    // Немецкий язык
-    de: {
-      LabelA: "Kontrollen:",
-    },
-  });
-
-  
+  });  
 
   if (!Scratch.extensions.unsandboxed) {
     throw new Error("Error");
@@ -65,7 +60,7 @@
           {
             opcode: "resizeTo",
             blockType: Scratch.BlockType.COMMAND,
-            text: "resize window to width: [W] height: [H]",
+            text: Scratch.translate({ id: "resizeTo", default: "resize window to width: [W] height: [H]" }),
             arguments: {
               W: {
                 type: Scratch.ArgumentType.NUMBER,
@@ -80,7 +75,7 @@
           {
             opcode: "setW",
             blockType: Scratch.BlockType.COMMAND,
-            text: "set window width to [W]",
+            text: Scratch.translate({ id: "setW", default: "set window width to [W]" }),
             arguments: {
               W: {
                 type: Scratch.ArgumentType.NUMBER,
@@ -91,7 +86,7 @@
           {
             opcode: "setH",
             blockType: Scratch.BlockType.COMMAND,
-            text: "set window height to [H]",
+            text: Scratch.translate({ id: "setH", default: "set window height to [H]" }),
             arguments: {
               H: {
                 type: Scratch.ArgumentType.NUMBER,
@@ -105,7 +100,7 @@
           {
             opcode: "moveToPresets",
             blockType: Scratch.BlockType.COMMAND,
-            text: "move window to the [PRESETS]",
+            text: Scratch.translate({ id: "moveToPresets", default: "move window to the [PRESETS]" }),
             arguments: {
               PRESETS: {
                 type: Scratch.ArgumentType.STRING,
@@ -116,7 +111,7 @@
           {
             opcode: "moveTo",
             blockType: Scratch.BlockType.COMMAND,
-            text: "move window to x: [X] y: [Y]",
+            text: Scratch.translate({ id: "moveTo", default: "move window to x: [X] y: [Y]" }),
             arguments: {
               X: {
                 type: Scratch.ArgumentType.NUMBER,
@@ -134,11 +129,11 @@
           {
             opcode: "changeTitleTo",
             blockType: Scratch.BlockType.COMMAND,
-            text: "set window title to [TITLE]",
+            text: Scratch.translate({ id: "changeTitleTo", default: "set window title to [TITLE]" }),
             arguments: {
               TITLE: {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: "Title",
+                defaultValue: "title",
               },
             },
           },
@@ -148,25 +143,25 @@
           {
             opcode: "enterFullscreen",
             blockType: Scratch.BlockType.COMMAND,
-            text: "enter fullscreen",
+            text: Scratch.translate({ id: "enterFullscreen", default: "enter fullscreen" }),
           },
           {
             opcode: "exitFullscreen",
             blockType: Scratch.BlockType.COMMAND,
-            text: "exit fullscreen",
+            text: Scratch.translate({ id: "exitFullscreen", default: "exit fullscreen" }),
           },          
           {
             opcode: "closeWindow",
             blockType: Scratch.BlockType.COMMAND,
             isTerminal: true,
-            text: "close window",
+            text: Scratch.translate({ id: "closeWindow", default: "close window" }),
           },
 
           "---",
           {
             opcode: 'Window',
             blockType: Scratch.BlockType.REPORTER,
-            text: 'window [FORMAT]',
+            text: Scratch.translate({ id: "Window", default: "window [FORMAT]" }),
             arguments: {
               FORMAT: {
                 type: Scratch.ArgumentType.STRING,
@@ -177,7 +172,7 @@
           {
             opcode: 'Screen',
             blockType: Scratch.BlockType.REPORTER,
-            text: 'screen [FORMATS]',
+            text: Scratch.translate({ id: "Screen", default: "screen [FORMATS]" }),
             arguments: {
               FORMATS: {
                 type: Scratch.ArgumentType.STRING,
@@ -188,11 +183,11 @@
           {
             opcode: "isQuestion",
             blockType: Scratch.BlockType.BOOLEAN,
-            text: "is window [QUESTION]?",
+            text: Scratch.translate({ id: "isQuestion", default: "is window [QUESTION]?" }),
             arguments: {
               QUESTION: {
                 type: Scratch.ArgumentType.STRING,
-                menu: 'QUESTION_MENU'
+                menu: "QUESTION_MENU"
               },
             },
           },
