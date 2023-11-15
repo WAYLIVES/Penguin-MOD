@@ -26,7 +26,6 @@
           moveToPresetsTopLeft: "в верхний левый угол",
           moveToPresetsBottomRight: "в нижний правый угол",
           moveToPresetsBottomLeft: "в нижний левый угол",
-          moveToPresetsRandomPosition: "на случайную позицию",
       moveTo: "переместить окно в x: [X] y: [Y]",
       changeTitleTo: "задать заголовок окна [TITLE]",
       enterFullscreen: "войти в полноэкранный режим",
@@ -213,7 +212,6 @@
               Scratch.translate({ id: "moveToPresetsTopLeft", default: "top left" }),
               Scratch.translate({ id: "moveToPresetsBottomRight", default: "bottom right" }),
               Scratch.translate({ id: "moveToPresetsBottomLeft", default: "bottom left" }),
-              Scratch.translate({ id: "moveToPresetsRandomPosition", default: "random position" }),
             ],
           },
           FORMAT_MENU: {
@@ -248,40 +246,36 @@
       Scratch.vm.runtime.requestRedraw();
     }
     moveToPresets(args) {
-      if (args.PRESETS == "center") {
+      if (args.PRESETS == Scratch.translate({ id: "moveToPresetsCenter", default: "center" })) {
         const left = (screen.width - window.outerWidth) / 2;
         const top = (screen.height - window.outerHeight) / 2;
         window.moveTo(left, top);
-      } else if (args.PRESETS == "right") {
+      } else if (args.PRESETS == Scratch.translate({ id: "moveToPresetsRight", default: "right" })) {
         const right = screen.width - window.outerWidth;
         const top = (screen.height - window.outerHeight) / 2;
         window.moveTo(right, top);
-      } else if (args.PRESETS == "left") {
+      } else if (args.PRESETS == Scratch.translate({ id: "moveToPresetsLeft", default: "left" })) {
         const top = (screen.height - window.outerHeight) / 2;
         window.moveTo(0, top);
-      } else if (args.PRESETS == "top") {
+      } else if (args.PRESETS == Scratch.translate({ id: "moveToPresetsTop", default: "top" })) {
         const left = (screen.width - window.outerWidth) / 2;
         window.moveTo(left, 0);
-      } else if (args.PRESETS == "bottom") {
+      } else if (args.PRESETS == Scratch.translate({ id: "moveToPresetsBottom", default: "bottom" })) {
         const left = (screen.width - window.outerWidth) / 2;
         const bottom = screen.height - window.outerHeight;
         window.moveTo(left, bottom);
-      } else if (args.PRESETS == "top right") {
+      } else if (args.PRESETS == Scratch.translate({ id: "moveToPresetsTopRight", default: "top right" })) {
         const right = screen.width - window.outerWidth;
         window.moveTo(right, 0);
-      } else if (args.PRESETS == "top left") {
+      } else if (args.PRESETS == Scratch.translate({ id: "moveToPresetsTopLeft", default: "top left" })) {
         window.moveTo(0, 0);
-      } else if (args.PRESETS == "bottom right") {
+      } else if (args.PRESETS == Scratch.translate({ id: "moveToPresetsBottomRight", default: "bottom right" })) {
         const right = screen.width - window.outerWidth;
         const bottom = screen.height - window.outerHeight;
         window.moveTo(right, bottom);
-      } else if (args.PRESETS == "bottom left") {
+      } else if (args.PRESETS == Scratch.translate({ id: "moveToPresetsBottomLeft", default: "bottom left" })) {
         const bottom = screen.height - window.outerHeight;
         window.moveTo(0, bottom);
-      } else if (args.PRESETS == "random position") {
-        const randomX = getRandomInt(0, screen.width);
-        const randomY = getRandomInt(0, screen.height);
-        window.moveTo(randomX, randomY);
       }
       Scratch.vm.runtime.requestRedraw();
     }
