@@ -243,7 +243,19 @@
                 menu: 'FORMATS_MENU'
               },
             },
-          },          
+          },
+          {
+            opcode: "getDimension",
+            text: "stage [dimension]",
+            blockType: Scratch.BlockType.REPORTER,
+            arguments: {
+              dimension: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "width",
+                menu: "dimension",
+              },
+            },
+          },
           {
             opcode: "isQuestion",
             blockType: Scratch.BlockType.BOOLEAN,
@@ -286,14 +298,21 @@
             items: [
               Scratch.translate({ id: "ScreenMenuWidth", default: "width" }),
               Scratch.translate({ id: "ScreenMenuHeight", default: "height" }), 
-            ]
+            ],
+          },
+          dimension: {
+            acceptReporters: true,
+            items: [
+              "width", 
+              "height",
+            ],
           },
           QUESTION_MENU: {
             acceptReporters: true,
             items: [
               Scratch.translate({ id: "isQuestionMenuFocused", default: "focused" }),
               Scratch.translate({ id: "isQuestionMenuFullscreen", default: "fullscreen" }),
-            ]
+            ],
           },
         },
       };
@@ -355,6 +374,14 @@
       } else if (args.FORMATS == Scratch.translate({ id: "ScreenMenuHeight", default: "height" })) {
         return screen.height;
       }
+    }
+    getDimension({ dimension }) {
+      if (dimension === "width") {
+        return Scratch.vm.runtime.stageWidth;
+      } else if (dimension === "height") {
+        return Scratch.vm.runtime.stageHeight;
+      }
+      return 0;
     }
     isQuestion(args) {
       if (args.QUESTION == Scratch.translate({ id: "isQuestionMenuFocused", default: "focused" })) {
