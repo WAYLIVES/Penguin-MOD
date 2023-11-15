@@ -2,7 +2,7 @@
 // Id: WAYLIVES
 // Description: Here you can find more conditional blocks for your projects.
 // Created by: WAYLIVES (https://scratch.mit.edu/users/WAYLIVES/)
-// V-1.3.9
+// V-1.3.2
 
 
 (function (Scratch) {
@@ -11,43 +11,39 @@
   Scratch.translate.setup({
     // Русский язык
     ru: {
-      
-      // Элементы управления:
-        LabelA: "Элементы управления:",
-        resizeTo: "[IMG] задать размер окна по ширине: [W] по высоте: [H]",
-        setW: "[IMG] задать ширину окна [W]",
-        setH: "[IMG] задать высоту окна [H]",
-        moveToPresets: "[IMG] переместить окно [PRESETS]",
-            // menu moveToPresets:
-            moveToPresetsCenter: "по центру",
-            moveToPresetsRight: "вправо",
-            moveToPresetsLeft: "влево",
-            moveToPresetsTop: "вверх",
-            moveToPresetsBottom: "вниз",
-            moveToPresetsTopRight: "в верхний правый угол",
-            moveToPresetsTopLeft: "в верхний левый угол",
-            moveToPresetsBottomRight: "в нижний правый угол",
-            moveToPresetsBottomLeft: "в нижний левый угол",
-        moveTo: "[IMG] переместить окно в x: [X] y: [Y]",
-        changeTitleTo: "[IMG] задать заголовок окна [TITLE]",
-        enterFullscreen: "[IMG] войти в полноэкранный режим",
-        exitFullscreen: "[IMG] выйти из полноэкранного режима",
-        closeWindow: "[IMG] закрыть окно",
-        Window: "окно [FORMAT]",
-            // menu Window:
-            WindowMenuWidth: "ширина",
-            WindowMenuHeight: "высота",
-            WindowMenuTitle: "заголовок",
-        Screen: "экран [FORMATS]",
-            // menu Screen:
-            ScreenMenuWidth: "ширина",
-            ScreenMenuHeight: "высота",
-        isQuestion: "[QUESTION] окно?",
-            // menu isQuestion:
-            isQuestionMenuFocused: "фокусированное",
-            isQuestionMenuFullscreen: "в полноэкранном режиме",
-
-        // 
+      LabelA: "Элементы управления:",
+      resizeTo: "[IMG] задать размер окна по ширине: [W] по высоте: [H]",
+      setW: "[IMG] задать ширину окна [W]",
+      setH: "[IMG] задать высоту окна [H]",
+      moveToPresets: "[IMG] переместить окно [PRESETS]",
+          // menu moveToPresets:
+          moveToPresetsCenter: "по центру",
+          moveToPresetsRight: "вправо",
+          moveToPresetsLeft: "влево",
+          moveToPresetsTop: "вверх",
+          moveToPresetsBottom: "вниз",
+          moveToPresetsTopRight: "в верхний правый угол",
+          moveToPresetsTopLeft: "в верхний левый угол",
+          moveToPresetsBottomRight: "в нижний правый угол",
+          moveToPresetsBottomLeft: "в нижний левый угол",
+      moveTo: "[IMG] переместить окно в x: [X] y: [Y]",
+      changeTitleTo: "[IMG] задать заголовок окна [TITLE]",
+      enterFullscreen: "[IMG] войти в полноэкранный режим",
+      exitFullscreen: "[IMG] выйти из полноэкранного режима",
+      closeWindow: "[IMG] закрыть окно",
+      Window: "окно [FORMAT]",
+          // menu Window:
+          WindowMenuWidth: "ширина",
+          WindowMenuHeight: "высота",
+          WindowMenuTitle: "заголовок",
+      Screen: "экран [FORMATS]",
+          // menu Screen:
+          ScreenMenuWidth: "ширина",
+          ScreenMenuHeight: "высота",
+      isQuestion: "[QUESTION] окно?",
+          // menu isQuestion:
+          isQuestionMenuFocused: "фокусированное",
+          isQuestionMenuFullscreen: "в полноэкранном режиме",
     },
   });  
 
@@ -247,7 +243,19 @@
                 menu: 'FORMATS_MENU'
               },
             },
-          },          
+          },
+          {
+            opcode: "getDimension",
+            text: "stage [dimension]",
+            blockType: Scratch.BlockType.REPORTER,
+            arguments: {
+              dimension: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "width",
+                menu: "dimension",
+              },
+            },
+          },
           {
             opcode: "isQuestion",
             blockType: Scratch.BlockType.BOOLEAN,
@@ -258,7 +266,29 @@
                 menu: "QUESTION_MENU"
               },
             },
-          },          
+          },
+
+          {
+            opcode: "WidthWay",
+            text: "Width1",
+            blockType: Scratch.BlockType.REPORTER,
+          },
+          {
+            opcode: "WidthWayA",
+            text: "Width2",
+            blockType: Scratch.BlockType.REPORTER,
+          },
+          {
+            opcode: "WidthAA",
+            blockType: Scratch.BlockType.COMMAND,
+            text: "width [W]",
+            arguments: {
+              W: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: "480",
+              },
+            },
+          },
         ],
         menus: {
           MOVE: {
@@ -290,18 +320,33 @@
             items: [
               Scratch.translate({ id: "ScreenMenuWidth", default: "width" }),
               Scratch.translate({ id: "ScreenMenuHeight", default: "height" }), 
-            ]
+            ],
+          },
+          dimension: {
+            acceptReporters: true,
+            items: [
+              "width", 
+              "height",
+            ],
           },
           QUESTION_MENU: {
             acceptReporters: true,
             items: [
               Scratch.translate({ id: "isQuestionMenuFocused", default: "focused" }),
               Scratch.translate({ id: "isQuestionMenuFullscreen", default: "fullscreen" }),
-            ]
+            ],
           },
         },
       };
     }
+    WidthWay() {
+      return (window.outerWidth - Scratch.vm.runtime.stageWidth)
+    }
+    WidthWayA() {
+      return (window.outerWidth - Scratch.vm.runtime.stageWidth) + Scratch.vm.runtime.stageWidth
+    }
+
+    
     moveTo(args) {
       window.moveTo(args.X, args.Y);
       Scratch.vm.runtime.requestRedraw();
@@ -359,6 +404,18 @@
       } else if (args.FORMATS == Scratch.translate({ id: "ScreenMenuHeight", default: "height" })) {
         return screen.height;
       }
+    }
+    getDimension({ dimension }) {
+      if (dimension === "width") {
+        return Scratch.vm.runtime.stageWidth;
+      } else if (dimension === "height") {
+        return Scratch.vm.runtime.stageHeight;
+      }
+      return 0;
+    }
+    WidthAA({ width }) {
+      width = Scratch.Cast.toNumber(width);
+      Scratch.vm.setStageSize(width);
     }
     isQuestion(args) {
       if (args.QUESTION == Scratch.translate({ id: "isQuestionMenuFocused", default: "focused" })) {
