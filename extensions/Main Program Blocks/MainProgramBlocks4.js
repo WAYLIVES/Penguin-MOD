@@ -12,10 +12,10 @@
     // Русский язык
     ru: {
       LabelA: "Элементы управления:",
-      resizeTo: "задать размер окна по ширине: [W] по высоте: [H]",
-      setW: "задать ширину окна [W]",
-      setH: "задать высоту окна [H]",
-      moveToPresets: "переместить окно [PRESETS]",
+      resizeTo: "[IMG] задать размер окна по ширине: [W] по высоте: [H]",
+      setW: "[IMG] задать ширину окна [W]",
+      setH: "[IMG] задать высоту окна [H]",
+      moveToPresets: "[IMG] переместить окно [PRESETS]",
           // menu moveToPresets:
           moveToPresetsCenter: "по центру",
           moveToPresetsRight: "вправо",
@@ -26,11 +26,11 @@
           moveToPresetsTopLeft: "в верхний левый угол",
           moveToPresetsBottomRight: "в нижний правый угол",
           moveToPresetsBottomLeft: "в нижний левый угол",
-      moveTo: "переместить окно в x: [X] y: [Y]",
-      changeTitleTo: "задать заголовок окна [TITLE]",
-      enterFullscreen: "войти в полноэкранный режим",
-      exitFullscreen: "выйти из полноэкранного режима",
-      closeWindow: "закрыть окно",
+      moveTo: "[IMG] переместить окно в x: [X] y: [Y]",
+      changeTitleTo: "[IMG] задать заголовок окна [TITLE]",
+      enterFullscreen: "[IMG] войти в полноэкранный режим",
+      exitFullscreen: "[IMG] выйти из полноэкранного режима",
+      closeWindow: "[IMG] закрыть окно",
       Window: "окно [FORMAT]",
           // menu Window:
           WindowMenuWidth: "ширина",
@@ -51,8 +51,24 @@
     throw new Error("Error");
   }
 
+  
+  // иконка меню:
   const menuIconURI = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiByeD0iMTAiIGZpbGw9IiNCRjZFOEIiLz4KPHJlY3QgeD0iMjIiIHk9IjIyIiB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHJ4PSI2IiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSIzMCIgeT0iNDIiIHdpZHRoPSI0MCIgaGVpZ2h0PSIyOCIgcng9IjMiIGZpbGw9IiNCRjZFOEIiLz4KPHJlY3QgeD0iMzYiIHk9IjUwIiB3aWR0aD0iMTgiIGhlaWdodD0iMTQiIHJ4PSIyIiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSI1OCIgeT0iNTAiIHdpZHRoPSI2IiBoZWlnaHQ9IjE0IiByeD0iMiIgZmlsbD0id2hpdGUiLz4KPGNpcmNsZSBjeD0iNjUiIGN5PSIzMiIgcj0iNSIgZmlsbD0iI0JGNkU4QiIvPgo8L3N2Zz4K";
 
+  
+  // иконки блоков:
+  
+      // Элементы управления:
+      const resizeTo = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3QgeD0iMTAiIHk9IjciIHdpZHRoPSI2IiBoZWlnaHQ9IjQ3IiByeD0iMyIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTMgMjBMMTMgN0wyMyAyMCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHJlY3QgeD0iNTciIHk9IjQ4IiB3aWR0aD0iNiIgaGVpZ2h0PSI0NyIgcng9IjMiIHRyYW5zZm9ybT0icm90YXRlKDkwIDU3IDQ4KSIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTQ0IDQxTDU3IDUxTDQ0IDYxIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K";
+      const setW = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzQiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCAzNCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3QgeD0iMTAiIHk9IjciIHdpZHRoPSI2IiBoZWlnaHQ9IjU3IiByeD0iMyIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTMgMjBMMTMgN0wyMyAyMCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==";
+      const setH = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzE2NV8zMikiPgo8cmVjdCB4PSI1NyIgeT0iMzEiIHdpZHRoPSI2IiBoZWlnaHQ9IjU3IiByeD0iMyIgdHJhbnNmb3JtPSJyb3RhdGUoOTAgNTcgMzEpIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNDQgMjRMNTcgMzRMNDQgNDQiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTY1XzMyIj4KPHJlY3Qgd2lkdGg9IjY4IiBoZWlnaHQ9IjY4IiBmaWxsPSJ3aGl0ZSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo=";
+      const moveToPresets = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzE2Nl81MykiPgo8cmVjdCB4PSIyNyIgeT0iOCIgd2lkdGg9IjYiIGhlaWdodD0iNjAiIHJ4PSIzIiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSI2MCIgeT0iMzUiIHdpZHRoPSI2IiBoZWlnaHQ9IjYwIiByeD0iMyIgdHJhbnNmb3JtPSJyb3RhdGUoOTAgNjAgMzUpIiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSIzIiB5PSIxMSIgd2lkdGg9IjU0IiBoZWlnaHQ9IjU0IiByeD0iNyIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2Ii8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTY2XzUzIj4KPHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCA4KSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo=";
+      const moveTo = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzE2Nl81MykiPgo8cmVjdCB4PSIyNyIgeT0iOCIgd2lkdGg9IjYiIGhlaWdodD0iNjAiIHJ4PSIzIiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSI2MCIgeT0iMzUiIHdpZHRoPSI2IiBoZWlnaHQ9IjYwIiByeD0iMyIgdHJhbnNmb3JtPSJyb3RhdGUoOTAgNjAgMzUpIiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSIzIiB5PSIxMSIgd2lkdGg9IjU0IiBoZWlnaHQ9IjU0IiByeD0iNyIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2Ii8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTY2XzUzIj4KPHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCA4KSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo=";
+      const changeTitleTo = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3QgeD0iMTAiIHk9IjciIHdpZHRoPSI2IiBoZWlnaHQ9IjQ3IiByeD0iMyIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTMgMjBMMTMgN0wyMyAyMCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHJlY3QgeD0iNTciIHk9IjQ4IiB3aWR0aD0iNiIgaGVpZ2h0PSI0NyIgcng9IjMiIHRyYW5zZm9ybT0icm90YXRlKDkwIDU3IDQ4KSIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTQ0IDQxTDU3IDUxTDQ0IDYxIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K";
+      const enterFullscreen = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3QgeD0iMTAiIHk9IjciIHdpZHRoPSI2IiBoZWlnaHQ9IjQ3IiByeD0iMyIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTMgMjBMMTMgN0wyMyAyMCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHJlY3QgeD0iNTciIHk9IjQ4IiB3aWR0aD0iNiIgaGVpZ2h0PSI0NyIgcng9IjMiIHRyYW5zZm9ybT0icm90YXRlKDkwIDU3IDQ4KSIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTQ0IDQxTDU3IDUxTDQ0IDYxIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K";
+      const exitFullscreen = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3QgeD0iMTAiIHk9IjciIHdpZHRoPSI2IiBoZWlnaHQ9IjQ3IiByeD0iMyIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTMgMjBMMTMgN0wyMyAyMCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHJlY3QgeD0iNTciIHk9IjQ4IiB3aWR0aD0iNiIgaGVpZ2h0PSI0NyIgcng9IjMiIHRyYW5zZm9ybT0icm90YXRlKDkwIDU3IDQ4KSIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTQ0IDQxTDU3IDUxTDQ0IDYxIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K";
+      const closeWindow = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3QgeD0iMTAiIHk9IjciIHdpZHRoPSI2IiBoZWlnaHQ9IjQ3IiByeD0iMyIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTMgMjBMMTMgN0wyMyAyMCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHJlY3QgeD0iNTciIHk9IjQ4IiB3aWR0aD0iNiIgaGVpZ2h0PSI0NyIgcng9IjMiIHRyYW5zZm9ybT0icm90YXRlKDkwIDU3IDQ4KSIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTQ0IDQxTDU3IDUxTDQ0IDYxIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K";
+  
   function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -65,8 +81,8 @@
         id: "MainProgramBlocks",
         name: "MPB",
         color1: "#BF6E8B",
-        color2: "#9A4E69",
-        color3: "#9A4E69",
+        color2: "#A0536F",
+        color3: "#A0536F",
         menuIconURI: menuIconURI,
         
         blocks: [          
@@ -77,8 +93,12 @@
           {
             opcode: "resizeTo",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "resizeTo", default: "resize window to width: [W] height: [H]" }),
+            text: Scratch.translate({ id: "resizeTo", default: "[IMG] resize window to width: [W] height: [H]" }),
             arguments: {
+              IMG: {
+                type: Scratch.ArgumentType.IMAGE,
+                dataURI: resizeTo,
+              },
               W: {
                 type: Scratch.ArgumentType.NUMBER,
                 defaultValue: "480",
@@ -92,8 +112,12 @@
           {
             opcode: "setW",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "setW", default: "set window width to [W]" }),
+            text: Scratch.translate({ id: "setW", default: "[IMG] set window width to [W]" }),
             arguments: {
+              IMG: {
+                type: Scratch.ArgumentType.IMAGE,
+                dataURI: setW,
+              },
               W: {
                 type: Scratch.ArgumentType.NUMBER,
                 defaultValue: "480",
@@ -103,8 +127,12 @@
           {
             opcode: "setH",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "setH", default: "set window height to [H]" }),
+            text: Scratch.translate({ id: "setH", default: "[IMG] set window height to [H]" }),
             arguments: {
+              IMG: {
+                type: Scratch.ArgumentType.IMAGE,
+                dataURI: setH,
+              },
               H: {
                 type: Scratch.ArgumentType.NUMBER,
                 defaultValue: "360",
@@ -114,8 +142,12 @@
           {
             opcode: "moveToPresets",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "moveToPresets", default: "move window to the [PRESETS]" }),
+            text: Scratch.translate({ id: "moveToPresets", default: "[IMG] move window to the [PRESETS]" }),
             arguments: {
+              IMG: {
+                type: Scratch.ArgumentType.IMAGE,
+                dataURI: moveToPresets,
+              },
               PRESETS: {
                 type: Scratch.ArgumentType.STRING,
                 menu: "MOVE",
@@ -125,8 +157,12 @@
           {
             opcode: "moveTo",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "moveTo", default: "move window to x: [X] y: [Y]" }),
+            text: Scratch.translate({ id: "moveTo", default: "[IMG] move window to x: [X] y: [Y]" }),
             arguments: {
+              IMG: {
+                type: Scratch.ArgumentType.IMAGE,
+                dataURI: moveTo,
+              },
               X: {
                 type: Scratch.ArgumentType.NUMBER,
                 defaultValue: "0",
@@ -140,8 +176,12 @@
           {
             opcode: "changeTitleTo",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "changeTitleTo", default: "set window title to [TITLE]" }),
+            text: Scratch.translate({ id: "changeTitleTo", default: "[IMG] set window title to [TITLE]" }),
             arguments: {
+              IMG: {
+                type: Scratch.ArgumentType.IMAGE,
+                dataURI: changeTitleTo,
+              },
               TITLE: {
                 type: Scratch.ArgumentType.STRING,
                 defaultValue: "title",
@@ -151,20 +191,37 @@
           {
             opcode: "enterFullscreen",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "enterFullscreen", default: "enter fullscreen" }),
+            text: Scratch.translate({ id: "enterFullscreen", default: "[IMG] enter fullscreen" }),
+            arguments: {
+              IMG: {
+                type: Scratch.ArgumentType.IMAGE,
+                dataURI: enterFullscreen,
+              },
+            },
           },
           {
             opcode: "exitFullscreen",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "exitFullscreen", default: "exit fullscreen" }),
+            text: Scratch.translate({ id: "exitFullscreen", default: "[IMG] exit fullscreen" }),
+            arguments: {
+              IMG: {
+                type: Scratch.ArgumentType.IMAGE,
+                dataURI: exitFullscreen,
+              },
+            },
           },          
           {
             opcode: "closeWindow",
             blockType: Scratch.BlockType.COMMAND,
             isTerminal: true,
-            text: Scratch.translate({ id: "closeWindow", default: "close window" }),
-          },
-          
+            text: Scratch.translate({ id: "closeWindow", default: "[IMG] close window" }),
+            arguments: {
+              IMG: {
+                type: Scratch.ArgumentType.IMAGE,
+                dataURI: closeWindow,
+              },
+            },
+          },          
           {
             opcode: 'Window',
             blockType: Scratch.BlockType.REPORTER,
