@@ -35,7 +35,8 @@
           ScreenMenuHeight: "высота",
       isQuestion: "окно [QUESTION]?",
           // menu isQuestion:
-          isQuestionMenuFocused: "",
+          isQuestionMenuFocused: "фокусированное",
+          isQuestionMenuFullscreen: "в полноэкранном режиме",
     },
   });  
 
@@ -236,8 +237,8 @@
             QUESTION_MENU: {
             acceptReporters: true,
             items: [
-              'focused', 
-              'fullscreen'
+              Scratch.translate({ id: "isQuestionMenuFocused", default: "focused" }),
+              Scratch.translate({ id: "isQuestionMenuFullscreen", default: "fullscreen" }),
             ]
           },
         },
@@ -307,9 +308,9 @@
       }
     }
     isQuestion(args) {
-      if (args.QUESTION == "focused") {
+      if (args.QUESTION == Scratch.translate({ id: "isQuestionMenuFocused", default: "focused" })) {
         return document.hasFocus();
-      } else if (args.QUESTION == "fullscreen") {
+      } else if (args.QUESTION == Scratch.translate({ id: "isQuestionMenuFullscreen", default: "fullscreen" })) {
         return document.fullscreenElement !== null;
       }
     }
