@@ -2,7 +2,7 @@
 // Id: WAYLIVES
 // Description: Here you can find more conditional blocks for your projects.
 // Created by: WAYLIVES (https://scratch.mit.edu/users/WAYLIVES/)
-// V-1.3.2
+// V-1.3.9
 
 
 (function (Scratch) {
@@ -11,39 +11,43 @@
   Scratch.translate.setup({
     // Русский язык
     ru: {
-      LabelA: "Элементы управления:",
-      resizeTo: "[IMG] задать размер окна по ширине: [W] по высоте: [H]",
-      setW: "[IMG] задать ширину окна [W]",
-      setH: "[IMG] задать высоту окна [H]",
-      moveToPresets: "[IMG] переместить окно [PRESETS]",
-          // menu moveToPresets:
-          moveToPresetsCenter: "по центру",
-          moveToPresetsRight: "вправо",
-          moveToPresetsLeft: "влево",
-          moveToPresetsTop: "вверх",
-          moveToPresetsBottom: "вниз",
-          moveToPresetsTopRight: "в верхний правый угол",
-          moveToPresetsTopLeft: "в верхний левый угол",
-          moveToPresetsBottomRight: "в нижний правый угол",
-          moveToPresetsBottomLeft: "в нижний левый угол",
-      moveTo: "[IMG] переместить окно в x: [X] y: [Y]",
-      changeTitleTo: "[IMG] задать заголовок окна [TITLE]",
-      enterFullscreen: "[IMG] войти в полноэкранный режим",
-      exitFullscreen: "[IMG] выйти из полноэкранного режима",
-      closeWindow: "[IMG] закрыть окно",
-      Window: "окно [FORMAT]",
-          // menu Window:
-          WindowMenuWidth: "ширина",
-          WindowMenuHeight: "высота",
-          WindowMenuTitle: "заголовок",
-      Screen: "экран [FORMATS]",
-          // menu Screen:
-          ScreenMenuWidth: "ширина",
-          ScreenMenuHeight: "высота",
-      isQuestion: "[QUESTION] окно?",
-          // menu isQuestion:
-          isQuestionMenuFocused: "фокусированное",
-          isQuestionMenuFullscreen: "в полноэкранном режиме",
+      
+      // Элементы управления:
+        LabelA: "Элементы управления:",
+        resizeTo: "[IMG] задать размер окна по ширине: [W] по высоте: [H]",
+        setW: "[IMG] задать ширину окна [W]",
+        setH: "[IMG] задать высоту окна [H]",
+        moveToPresets: "[IMG] переместить окно [PRESETS]",
+            // menu moveToPresets:
+            moveToPresetsCenter: "по центру",
+            moveToPresetsRight: "вправо",
+            moveToPresetsLeft: "влево",
+            moveToPresetsTop: "вверх",
+            moveToPresetsBottom: "вниз",
+            moveToPresetsTopRight: "в верхний правый угол",
+            moveToPresetsTopLeft: "в верхний левый угол",
+            moveToPresetsBottomRight: "в нижний правый угол",
+            moveToPresetsBottomLeft: "в нижний левый угол",
+        moveTo: "[IMG] переместить окно в x: [X] y: [Y]",
+        changeTitleTo: "[IMG] задать заголовок окна [TITLE]",
+        enterFullscreen: "[IMG] войти в полноэкранный режим",
+        exitFullscreen: "[IMG] выйти из полноэкранного режима",
+        closeWindow: "[IMG] закрыть окно",
+        Window: "окно [FORMAT]",
+            // menu Window:
+            WindowMenuWidth: "ширина",
+            WindowMenuHeight: "высота",
+            WindowMenuTitle: "заголовок",
+        Screen: "экран [FORMATS]",
+            // menu Screen:
+            ScreenMenuWidth: "ширина",
+            ScreenMenuHeight: "высота",
+        isQuestion: "[QUESTION] окно?",
+            // menu isQuestion:
+            isQuestionMenuFocused: "фокусированное",
+            isQuestionMenuFullscreen: "в полноэкранном режиме",
+
+        // 
     },
   });  
 
