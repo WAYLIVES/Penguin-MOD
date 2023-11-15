@@ -40,6 +40,7 @@
           // menu Screen:
           ScreenMenuWidth: "ширина",
           ScreenMenuHeight: "высота",
+      
       isQuestion: "[QUESTION] окно?",
           // menu isQuestion:
           isQuestionMenuFocused: "фокусированное",
@@ -246,10 +247,10 @@
           },
           {
             opcode: "getDimension",
-            text: "stage [dimension]",
+            text: "stage [DIM]",
             blockType: Scratch.BlockType.REPORTER,
             arguments: {
-              dimension: {
+              DIM: {
                 type: Scratch.ArgumentType.STRING,
                 defaultValue: "width",
                 menu: "dimension",
