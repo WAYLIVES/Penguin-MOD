@@ -2,9 +2,7 @@
 // Id: WAYLIVES
 // Description: Here you can find more conditional blocks for your projects.
 // Created by: WAYLIVES (https://scratch.mit.edu/users/WAYLIVES/)
-
 // V-1.2.9
-
 
 
 (function (Scratch) {
@@ -19,6 +17,14 @@
       setH: "задать высоту окна [H]",
       moveToPresets: "переместить окно [PRESETS]",
           // menu moveToPresets:
+          moveToPresetsCenter: "по центру",
+          moveToPresetsRight: "вправо",
+          moveToPresetsLeft: "влево",
+          moveToPresetsTop: "вверх",
+          moveToPresetsBottom: "вниз",
+          moveToPresetsTopRight: "в верхний правый угол",
+          moveToPresetsTopLeft: "в верхний левый угол",
+          moveToPresetsBottomRight: "в нижний правый угол",
       moveTo: "переместить окно в x: [X] y: [Y]",
       changeTitleTo: "задать заголовок окна [TITLE]",
       enterFullscreen: "войти в полноэкранный режим",
@@ -33,7 +39,7 @@
           // menu Screen:
           ScreenMenuWidth: "ширина",
           ScreenMenuHeight: "высота",
-      isQuestion: "окно [QUESTION]?",
+      isQuestion: "[QUESTION] окно?",
           // menu isQuestion:
           isQuestionMenuFocused: "фокусированное",
           isQuestionMenuFullscreen: "в полноэкранном режиме",
@@ -103,10 +109,7 @@
                 defaultValue: "360",
               },
             },
-          },
-
-
-          
+          },          
           {
             opcode: "moveToPresets",
             blockType: Scratch.BlockType.COMMAND,
@@ -132,9 +135,7 @@
                 defaultValue: "0",
               },
             },
-          },
-
-          
+          },          
           {
             opcode: "changeTitleTo",
             blockType: Scratch.BlockType.COMMAND,
@@ -146,9 +147,6 @@
               },
             },
           },
-
-
-
           {
             opcode: "enterFullscreen",
             blockType: Scratch.BlockType.COMMAND,
@@ -198,26 +196,25 @@
                 menu: "QUESTION_MENU"
               },
             },
-          },
-          
+          },          
         ],
         menus: {
           MOVE: {
             acceptReporters: true,
             items: [
-              "center",
-              "right",
-              "left",
-              "top",
-              "bottom",
-              "top right",
-              "top left",
-              "bottom right",
-              "bottom left",
-              "random position",
+              Scratch.translate({ id: "moveToPresetsCenter", default: "center" }),
+              Scratch.translate({ id: "moveToPresetsRight", default: "right" }),
+              Scratch.translate({ id: "moveToPresetsLeft", default: "left" }),
+              Scratch.translate({ id: "moveToPresetsTop", default: "top" }),
+              Scratch.translate({ id: "moveToPresetsBottom", default: "bottom" }),
+              Scratch.translate({ id: "moveToPresetsTopRight", default: "top right" }),
+              Scratch.translate({ id: "moveToPresetsTopLeft", default: "top left" }),
+              Scratch.translate({ id: "moveToPresetsBottomRight", default: "bottom right" }),
+              Scratch.translate({ id: "moveToPresetsBottomLeft", default: "bottom left" }),
+              Scratch.translate({ id: "moveToPresetsRandomPosition", default: "random position" }),
             ],
           },
-            FORMAT_MENU: {
+          FORMAT_MENU: {
             acceptReporters: true,
             items: [
               Scratch.translate({ id: "WindowMenuWidth", default: "width" }),
@@ -227,14 +224,14 @@
               'y'
             ],
           },
-            FORMATS_MENU: {
+          FORMATS_MENU: {
             acceptReporters: true,
             items: [
               Scratch.translate({ id: "ScreenMenuWidth", default: "width" }),
               Scratch.translate({ id: "ScreenMenuHeight", default: "height" }), 
             ]
           },
-            QUESTION_MENU: {
+          QUESTION_MENU: {
             acceptReporters: true,
             items: [
               Scratch.translate({ id: "isQuestionMenuFocused", default: "focused" }),
@@ -286,7 +283,6 @@
       }
       Scratch.vm.runtime.requestRedraw();
     }
-
     Window(args) {
       if (args.FORMAT == Scratch.translate({ id: "WindowMenuWidth", default: "width" })) {
         return window.outerWidth;
@@ -313,8 +309,7 @@
       } else if (args.QUESTION == Scratch.translate({ id: "isQuestionMenuFullscreen", default: "fullscreen" })) {
         return document.fullscreenElement !== null;
       }
-    }
-    
+    }    
     resizeTo(args) {
       window.resizeTo(args.W, args.H);
       Scratch.vm.runtime.requestRedraw();
