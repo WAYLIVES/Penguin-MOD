@@ -11,15 +11,19 @@
 
 
 
+
+
 (function (Scratch) {
   "use strict";  
   
 
 /* ________________________________________________________________________________________ */
   Scratch.translate.setup({
+    
     // Русский язык
-    ru: {      
-      // ЭЛЕМЕНТЫ УПРАВЛЕНИЯ:
+    ru: {
+      
+      // Элементы управления:
           LabelA: "Элементы управления:",
           resizeTo: "[IMG] задать размер окна по ширине: [W] по высоте: [H]",
           setW: "[IMG] задать ширину окна [W]",
@@ -59,7 +63,7 @@
               isQuestionMenuFocused: "фокусированное",
               isQuestionMenuFullscreen: "в полноэкранном режиме",
 
-      // ВСЁ ДЛЯ АДАПТАЦИИ:
+      // Всё для адаптации:
     },
   }); 
 /* ________________________________________________________________________________________ */
@@ -105,17 +109,19 @@
 
 
 /* ________________________________________________________________________________________ */  
-  function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
+  // Элементы управления:
+    function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }  
+    const TURBO_MODE = "turbo mode";
+    const INTERPOLATION = "interpolation";
+    const REMOVE_FENCING = "remove fencing";
+    const REMOVE_MISC_LIMITS = "remove misc limits";
+    const HIGH_QUALITY_PEN = "high quality pen";
 
-  const TURBO_MODE = "turbo mode";
-  const INTERPOLATION = "interpolation";
-  const REMOVE_FENCING = "remove fencing";
-  const REMOVE_MISC_LIMITS = "remove misc limits";
-  const HIGH_QUALITY_PEN = "high quality pen";
+  // Всё для адаптации:
 /* ________________________________________________________________________________________ */
 
 
@@ -134,7 +140,9 @@
         color3: "#A0536F",
         menuIconURI: menuIconURI,
         
-        blocks: [          
+        blocks: [
+          
+        // Элементы управления:
           {
             blockType: "label",
             text: Scratch.translate({ id: "LabelA", default: "Controls:" }),
@@ -329,7 +337,9 @@
                 menu: "QUESTION_MENU"
               },
             },
-          },          
+          },
+
+        // Всё для адаптации:
         ],
 /* ________________________________________________________________________________________ */
 
@@ -340,6 +350,8 @@
 
 /* ________________________________________________________________________________________ */
         menus: {
+          
+        // Элементы управления:
           MOVE: {
             acceptReporters: true,
             items: [
@@ -385,8 +397,11 @@
               Scratch.translate({ id: "isQuestionMenuFullscreen", default: "fullscreen" }),
             ],
           },
+          
+        // Всё для адаптации:
         },
       };
+    }
 /* ________________________________________________________________________________________ */
 
 
@@ -395,7 +410,7 @@
 
 
 /* ________________________________________________________________________________________ */
-    }
+  // Элементы управления:
     moveTo(args) {
       window.moveTo(args.X, args.Y);
       Scratch.vm.runtime.requestRedraw();
@@ -509,6 +524,8 @@
         window.close();
       }
     }
+    
+  // Всё для адаптации:
 /* ________________________________________________________________________________________ */
 
 
