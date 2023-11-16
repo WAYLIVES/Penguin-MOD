@@ -148,6 +148,30 @@
     target.setDirection(target.direction);
   };
 
+  const requireNonPackagedRuntime = (blockName) => {
+    if (Scratch.vm.runtime.isPackaged) {
+      alert(
+        `To use the Looks+ ${blockName} block, the creator of the packaged project must uncheck "Remove raw asset data after loading to save RAM" under advanced settings in the packager.`
+      );
+      return false;
+    }
+    return true;
+  };
+
+  /**
+   * @param {VM.BlockUtility} util
+   * @param {unknown} targetName
+   */
+  const getSpriteTargetByName = (util, targetName) => {
+    const nameString = Scratch.Cast.toString(targetName);
+    const target = util.target;
+    if (target.getName() === nameString) {
+      return target;
+    }
+    return util.runtime.getSpriteTargetByName(nameString);
+  };
+
+
 
 
   // ____________________________________________________________________________________________ 
@@ -387,13 +411,256 @@
             },
             filter: [Scratch.TargetType.SPRITE],
           },
+          {
+            opcode: "setStretchX",
+            blockType: Scratch.BlockType.COMMAND,
+            text: Scratch.translate("set stretch x to [X]"),
+            arguments: {
+              X: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: 100,
+              },
+            },
+            filter: [Scratch.TargetType.SPRITE],
+          },
+          {
+            opcode: "setStretchY",
+            blockType: Scratch.BlockType.COMMAND,
+            text: Scratch.translate("set stretch y to [Y]"),
+            arguments: {
+              Y: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: 100,
+              },
+            },
+            filter: [Scratch.TargetType.SPRITE],
+          },
+          {
+            opcode: "getX",
+            blockType: Scratch.BlockType.REPORTER,
+            text: Scratch.translate("x stretch"),
+            filter: [Scratch.TargetType.SPRITE],
+            disableMonitor: true,
+          },
+          {
+            opcode: "getY",
+            blockType: Scratch.BlockType.REPORTER,
+            text: Scratch.translate("y stretch"),
+            filter: [Scratch.TargetType.SPRITE],
+            disableMonitor: true,
+          },
+
+
+
+          
+          {
+            opcode: "showSprite",
+            blockType: Scratch.BlockType.COMMAND,
+            text: "show [TARGET]",
+            arguments: {
+              TARGET: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "spriteMenu",
+              },
+            },
+          },
+          {
+            opcode: "hideSprite",
+            blockType: Scratch.BlockType.COMMAND,
+            text: "hide [TARGET]",
+            arguments: {
+              TARGET: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "spriteMenu",
+              },
+            },
+          },
+          {
+            opcode: "spriteVisible",
+            blockType: Scratch.BlockType.BOOLEAN,
+            text: "[TARGET] visible?",
+            arguments: {
+              TARGET: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "spriteMenu",
+              },
+            },
+          },
+
+          "---",
+
+          {
+            opcode: "setLayerTo",
+            blockType: Scratch.BlockType.COMMAND,
+            text: "set layer # of [TARGET] to [LAYER]",
+            arguments: {
+              TARGET: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "spriteMenu",
+              },
+              LAYER: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: "1",
+              },
+            },
+          },
+          {
+            opcode: "spriteLayerNumber",
+            blockType: Scratch.BlockType.REPORTER,
+            text: "layer # of [TARGET]",
+            arguments: {
+              TARGET: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "spriteMenu",
+              },
+            },
+          },
+          {
+            opcode: "effectValue",
+            blockType: Scratch.BlockType.REPORTER,
+            text: "[EFFECT] effect of [TARGET]",
+            arguments: {
+              EFFECT: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "color",
+                menu: "effectMenu",
+              },
+              TARGET: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "spriteMenu",
+              },
+            },
+          },
+
+          "---",
+
+          {
+            opcode: "targetCostumeNumber",
+            blockType: Scratch.BlockType.REPORTER,
+            text: "# of costumes in [TARGET]",
+            arguments: {
+              TARGET: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "spriteMenu",
+              },
+            },
+          },
+          {
+            opcode: "costumeAttribute",
+            blockType: Scratch.BlockType.REPORTER,
+            text: "[ATTRIBUTE] of [COSTUME]",
+            arguments: {
+              ATTRIBUTE: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "costumeAttribute",
+              },
+              COSTUME: {
+                type: Scratch.ArgumentType.COSTUME,
+              },
+            },
+          },
+
+          "---",
+
+          {
+            opcode: "snapshotStage",
+            blockType: Scratch.BlockType.REPORTER,
+            text: "snapshot stage",
+            disableMonitor: true,
+          },
+
+          "---",
+
+          {
+            opcode: "replaceCostumeContent",
+            blockType: Scratch.BlockType.COMMAND,
+            text: "set [TYPE] for [COSTUME] to [CONTENT]",
+            arguments: {
+              TYPE: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "SVGPNG",
+                defaultValue: "SVG",
+              },
+              COSTUME: {
+                type: Scratch.ArgumentType.COSTUME,
+              },
+              CONTENT: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "<svg />",
+              },
+            },
+          },
+          {
+            opcode: "restoreCostumeContent",
+            blockType: Scratch.BlockType.COMMAND,
+            text: "restore content for [COSTUME]",
+            arguments: {
+              COSTUME: {
+                type: Scratch.ArgumentType.COSTUME,
+              },
+            },
+          },
+          {
+            opcode: "costumeContent",
+            blockType: Scratch.BlockType.REPORTER,
+            text: "[CONTENT] of costume # [COSTUME] of [TARGET]",
+            arguments: {
+              CONTENT: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "contentType",
+                defaultValue: "content",
+              },
+              COSTUME: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: 1,
+              },
+              TARGET: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "spriteMenu",
+              },
+            },
+          },
+
+          "---",
+
+          {
+            opcode: "replaceColors",
+            blockType: Scratch.BlockType.REPORTER,
+            text: "replace [COLOR1] with [COLOR2] in [SVG]",
+            arguments: {
+              COLOR1: {
+                type: Scratch.ArgumentType.COLOR,
+                defaultValue: "#FCB1E3",
+              },
+              COLOR2: {
+                type: Scratch.ArgumentType.COLOR,
+                defaultValue: "#8ECAFF",
+              },
+              SVG: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "<svg />",
+              },
+            },
+          },
+          {
+            opcode: "colorHex",
+            blockType: Scratch.BlockType.REPORTER,
+            text: "hex of [COLOR]",
+            arguments: {
+              COLOR: {
+                type: Scratch.ArgumentType.COLOR,
+                defaultValue: "#FFD983",
+              },
+            },
+          },
+          
         ],
         
         
 // ____________________________________________________________________________________________ 
         
         menus: {
-          // ЭЛЕМЕНТЫ УПРАВЛЕНИЯ:
+        // ЭЛЕМЕНТЫ УПРАВЛЕНИЯ:
           MOVE: {
             acceptReporters: true,
             items: [
@@ -441,7 +708,39 @@
           },
 
           
-          // ВСЁ ДЛЯ АДАПТАЦИИ:          
+        // ВСЁ ДЛЯ АДАПТАЦИИ:
+          costumeAttribute: {
+            acceptReporters: false,
+            items: [
+              "width", "height", "format", "rotation center x", "rotation center y",
+            ],
+          },
+          contentType: {
+            acceptReporters: false,
+            items: [
+              {
+                text: "content",
+                value: "content",
+              },
+              {
+                text: "dataURI",
+                value: "dataURI",
+              },
+            ],
+          },
+          SVGPNG: {
+            acceptReporters: false,
+            items: [
+              {
+                text: "SVG",
+                value: "SVG",
+              },
+            ],
+          },
+          spriteMenu: {
+            acceptReporters: true,
+            items: "getSprites",
+          },
         },
       };
     }
@@ -570,6 +869,268 @@
       util.target[STRETCH_X] = Scratch.Cast.toNumber(args.X);
       util.target[STRETCH_Y] = Scratch.Cast.toNumber(args.Y);
       forceUpdateDirectionAndScale(util.target);
+    }
+    setStretchX(args, util) {
+      util.target[STRETCH_X] = Scratch.Cast.toNumber(args.X);
+      forceUpdateDirectionAndScale(util.target);
+    }
+    setStretchY(args, util) {
+      util.target[STRETCH_Y] = Scratch.Cast.toNumber(args.Y);
+      forceUpdateDirectionAndScale(util.target);
+    }
+    getX(args, util) {
+      return util.target[STRETCH_X];
+    }
+    getY(args, util) {
+      return util.target[STRETCH_Y];
+    }
+    
+
+
+
+
+    showSprite(args, util) {
+      const target = getSpriteTargetByName(util, args.TARGET);
+      if (target) {
+        target.setVisible(true);
+      }
+    }
+
+    hideSprite(args, util) {
+      const target = getSpriteTargetByName(util, args.TARGET);
+      if (target) {
+        target.setVisible(false);
+      }
+    }
+
+    spriteVisible(args, util) {
+      const target = getSpriteTargetByName(util, args.TARGET);
+      if (!target) {
+        return false;
+      }
+      return Scratch.Cast.toBoolean(target.visible);
+    }
+
+    setLayerTo(args, util) {
+      const target = getSpriteTargetByName(util, args.TARGET);
+      if (!target) {
+        return;
+      }
+      const drawableID = target.drawableID;
+      const layerOrder = target.getLayerOrder();
+      const newLayer = args.LAYER - layerOrder;
+      target.renderer.setDrawableOrder(drawableID, newLayer, "sprite", true);
+    }
+
+    spriteLayerNumber(args, util) {
+      const target = getSpriteTargetByName(util, args.TARGET);
+      if (!target) {
+        return 0;
+      }
+      return target.getLayerOrder();
+    }
+
+    effectValue(args, util) {
+      const target = getSpriteTargetByName(util, args.TARGET);
+      if (!target) {
+        return 0;
+      }
+      const effects = target.effects;
+      const name = Scratch.Cast.toString(args.EFFECT);
+      if (Object.prototype.hasOwnProperty.call(effects, name)) {
+        return effects[name];
+      }
+      // should never happen
+      return 0;
+    }
+
+    costumeAttribute(args, util) {
+      const costumeIndex = this.getCostumeInput(args.COSTUME, util.target);
+      const costume = util.target.sprite.costumes[costumeIndex];
+      if (!costume) {
+        console.error("Costume doesn't exist");
+        return 0;
+      }
+
+      const attribute = args.ATTRIBUTE;
+      if (attribute === "width") {
+        return Math.ceil(Scratch.Cast.toNumber(costume.size[0]));
+      } else if (attribute === "height") {
+        return Math.ceil(Scratch.Cast.toNumber(costume.size[1]));
+      } else if (attribute === "format") {
+        if (!requireNonPackagedRuntime("costume format")) {
+          return "unknown";
+        }
+        return costume.asset.assetType.runtimeFormat;
+      } else if (attribute === "rotationCenterX") {
+        return costume.rotationCenterX;
+      } else if (attribute === "rotationCenterY") {
+        return costume.rotationCenterY;
+      } else {
+        return "";
+      }
+    }
+
+    targetCostumeNumber(args, util) {
+      const target = getSpriteTargetByName(util, args.TARGET);
+      if (!target) {
+        return 0;
+      }
+      return Scratch.Cast.toNumber(target.sprite.costumes.length);
+    }
+
+    snapshotStage(args, util) {
+      return new Promise((resolve) => {
+        Scratch.vm.runtime.renderer.requestSnapshot((uri) => {
+          resolve(uri);
+        });
+      });
+    }
+
+    replaceCostumeContent(args, util) {
+      const costumeIndex = this.getCostumeInput(args.COSTUME, util.target);
+      const costume = util.target.sprite.costumes[costumeIndex];
+      if (!costume) {
+        console.error("Costume doesn't exist");
+        return;
+      }
+
+      //This is here to ensure no changes are made to bitmap costumes, as changes are irreversible
+      //Check will be removed when it's possible to edit bitmap skins
+      const format = costume.asset.assetType.runtimeFormat;
+      if (format !== "svg") {
+        console.error("Costume is not vector");
+        return;
+      }
+
+      const contentType = args.TYPE;
+      const content = args.CONTENT;
+      if (contentType === "SVG") {
+        Scratch.vm.runtime.renderer.updateSVGSkin(
+          costume.skinId,
+          Scratch.Cast.toString(content)
+        );
+      } else {
+        console.error("Options other than SVG are currently unavailable");
+        return;
+      }
+      Scratch.vm.emitTargetsUpdate();
+    }
+
+    restoreCostumeContent(args, util) {
+      const costumeIndex = this.getCostumeInput(args.COSTUME, util.target);
+      const costume = util.target.sprite.costumes[costumeIndex];
+      if (!costume) {
+        console.error("Costume doesn't exist");
+        return;
+      }
+
+      if (!requireNonPackagedRuntime("restore costume content")) {
+        return;
+      }
+
+      //This is here to ensure no changes are made to bitmap costumes, as changes are irreversible
+      //Check will be removed when it's possible to edit bitmap skins
+      const format = costume.asset.assetType.runtimeFormat;
+      if (format !== "svg") {
+        console.error("Costume is not vector");
+        return;
+      }
+
+      const content = costume.asset.decodeText();
+      const rotationCenterX = costume.rotationCenterX;
+      const rotationCenterY = costume.rotationCenterY;
+      util.target.renderer.updateSVGSkin(costume.skinId, content, [
+        rotationCenterX,
+        rotationCenterY,
+      ]);
+    }
+
+    costumeContent(args, util) {
+      const target = getSpriteTargetByName(util, args.TARGET);
+      if (!target) {
+        console.error("Target does not exist");
+        return "";
+      }
+
+      if (!requireNonPackagedRuntime("costume content")) {
+        return "";
+      }
+
+      const costume = target.sprite.costumes[args.COSTUME - 1];
+      if (!costume) {
+        console.error("Target costume does not exist");
+        return "";
+      }
+
+      const format = args.CONTENT;
+      if (format === "content") {
+        return costume.asset.decodeText();
+      } else {
+        return costume.asset.encodeDataURI();
+      }
+    }
+
+    replaceColors(args, util) {
+      const svg = Scratch.Cast.toString(args.SVG);
+      const color1 = args.COLOR1;
+      const color2 = args.COLOR2;
+      try {
+        return svg.replace(new RegExp(color1, "gi"), color2);
+      } catch (e) {
+        // regex was invalid, don't replace anything
+        return svg;
+      }
+    }
+
+    colorHex(args, util) {
+      return args.COLOR;
+    }
+
+    getCostumeInput(costume, target) {
+      if (typeof costume === "number") {
+        costume = Math.round(costume - 1);
+        if (costume === Infinity || costume === -Infinity || !costume) {
+          costume = 0;
+        }
+        costume = this.wrapClamp(costume, 0, target.sprite.costumes.length - 1);
+        return costume;
+      } else {
+        return target.getCostumeIndexByName(Scratch.Cast.toString(costume));
+      }
+    }
+
+    wrapClamp(n, min, max) {
+      const range = max - min + 1;
+      return n - Math.floor((n - min) / range) * range;
+    }
+
+    getSprites() {
+      const spriteNames = [];
+      const targets = Scratch.vm.runtime.targets;
+      const myself = Scratch.vm.runtime.getEditingTarget().getName();
+      for (let index = 1; index < targets.length; index++) {
+        const target = targets[index];
+        if (target.isOriginal) {
+          const targetName = target.getName();
+          if (targetName === myself) {
+            spriteNames.unshift({
+              text: "this sprite",
+              value: targetName,
+            });
+          } else {
+            spriteNames.push({
+              text: targetName,
+              value: targetName,
+            });
+          }
+        }
+      }
+      if (spriteNames.length > 0) {
+        return spriteNames;
+      } else {
+        return [{ text: "", value: 0 }]; //this should never happen but it's a failsafe
+      }
     }
   }
   Scratch.extensions.register(new lmsmcutils());
