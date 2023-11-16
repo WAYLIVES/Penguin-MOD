@@ -10,47 +10,51 @@
 
   Scratch.translate.setup({
     // Русский язык
-    ru: {
-      LabelA: "Элементы управления:",
-      resizeTo: "[IMG] задать размер окна по ширине: [W] по высоте: [H]",
-      setW: "[IMG] задать ширину окна [W]",
-      setH: "[IMG] задать высоту окна [H]",
-      moveToPresets: "[IMG] переместить окно [PRESETS]",
-          // menu moveToPresets:
-          moveToPresetsCenter: "по центру",
-          moveToPresetsRight: "вправо",
-          moveToPresetsLeft: "влево",
-          moveToPresetsTop: "вверх",
-          moveToPresetsBottom: "вниз",
-          moveToPresetsTopRight: "в верхний правый угол",
-          moveToPresetsTopLeft: "в верхний левый угол",
-          moveToPresetsBottomRight: "в нижний правый угол",
-          moveToPresetsBottomLeft: "в нижний левый угол",
-      moveTo: "[IMG] переместить окно в x: [X] y: [Y]",
-      changeTitleTo: "[IMG] задать заголовок окна [TITLE]",
-      setFramerate: "[IMG] задать частоту кадров: [FPS]",
-      enterFullscreen: "[IMG] войти в полноэкранный режим",
-      exitFullscreen: "[IMG] выйти из полноэкранного режима",
-      closeWindow: "[IMG] закрыть окно",
-      Window: "окно [FORMAT]",
-          // menu Window:
-          WindowMenuWidth: "ширина",
-          WindowMenuHeight: "высота",
-          WindowMenuTitle: "заголовок",
-      Screen: "экран [FORMATS]",
-          // menu Screen:
-          ScreenMenuWidth: "ширина",
-          ScreenMenuHeight: "высота",
-      getDimension: "сцена [DIM]",
-          // menu isQuestion:
-          getDimensionMenuWidth: "ширина",
-          getDimensionMenuHeight: "высота",
-      isQuestion: "[QUESTION] окно?",
-          // menu isQuestion:
-          isQuestionMenuFocused: "фокусированное",
-          isQuestionMenuFullscreen: "в полноэкранном режиме",
+    ru: {      
+      // ЭЛЕМЕНТЫ УПРАВЛЕНИЯ:
+          LabelA: "Элементы управления:",
+          resizeTo: "[IMG] задать размер окна по ширине: [W] по высоте: [H]",
+          setW: "[IMG] задать ширину окна [W]",
+          setH: "[IMG] задать высоту окна [H]",
+          moveToPresets: "[IMG] переместить окно [PRESETS]",
+              // menu moveToPresets:
+              moveToPresetsCenter: "по центру",
+              moveToPresetsRight: "вправо",
+              moveToPresetsLeft: "влево",
+              moveToPresetsTop: "вверх",
+              moveToPresetsBottom: "вниз",
+              moveToPresetsTopRight: "в верхний правый угол",
+              moveToPresetsTopLeft: "в верхний левый угол",
+              moveToPresetsBottomRight: "в нижний правый угол",
+              moveToPresetsBottomLeft: "в нижний левый угол",
+          moveTo: "[IMG] переместить окно в x: [X] y: [Y]",
+          changeTitleTo: "[IMG] задать заголовок окна [TITLE]",
+          setFramerate: "[IMG] задать частоту кадров: [FPS]",
+          enterFullscreen: "[IMG] войти в полноэкранный режим",
+          exitFullscreen: "[IMG] выйти из полноэкранного режима",
+          closeWindow: "[IMG] закрыть окно",
+          Window: "окно [FORMAT]",
+              // menu Window:
+              WindowMenuWidth: "ширина",
+              WindowMenuHeight: "высота",
+              WindowMenuTitle: "заголовок",
+          Screen: "экран [FORMATS]",
+              // menu Screen:
+              ScreenMenuWidth: "ширина",
+              ScreenMenuHeight: "высота",
+          getDimension: "сцена [DIM]",
+              // menu isQuestion:
+              getDimensionMenuWidth: "ширина",
+              getDimensionMenuHeight: "высота",
+          isQuestion: "[QUESTION] окно?",
+              // menu isQuestion:
+              isQuestionMenuFocused: "фокусированное",
+              isQuestionMenuFullscreen: "в полноэкранном режиме",
+
+      // ВСЁ ДЛЯ АДАПТАЦИИ:
     },
   });  
+  
 
   if (!Scratch.extensions.unsandboxed) {
     throw new Error("Error");
@@ -59,7 +63,6 @@
   
   // иконка меню:
   const menuIconURI = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiByeD0iMTAiIGZpbGw9IiNCRjZFOEIiLz4KPHJlY3QgeD0iMjIiIHk9IjIyIiB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHJ4PSI2IiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSIzMCIgeT0iNDIiIHdpZHRoPSI0MCIgaGVpZ2h0PSIyOCIgcng9IjMiIGZpbGw9IiNCRjZFOEIiLz4KPHJlY3QgeD0iMzYiIHk9IjUwIiB3aWR0aD0iMTgiIGhlaWdodD0iMTQiIHJ4PSIyIiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSI1OCIgeT0iNTAiIHdpZHRoPSI2IiBoZWlnaHQ9IjE0IiByeD0iMiIgZmlsbD0id2hpdGUiLz4KPGNpcmNsZSBjeD0iNjUiIGN5PSIzMiIgcj0iNSIgZmlsbD0iI0JGNkU4QiIvPgo8L3N2Zz4K";
-
   
   // иконки блоков:
   
@@ -74,6 +77,8 @@
       const enterFullscreen = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzE2OF8xMTApIj4KPHJlY3QgeD0iMjciIHk9IjgiIHdpZHRoPSI2IiBoZWlnaHQ9IjYwIiByeD0iMyIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTIwIDIwTDMwIDExTDQwIDIwIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNNDAgNTZMMzAgNjVMMjAgNTYiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxyZWN0IHk9IjQxIiB3aWR0aD0iNiIgaGVpZ2h0PSI2MCIgcng9IjMiIHRyYW5zZm9ybT0icm90YXRlKC05MCAwIDQxKSIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTEyIDQ4TDMgMzhMMTIgMjgiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik00OCAyOEw1NyAzOEw0OCA0OCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8xNjhfMTEwIj4KPHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCA4KSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo=";
       const exitFullscreen = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzE2OV83KSI+CjxyZWN0IHg9IjI3IiB5PSIxNiIgd2lkdGg9IjYiIGhlaWdodD0iNDQiIHJ4PSIzIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNDAgMTFMMzAgMjBMMjAgMTEiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0yMCA2NUwzMCA1Nkw0MCA2NSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHJlY3QgeD0iOCIgeT0iNDEiIHdpZHRoPSI2IiBoZWlnaHQ9IjQ0IiByeD0iMyIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDggNDEpIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMyAyOEwxMiAzOEwzIDQ4IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNNTcgNDhMNDggMzhMNTcgMjgiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTY5XzciPgo8cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IndoaXRlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDgpIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==";
       const closeWindow = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzE2OV8zMikiPgo8cmVjdCB4PSIzIiB5PSIxMSIgd2lkdGg9IjU0IiBoZWlnaHQ9IjU0IiByeD0iNyIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2Ii8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjAgMThDNjAgMTIuNDc3MiA1NS41MjI4IDggNTAgOEgxMEM0LjQ3NzE1IDggMCAxMi40NzcyIDAgMThWNDhMNjAgNDhWMThaTTMyLjEyMTMgMTUuODc4N0MzMC45NDk3IDE0LjcwNzEgMjkuMDUwMyAxNC43MDcxIDI3Ljg3ODcgMTUuODc4N0MyNi43MDcxIDE3LjA1MDMgMjYuNzA3MSAxOC45NDk3IDI3Ljg3ODcgMjAuMTIxM0wzNS43NTc0IDI4TDI3Ljg3ODcgMzUuODc4N0MyNi43MDcxIDM3LjA1MDMgMjYuNzA3MSAzOC45NDk3IDI3Ljg3ODcgNDAuMTIxM0MyOS4wNTAzIDQxLjI5MjkgMzAuOTQ5NyA0MS4yOTI5IDMyLjEyMTMgNDAuMTIxM0w0MCAzMi4yNDI2TDQ3Ljg3ODcgNDAuMTIxM0M0OS4wNTAzIDQxLjI5MjkgNTAuOTQ5NyA0MS4yOTI5IDUyLjEyMTMgNDAuMTIxM0M1My4yOTI5IDM4Ljk0OTcgNTMuMjkyOSAzNy4wNTAzIDUyLjEyMTMgMzUuODc4N0w0NC4yNDI2IDI4TDUyLjEyMTMgMjAuMTIxM0M1My4yOTI5IDE4Ljk0OTcgNTMuMjkyOSAxNy4wNTAzIDUyLjEyMTMgMTUuODc4N0M1MC45NDk3IDE0LjcwNzEgNDkuMDUwMyAxNC43MDcxIDQ3Ljg3ODcgMTUuODc4N0w0MCAyMy43NTc0TDMyLjEyMTMgMTUuODc4N1oiIGZpbGw9IndoaXRlIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTY5XzMyIj4KPHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCA4KSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo=";
+  
+  
   
   function getRandomInt(min, max) {
     min = Math.ceil(min);
