@@ -2,12 +2,15 @@
 // Id: WAYLIVES
 // Description: Here you can find more conditional blocks for your projects.
 // Created by: WAYLIVES (https://scratch.mit.edu/users/WAYLIVES/)
-// V-1.3.2
+// V-1.4.5
 
 
 (function (Scratch) {
   "use strict";
 
+  
+// ____________________________________________________________________________________________ 
+  
   Scratch.translate.setup({
     // Русский язык
     ru: {      
@@ -52,14 +55,20 @@
               isQuestionMenuFullscreen: "в полноэкранном режиме",
 
       // ВСЁ ДЛЯ АДАПТАЦИИ:
+          LabelB: "Всё для адаптации:",
+          setStretch: "[IMG] задать растяжку по x: [X] y: [Y]",
     },
   });  
-  
 
+  
+// ____________________________________________________________________________________________ 
+  
   if (!Scratch.extensions.unsandboxed) {
     throw new Error("Error");
   }
+  
 
+// ____________________________________________________________________________________________ 
   
   // иконка меню:
   const menuIconURI = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiByeD0iMTAiIGZpbGw9IiNCRjZFOEIiLz4KPHJlY3QgeD0iMjIiIHk9IjIyIiB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHJ4PSI2IiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSIzMCIgeT0iNDIiIHdpZHRoPSI0MCIgaGVpZ2h0PSIyOCIgcng9IjMiIGZpbGw9IiNCRjZFOEIiLz4KPHJlY3QgeD0iMzYiIHk9IjUwIiB3aWR0aD0iMTgiIGhlaWdodD0iMTQiIHJ4PSIyIiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSI1OCIgeT0iNTAiIHdpZHRoPSI2IiBoZWlnaHQ9IjE0IiByeD0iMiIgZmlsbD0id2hpdGUiLz4KPGNpcmNsZSBjeD0iNjUiIGN5PSIzMiIgcj0iNSIgZmlsbD0iI0JGNkU4QiIvPgo8L3N2Zz4K";
@@ -77,8 +86,12 @@
       const enterFullscreen = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzE2OF8xMTApIj4KPHJlY3QgeD0iMjciIHk9IjgiIHdpZHRoPSI2IiBoZWlnaHQ9IjYwIiByeD0iMyIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTIwIDIwTDMwIDExTDQwIDIwIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNNDAgNTZMMzAgNjVMMjAgNTYiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxyZWN0IHk9IjQxIiB3aWR0aD0iNiIgaGVpZ2h0PSI2MCIgcng9IjMiIHRyYW5zZm9ybT0icm90YXRlKC05MCAwIDQxKSIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTEyIDQ4TDMgMzhMMTIgMjgiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik00OCAyOEw1NyAzOEw0OCA0OCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8xNjhfMTEwIj4KPHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCA4KSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo=";
       const exitFullscreen = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzE2OV83KSI+CjxyZWN0IHg9IjI3IiB5PSIxNiIgd2lkdGg9IjYiIGhlaWdodD0iNDQiIHJ4PSIzIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNDAgMTFMMzAgMjBMMjAgMTEiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0yMCA2NUwzMCA1Nkw0MCA2NSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHJlY3QgeD0iOCIgeT0iNDEiIHdpZHRoPSI2IiBoZWlnaHQ9IjQ0IiByeD0iMyIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDggNDEpIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMyAyOEwxMiAzOEwzIDQ4IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNNTcgNDhMNDggMzhMNTcgMjgiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTY5XzciPgo8cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IndoaXRlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDgpIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==";
       const closeWindow = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzE2OV8zMikiPgo8cmVjdCB4PSIzIiB5PSIxMSIgd2lkdGg9IjU0IiBoZWlnaHQ9IjU0IiByeD0iNyIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2Ii8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjAgMThDNjAgMTIuNDc3MiA1NS41MjI4IDggNTAgOEgxMEM0LjQ3NzE1IDggMCAxMi40NzcyIDAgMThWNDhMNjAgNDhWMThaTTMyLjEyMTMgMTUuODc4N0MzMC45NDk3IDE0LjcwNzEgMjkuMDUwMyAxNC43MDcxIDI3Ljg3ODcgMTUuODc4N0MyNi43MDcxIDE3LjA1MDMgMjYuNzA3MSAxOC45NDk3IDI3Ljg3ODcgMjAuMTIxM0wzNS43NTc0IDI4TDI3Ljg3ODcgMzUuODc4N0MyNi43MDcxIDM3LjA1MDMgMjYuNzA3MSAzOC45NDk3IDI3Ljg3ODcgNDAuMTIxM0MyOS4wNTAzIDQxLjI5MjkgMzAuOTQ5NyA0MS4yOTI5IDMyLjEyMTMgNDAuMTIxM0w0MCAzMi4yNDI2TDQ3Ljg3ODcgNDAuMTIxM0M0OS4wNTAzIDQxLjI5MjkgNTAuOTQ5NyA0MS4yOTI5IDUyLjEyMTMgNDAuMTIxM0M1My4yOTI5IDM4Ljk0OTcgNTMuMjkyOSAzNy4wNTAzIDUyLjEyMTMgMzUuODc4N0w0NC4yNDI2IDI4TDUyLjEyMTMgMjAuMTIxM0M1My4yOTI5IDE4Ljk0OTcgNTMuMjkyOSAxNy4wNTAzIDUyLjEyMTMgMTUuODc4N0M1MC45NDk3IDE0LjcwNzEgNDkuMDUwMyAxNC43MDcxIDQ3Ljg3ODcgMTUuODc4N0w0MCAyMy43NTc0TDMyLjEyMTMgMTUuODc4N1oiIGZpbGw9IndoaXRlIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTY5XzMyIj4KPHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCA4KSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo=";
+
+      // Всё для адаптации:
+      const setStretch = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzE3OV8zMykiPgo8bWFzayBpZD0icGF0aC0xLWluc2lkZS0xXzE3OV8zMyIgZmlsbD0id2hpdGUiPgo8cmVjdCB4PSIxOSIgeT0iMjciIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiIgcng9IjIiLz4KPC9tYXNrPgo8cmVjdCB4PSIxOSIgeT0iMjciIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiIgcng9IjIiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMTIiIG1hc2s9InVybCgjcGF0aC0xLWluc2lkZS0xXzE3OV8zMykiLz4KPHJlY3QgeD0iMjciIHk9IjgiIHdpZHRoPSI2IiBoZWlnaHQ9IjIzIiByeD0iMyIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTIyIDE3TDMwIDExTDM4IDE3IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cmVjdCB4PSIzMyIgeT0iNjgiIHdpZHRoPSI2IiBoZWlnaHQ9IjIzIiByeD0iMyIgdHJhbnNmb3JtPSJyb3RhdGUoLTE4MCAzMyA2OCkiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0zOCA1OUwzMCA2NUwyMiA1OSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHJlY3QgeD0iNjAiIHk9IjM1IiB3aWR0aD0iNiIgaGVpZ2h0PSIyMyIgcng9IjMiIHRyYW5zZm9ybT0icm90YXRlKDkwIDYwIDM1KSIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTUxIDMwTDU3IDM4TDUxIDQ2IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cmVjdCB5PSI0MSIgd2lkdGg9IjYiIGhlaWdodD0iMjMiIHJ4PSIzIiB0cmFuc2Zvcm09InJvdGF0ZSgtOTAgMCA0MSkiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik05IDQ2TDMgMzhMOSAzMCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8xNzlfMzMiPgo8cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IndoaXRlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDgpIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==";
+
   
-  
+  // ____________________________________________________________________________________________ 
   
   function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -91,6 +104,53 @@
   const REMOVE_FENCING = "remove fencing";
   const REMOVE_MISC_LIMITS = "remove misc limits";
   const HIGH_QUALITY_PEN = "high quality pen";
+
+  const STRETCH_X = Symbol("stretch.x");
+  const STRETCH_Y = Symbol("stretch.y");
+
+  const vm = Scratch.vm;
+
+  /**
+   * @param {VM.RenderedTarget} target
+   * @param {VM.RenderedTarget} [originalTarget] If target is a clone, the original to copy from.
+   */
+  const implementStretchForTarget = (target, originalTarget) => {
+    if (STRETCH_X in target) {
+      // Target already has stretch. Don't implement again.
+      return;
+    }
+
+    target[STRETCH_X] = originalTarget ? originalTarget[STRETCH_X] : 100;
+    target[STRETCH_Y] = originalTarget ? originalTarget[STRETCH_Y] : 100;
+
+    const original = target._getRenderedDirectionAndScale;
+    target._getRenderedDirectionAndScale = function () {
+      const result = original.call(this);
+
+      result.scale[0] *= this[STRETCH_X] / 100;
+      result.scale[1] *= this[STRETCH_Y] / 100;
+
+      return result;
+    };
+  };
+  vm.runtime.targets.forEach((target) => implementStretchForTarget(target));
+  vm.runtime.on("targetWasCreated", (target, originalTarget) =>
+    implementStretchForTarget(target, originalTarget)
+  );
+  vm.runtime.on("PROJECT_LOADED", () => {
+    vm.runtime.targets.forEach((target) => implementStretchForTarget(target));
+  });
+
+  /**
+   * @param {VM.RenderedTarget} target
+   */
+  const forceUpdateDirectionAndScale = (target) => {
+    target.setDirection(target.direction);
+  };
+
+
+
+  // ____________________________________________________________________________________________ 
   
   class lmsmcutils {
     getInfo() {
@@ -102,43 +162,12 @@
         color3: "#A0536F",
         menuIconURI: menuIconURI,
         
-        blocks: [          
+        blocks: [
+        // ЭЛЕМЕНТЫ УПРАВЛЕНИЯ:
           {
             blockType: "label",
             text: Scratch.translate({ id: "LabelA", default: "Controls:" }),
           },
-
-
-          {
-            func: "disableCompatibilityMode",
-            blockType: Scratch.BlockType.BUTTON,
-            text: Scratch.translate("Enable Non-Scratch Lab Features"),
-            hideFromPalette: !compatibilityMode,
-          },
-
-          
-          {
-            func: "hideExtra",
-            blockType: Scratch.BlockType.BUTTON,
-            text: "Hide Extra",
-            hideFromPalette: !this.showingExtra,
-          },
-          {
-            opcode: "setUnkownProperty",
-            blockType: Scratch.BlockType.COMMAND,
-            text: "set [path] to [value] in request options",
-            hideFromPalette: !this.showingExtra,
-            arguments: {
-              path: {
-                type: Scratch.ArgumentType.STRING,
-              },
-              value: {
-                type: Scratch.ArgumentType.STRING,
-              },
-            },
-          },
-          
-          
           {
             opcode: "resizeTo",
             blockType: Scratch.BlockType.COMMAND,
@@ -329,9 +358,42 @@
                 menu: "QUESTION_MENU"
               },
             },
-          },          
+          },
+          "---",
+          
+
+          // ВСЁ ДЛЯ АДАПТАЦИИ:
+          {
+            blockType: "label",
+            text: Scratch.translate({ id: "LabelB", default: "Everything for adaptation:" }),
+          },
+          {
+            opcode: "setStretch",
+            blockType: Scratch.BlockType.COMMAND,
+            text: Scratch.translate({ id: "setStretch", default: "[IMG] set stretch to x: [X] y: [Y]" }),
+            arguments: {
+              IMG: {
+                type: Scratch.ArgumentType.IMAGE,
+                dataURI: setStretch,
+              },
+              X: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: 100,
+              },
+              Y: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: 100,
+              },
+            },
+            filter: [Scratch.TargetType.SPRITE],
+          },
         ],
+        
+        
+// ____________________________________________________________________________________________ 
+        
         menus: {
+          // ЭЛЕМЕНТЫ УПРАВЛЕНИЯ:
           MOVE: {
             acceptReporters: true,
             items: [
@@ -377,17 +439,17 @@
               Scratch.translate({ id: "isQuestionMenuFullscreen", default: "fullscreen" }),
             ],
           },
+
+          
+          // ВСЁ ДЛЯ АДАПТАЦИИ:          
         },
       };
     }
-    hideExtra() {
-      this.showingExtra = false;
-      Scratch.vm.extensionManager.refreshBlocks();
-    }
-    showExtra() {
-      this.showingExtra = true;
-      Scratch.vm.extensionManager.refreshBlocks();
-    }
+    
+    
+// ____________________________________________________________________________________________ 
+    
+  // ЭЛЕМЕНТЫ УПРАВЛЕНИЯ:
     moveTo(args) {
       window.moveTo(args.X, args.Y);
       Scratch.vm.runtime.requestRedraw();
@@ -500,6 +562,14 @@
       if (typeof ScratchBlocks === "undefined" || confirm(editorConfirmation)) {
         window.close();
       }
+    }
+
+
+  // ВСЁ ДЛЯ АДАПТАЦИИ:
+    setStretch(args, util) {
+      util.target[STRETCH_X] = Scratch.Cast.toNumber(args.X);
+      util.target[STRETCH_Y] = Scratch.Cast.toNumber(args.Y);
+      forceUpdateDirectionAndScale(util.target);
     }
   }
   Scratch.extensions.register(new lmsmcutils());
