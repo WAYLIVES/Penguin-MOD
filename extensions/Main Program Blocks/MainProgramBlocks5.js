@@ -70,6 +70,7 @@
               isQuestionMenuFullscreen: "в полноэкранном режиме",
 
       // Всё для адаптации:
+          LabelB: "Всё для адаптации:",
     },
   }); 
 /* ________________________________________________________________________________________ */
@@ -381,7 +382,13 @@
             },
           },
 
+          "---",
+
         // Всё для адаптации:
+          {
+            blockType: "label",
+            text: Scratch.translate({ id: "LabelB", default: "Everything for adaptation:" }),
+          },
           {
             opcode: "setStretch",
             blockType: Scratch.BlockType.COMMAND,
@@ -494,6 +501,7 @@
             ],
           },
           
+          
         // Всё для адаптации:
         },
       };
@@ -507,6 +515,7 @@
 
 /* ________________________________________________________________________________________ */
   // Элементы управления:
+
     moveTo(args) {
       window.moveTo(args.X, args.Y);
       Scratch.vm.runtime.requestRedraw();
@@ -620,8 +629,12 @@
         window.close();
       }
     }
+
+    
+
     
   // Всё для адаптации:
+    
     setStretch(args, util) {
       util.target[STRETCH_X] = Scratch.Cast.toNumber(args.X);
       util.target[STRETCH_Y] = Scratch.Cast.toNumber(args.Y);
