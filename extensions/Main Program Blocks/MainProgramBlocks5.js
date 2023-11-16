@@ -127,7 +127,43 @@
     const REMOVE_MISC_LIMITS = "remove misc limits";
     const HIGH_QUALITY_PEN = "high quality pen";
 
+
+  
   // Всё для адаптации:
+    const STRETCH_X = Symbol("stretch.x");
+    const STRETCH_Y = Symbol("stretch.y");
+  
+    const vm = Scratch.vm;
+  
+    const implementStretchForTarget = (target, originalTarget) => {
+      if (STRETCH_X in target) {
+        return;
+      }
+  
+      target[STRETCH_X] = originalTarget ? originalTarget[STRETCH_X] : 100;
+      target[STRETCH_Y] = originalTarget ? originalTarget[STRETCH_Y] : 100;
+  
+      const original = target._getRenderedDirectionAndScale;
+      target._getRenderedDirectionAndScale = function () {
+        const result = original.call(this);
+  
+        result.scale[0] *= this[STRETCH_X] / 100;
+        result.scale[1] *= this[STRETCH_Y] / 100;
+  
+        return result;
+      };
+    };
+    vm.runtime.targets.forEach((target) => implementStretchForTarget(target));
+    vm.runtime.on("targetWasCreated", (target, originalTarget) =>
+      implementStretchForTarget(target, originalTarget)
+    );
+    vm.runtime.on("PROJECT_LOADED", () => {
+      vm.runtime.targets.forEach((target) => implementStretchForTarget(target));
+    });
+  
+    const forceUpdateDirectionAndScale = (target) => {
+      target.setDirection(target.direction);
+    };
 /* ________________________________________________________________________________________ */
 
 
@@ -346,6 +382,60 @@
           },
 
         // Всё для адаптации:
+          {
+            opcode: "setStretch",
+            blockType: Scratch.BlockType.COMMAND,
+            text: Scratch.translate("set stretch to x: [X] y: [Y]"),
+            filter: [Scratch.TargetType.SPRITE],
+            arguments: {
+              X: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: 100,
+              },
+              Y: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: 100,
+              },
+            },
+          },
+          {
+            opcode: "setStretchX",
+            blockType: Scratch.BlockType.COMMAND,
+            text: Scratch.translate("set stretch x to [X]"),
+            filter: [Scratch.TargetType.SPRITE],
+            arguments: {
+              X: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: 100,
+              },
+            },
+          },
+          {
+            opcode: "setStretchY",
+            blockType: Scratch.BlockType.COMMAND,
+            text: Scratch.translate("set stretch y to [Y]"),
+            filter: [Scratch.TargetType.SPRITE],
+            arguments: {
+              Y: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: 100,
+              },
+            },
+          },
+          {
+            opcode: "getX",
+            blockType: Scratch.BlockType.REPORTER,
+            text: Scratch.translate("x stretch"),
+            filter: [Scratch.TargetType.SPRITE],
+            disableMonitor: true,
+          },
+          {
+            opcode: "getY",
+            blockType: Scratch.BlockType.REPORTER,
+            text: Scratch.translate("y stretch"),
+            filter: [Scratch.TargetType.SPRITE],
+            disableMonitor: true,
+          },
         ],
 /* ________________________________________________________________________________________ */
 
@@ -532,6 +622,25 @@
     }
     
   // Всё для адаптации:
+    setStretch(args, util) {
+      util.target[STRETCH_X] = Scratch.Cast.toNumber(args.X);
+      util.target[STRETCH_Y] = Scratch.Cast.toNumber(args.Y);
+      forceUpdateDirectionAndScale(util.target);
+    }
+    setStretchX(args, util) {
+      util.target[STRETCH_X] = Scratch.Cast.toNumber(args.X);
+      forceUpdateDirectionAndScale(util.target);
+    }
+    setStretchY(args, util) {
+      util.target[STRETCH_Y] = Scratch.Cast.toNumber(args.Y);
+      forceUpdateDirectionAndScale(util.target);
+    }
+    getX(args, util) {
+      return util.target[STRETCH_X];
+    }
+    getY(args, util) {
+      return util.target[STRETCH_Y];
+    }
 /* ________________________________________________________________________________________ */
 
 
