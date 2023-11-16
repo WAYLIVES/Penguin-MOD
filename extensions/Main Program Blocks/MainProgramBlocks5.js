@@ -71,6 +71,9 @@
 
       // Всё для адаптации:
           LabelB: "Всё для адаптации:",
+          setStretch: "[IMG] задать растяжку по x: [X] y: [Y]",
+          setStretchX: "[IMG] задать растяжку по x: [X]",
+          setStretchY: "[IMG] задать растяжку по y: [Y]",
     },
   }); 
 /* ________________________________________________________________________________________ */
@@ -108,6 +111,9 @@
       const closeWindow = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzE2OV8zMikiPgo8cmVjdCB4PSIzIiB5PSIxMSIgd2lkdGg9IjU0IiBoZWlnaHQ9IjU0IiByeD0iNyIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2Ii8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjAgMThDNjAgMTIuNDc3MiA1NS41MjI4IDggNTAgOEgxMEM0LjQ3NzE1IDggMCAxMi40NzcyIDAgMThWNDhMNjAgNDhWMThaTTMyLjEyMTMgMTUuODc4N0MzMC45NDk3IDE0LjcwNzEgMjkuMDUwMyAxNC43MDcxIDI3Ljg3ODcgMTUuODc4N0MyNi43MDcxIDE3LjA1MDMgMjYuNzA3MSAxOC45NDk3IDI3Ljg3ODcgMjAuMTIxM0wzNS43NTc0IDI4TDI3Ljg3ODcgMzUuODc4N0MyNi43MDcxIDM3LjA1MDMgMjYuNzA3MSAzOC45NDk3IDI3Ljg3ODcgNDAuMTIxM0MyOS4wNTAzIDQxLjI5MjkgMzAuOTQ5NyA0MS4yOTI5IDMyLjEyMTMgNDAuMTIxM0w0MCAzMi4yNDI2TDQ3Ljg3ODcgNDAuMTIxM0M0OS4wNTAzIDQxLjI5MjkgNTAuOTQ5NyA0MS4yOTI5IDUyLjEyMTMgNDAuMTIxM0M1My4yOTI5IDM4Ljk0OTcgNTMuMjkyOSAzNy4wNTAzIDUyLjEyMTMgMzUuODc4N0w0NC4yNDI2IDI4TDUyLjEyMTMgMjAuMTIxM0M1My4yOTI5IDE4Ljk0OTcgNTMuMjkyOSAxNy4wNTAzIDUyLjEyMTMgMTUuODc4N0M1MC45NDk3IDE0LjcwNzEgNDkuMDUwMyAxNC43MDcxIDQ3Ljg3ODcgMTUuODc4N0w0MCAyMy43NTc0TDMyLjEyMTMgMTUuODc4N1oiIGZpbGw9IndoaXRlIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTY5XzMyIj4KPHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSJ3aGl0ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCA4KSIvPgo8L2NsaXBQYXRoPgo8L2RlZnM+Cjwvc3ZnPgo=";
 
       // Всё для адаптации:
+      const setStretch = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzE3OV8zMykiPgo8bWFzayBpZD0icGF0aC0xLWluc2lkZS0xXzE3OV8zMyIgZmlsbD0id2hpdGUiPgo8cmVjdCB4PSIxOSIgeT0iMjciIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiIgcng9IjIiLz4KPC9tYXNrPgo8cmVjdCB4PSIxOSIgeT0iMjciIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiIgcng9IjIiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMTIiIG1hc2s9InVybCgjcGF0aC0xLWluc2lkZS0xXzE3OV8zMykiLz4KPHJlY3QgeD0iMjciIHk9IjgiIHdpZHRoPSI2IiBoZWlnaHQ9IjIzIiByeD0iMyIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTIyIDE3TDMwIDExTDM4IDE3IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cmVjdCB4PSIzMyIgeT0iNjgiIHdpZHRoPSI2IiBoZWlnaHQ9IjIzIiByeD0iMyIgdHJhbnNmb3JtPSJyb3RhdGUoLTE4MCAzMyA2OCkiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0zOCA1OUwzMCA2NUwyMiA1OSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHJlY3QgeD0iNjAiIHk9IjM1IiB3aWR0aD0iNiIgaGVpZ2h0PSIyMyIgcng9IjMiIHRyYW5zZm9ybT0icm90YXRlKDkwIDYwIDM1KSIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTUxIDMwTDU3IDM4TDUxIDQ2IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cmVjdCB5PSI0MSIgd2lkdGg9IjYiIGhlaWdodD0iMjMiIHJ4PSIzIiB0cmFuc2Zvcm09InJvdGF0ZSgtOTAgMCA0MSkiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik05IDQ2TDMgMzhMOSAzMCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8xNzlfMzMiPgo8cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IndoaXRlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDgpIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==";
+      const setStretchX = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzE4MF8yKSI+CjxtYXNrIGlkPSJwYXRoLTEtaW5zaWRlLTFfMTgwXzIiIGZpbGw9IndoaXRlIj4KPHJlY3QgeD0iMTkiIHk9IjE4IiB3aWR0aD0iMjIiIGhlaWdodD0iNDAiIHJ4PSIyIi8+CjwvbWFzaz4KPHJlY3QgeD0iMTkiIHk9IjE4IiB3aWR0aD0iMjIiIGhlaWdodD0iNDAiIHJ4PSIyIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEyIiBtYXNrPSJ1cmwoI3BhdGgtMS1pbnNpZGUtMV8xODBfMikiLz4KPHJlY3QgeD0iNjAiIHk9IjM1IiB3aWR0aD0iNiIgaGVpZ2h0PSIyMyIgcng9IjMiIHRyYW5zZm9ybT0icm90YXRlKDkwIDYwIDM1KSIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTUxIDMwTDU3IDM4TDUxIDQ2IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cmVjdCB5PSI0MSIgd2lkdGg9IjYiIGhlaWdodD0iMjMiIHJ4PSIzIiB0cmFuc2Zvcm09InJvdGF0ZSgtOTAgMCA0MSkiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik05IDQ2TDMgMzhMOSAzMCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8xODBfMiI+CjxyZWN0IHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0id2hpdGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgOCkiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K";
+      const setStretchY = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzE5MF8zKSI+CjxtYXNrIGlkPSJwYXRoLTEtaW5zaWRlLTFfMTkwXzMiIGZpbGw9IndoaXRlIj4KPHJlY3QgeD0iMTAiIHk9IjI3IiB3aWR0aD0iNDAiIGhlaWdodD0iMjIiIHJ4PSIyIi8+CjwvbWFzaz4KPHJlY3QgeD0iMTAiIHk9IjI3IiB3aWR0aD0iNDAiIGhlaWdodD0iMjIiIHJ4PSIyIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEyIiBtYXNrPSJ1cmwoI3BhdGgtMS1pbnNpZGUtMV8xOTBfMykiLz4KPHJlY3QgeD0iMzMiIHk9IjY4IiB3aWR0aD0iNiIgaGVpZ2h0PSIyMyIgcng9IjMiIHRyYW5zZm9ybT0icm90YXRlKC0xODAgMzMgNjgpIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMzggNTlMMzAgNjVMMjIgNTkiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxyZWN0IHg9IjI3IiB5PSI4IiB3aWR0aD0iNiIgaGVpZ2h0PSIyMyIgcng9IjMiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0yMiAxN0wzMCAxMUwzOCAxNyIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8xOTBfMyI+CjxyZWN0IHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0id2hpdGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgOCkiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K";
 /* ________________________________________________________________________________________ */
 
 
@@ -189,8 +195,8 @@
         id: "MainProgramBlocks",
         name: "MPB",
         color1: "#BF6E8B",
-        color2: "#AD5D7A",
-        color3: "#F29CBB",
+        color2: "#8E4861",
+        color3: "#8E4861",
         menuIconURI: menuIconURI,
         
         blocks: [
@@ -403,9 +409,13 @@
           {
             opcode: "setStretch",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("set stretch to x: [X] y: [Y]"),
+            text: Scratch.translate({ id: "setStretch", default: "[IMG] set stretch to x: [X] y: [Y]" }),
             filter: [Scratch.TargetType.SPRITE],
             arguments: {
+              IMG: {
+                type: Scratch.ArgumentType.IMAGE,
+                dataURI: setStretch,
+              },
               X: {
                 type: Scratch.ArgumentType.NUMBER,
                 defaultValue: 100,
@@ -419,9 +429,13 @@
           {
             opcode: "setStretchX",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("set stretch x to [X]"),
+            text: Scratch.translate({ id: "setStretchX", default: "[IMG] set stretch to x: [X]" }),
             filter: [Scratch.TargetType.SPRITE],
             arguments: {
+              IMG: {
+                type: Scratch.ArgumentType.IMAGE,
+                dataURI: setStretchX,
+              },
               X: {
                 type: Scratch.ArgumentType.NUMBER,
                 defaultValue: 100,
@@ -431,9 +445,13 @@
           {
             opcode: "setStretchY",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("set stretch y to [Y]"),
+            text: Scratch.translate({ id: "setStretchY", default: "[IMG] set stretch to y: [Y]" }),
             filter: [Scratch.TargetType.SPRITE],
             arguments: {
+              IMG: {
+                type: Scratch.ArgumentType.IMAGE,
+                dataURI: setStretchY,
+              },
               Y: {
                 type: Scratch.ArgumentType.NUMBER,
                 defaultValue: 100,
