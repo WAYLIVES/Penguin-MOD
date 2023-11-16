@@ -255,7 +255,6 @@
             arguments: {
               DIM: {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: "width",
                 menu: "DIM",
               },
             },
@@ -379,13 +378,12 @@
         return screen.height;
       }
     }
-    getDimension({ DIM }) {
-      if (DIM === "width") {
+    getDimension(args) {
+      if (args.DIM == Scratch.translate({ id: "getDimensionMenuWidth", default: "width" })) {
         return Scratch.vm.runtime.stageWidth;
-      } else if (DIM === "height") {
+      } else if (args.DIM == Scratch.translate({ id: "getDimensionMenuHeight", default: "height" })) {
         return Scratch.vm.runtime.stageHeight;
       }
-      return 0;
     }
     isQuestion(args) {
       if (args.QUESTION == Scratch.translate({ id: "isQuestionMenuFocused", default: "focused" })) {
