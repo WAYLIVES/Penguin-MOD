@@ -393,12 +393,13 @@
             arguments: {
               QUESTION: {
                 type: Scratch.ArgumentType.STRING,
-                menu: "QUESTION_MENU"
+                menu: "QUESTION_MENU",
               },
             },
           },
 
           "---",
+          
           
 
         // Всё для адаптации:
@@ -455,6 +456,17 @@
               Y: {
                 type: Scratch.ArgumentType.NUMBER,
                 defaultValue: 100,
+              },
+            },
+          },
+          {
+            opcode: "getXY",
+            text: "stage [XY]",
+            blockType: Scratch.BlockType.REPORTER,
+            arguments: {
+              XY: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "XY",
               },
             },
           },
@@ -550,6 +562,13 @@
           
         // Всё для адаптации:
           
+          XY: {
+            acceptReporters: true,
+            items: [
+              "x",
+              "y",
+            ],
+          },
           costumeAttribute: {
             acceptReporters: false,
             items: [ 
@@ -642,6 +661,13 @@
         return Scratch.vm.runtime.stageWidth;
       } else if (args.DIM == Scratch.translate({ id: "getDimensionMenuHeight", default: "height" })) {
         return Scratch.vm.runtime.stageHeight;
+      }
+    }
+    getXY(args, util) {
+      if (args.XY == "x") {
+        return util.target[STRETCH_X];
+      } else if (args.XY == "y") {
+        return util.target[STRETCH_Y];
       }
     }
     isQuestion(args) {
