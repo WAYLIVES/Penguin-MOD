@@ -40,7 +40,10 @@
           // menu Screen:
           ScreenMenuWidth: "ширина",
           ScreenMenuHeight: "высота",
-      
+      getDimension: "сцена [DIM]",
+          // menu isQuestion:
+          getDimensionMenuWidth: "ширина",
+          getDimensionMenuHeight: "высота",
       isQuestion: "[QUESTION] окно?",
           // menu isQuestion:
           isQuestionMenuFocused: "фокусированное",
@@ -247,13 +250,13 @@
           },
           {
             opcode: "getDimension",
-            text: "stage [DIM]",
+            text: Scratch.translate({ id: "getDimension", default: "stage [DIM]" }),
             blockType: Scratch.BlockType.REPORTER,
             arguments: {
               DIM: {
                 type: Scratch.ArgumentType.STRING,
                 defaultValue: "width",
-                menu: "dimension",
+                menu: "DIM",
               },
             },
           },
@@ -301,11 +304,11 @@
               Scratch.translate({ id: "ScreenMenuHeight", default: "height" }), 
             ],
           },
-          dimension: {
+          DIM: {
             acceptReporters: true,
             items: [
-              "width", 
-              "height",
+              Scratch.translate({ id: "getDimensionMenuWidth", default: "width" }),
+              Scratch.translate({ id: "getDimensionMenuHeight", default: "height" }),
             ],
           },
           QUESTION_MENU: {
@@ -376,10 +379,10 @@
         return screen.height;
       }
     }
-    getDimension({ dimension }) {
-      if (dimension === "width") {
+    getDimension({ DIM }) {
+      if (DIM === "width") {
         return Scratch.vm.runtime.stageWidth;
-      } else if (dimension === "height") {
+      } else if (DIM === "height") {
         return Scratch.vm.runtime.stageHeight;
       }
       return 0;
