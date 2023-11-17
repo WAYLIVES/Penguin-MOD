@@ -124,7 +124,7 @@
                 value: "leftTop",
               },
               {
-                text: "в верхнем нижнем углу",
+                text: "в левом нижнем углу",
                 value: "leftBottom",
               },
             ],
@@ -134,14 +134,12 @@
     }    
     
     setXY(args, util) {
-      const costumeIndex = this.getCostumeInput(args.COSTUME, util.target);
-      const costume = util.target.sprite.costumes[costumeIndex];
       const x = Scratch.Cast.toNumber(args.X);
       const y = Scratch.Cast.toNumber(args.Y);
       if (args.ALIGN == "center") {
         const center = util.target.setXY( 0, 0 );
       } else if (args.ALIGN == "right") {
-        const right = util.target.setXY( ((Scratch.vm.runtime.stageWidth / 2) - ) , 0 );
+        const right = util.target.setXY( (Scratch.vm.runtime.stageWidth / 2) , 0 );
       } else if (args.ALIGN == "left") {
         const left = util.target.setXY( (-1 * (Scratch.vm.runtime.stageWidth / 2)) , 0 );
       } else if (args.ALIGN == "top") {
@@ -149,7 +147,13 @@
       } else if (args.ALIGN == "bottom") {
         const bottom = util.target.setXY( 0 , (-1 * (Scratch.vm.runtime.stageHeight / 2)) );
       } else if (args.ALIGN == "rightTop") {
-        const rightTop = util.target.setXY( ((Scratch.vm.runtime.stageWidth / 2) - 0) , (Scratch.vm.runtime.stageHeight / 2) );
+        const rightTop = util.target.setXY( (Scratch.vm.runtime.stageWidth / 2) , (Scratch.vm.runtime.stageHeight / 2) );
+      } else if (args.ALIGN == "rightBottom") {
+        const rightBottom = util.target.setXY( (Scratch.vm.runtime.stageWidth / 2) , (-1 * (Scratch.vm.runtime.stageHeight / 2)) );
+      } else if (args.ALIGN == "leftTop") {
+        const leftTop = util.target.setXY( (-1 * (Scratch.vm.runtime.stageWidth / 2)) , (Scratch.vm.runtime.stageHeight / 2) );
+      } else if (args.ALIGN == "leftBottom") {
+        const leftBottom = util.target.setXY( (-1 * (Scratch.vm.runtime.stageWidth / 2)) , (-1 * (Scratch.vm.runtime.stageHeight / 2)) );
       }
     }
 
