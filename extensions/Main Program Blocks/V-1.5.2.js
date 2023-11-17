@@ -28,9 +28,9 @@
       return {
         id: "nkmoremotion",
         name: "More Motion",
-        color1: "#51B722",
-        color2: "#419B18",
-        color3: "#307012",
+        color1: "#D34B2D",
+        color2: "#B73E23",
+        color3: "#52180C",
         blocks: [
           {
             filter: [Scratch.TargetType.STAGE],
@@ -135,8 +135,8 @@
     }    
     
     setXY(args, util) {
-      const x = Scratch.Cast.toNumber(args.X);
-      const y = Scratch.Cast.toNumber(args.Y);
+      const x = Scratch.Cast.toNumber(args.AX);
+      const y = Scratch.Cast.toNumber(args.AY);
       if (args.ALIGN == "center") {
         const center = util.target.setXY( 0, 0 );
       } else if (args.ALIGN == "right") {
@@ -156,6 +156,7 @@
       } else if (args.ALIGN == "leftBottom") {
         const leftBottom = util.target.setXY( (-1 * (Scratch.vm.runtime.stageWidth / 2)) , (-1 * (Scratch.vm.runtime.stageHeight / 2)) );
       }
+      util.target.setXY(util.target.x + x, util.target.y + y);
     }
 
 
