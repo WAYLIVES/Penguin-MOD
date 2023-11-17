@@ -28,8 +28,9 @@
       return {
         id: "nkmoremotion",
         name: "More Motion",
-        color1: "#4c97ff",
-        color2: "#3373cc",
+        color1: "#51B722",
+        color2: "#419B18",
+        color3: "#307012",
         blocks: [
           {
             filter: [Scratch.TargetType.STAGE],
