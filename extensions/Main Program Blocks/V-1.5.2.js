@@ -40,9 +40,18 @@
             filter: [Scratch.TargetType.SPRITE],
             opcode: "setXY",
             blockType: Scratch.BlockType.COMMAND,
-            text: "set",
+            text: "выравнить костюм [ALIGN] отступить по x: [AX] y: [AY]",
             arguments: {
-            
+              ALIGN: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "AlignMenu",
+              },
+              AX: {
+                type: Scratch.ArgumentType.NUMBER,
+              },
+              AY: {
+                type: Scratch.ArgumentType.NUMBER,
+              },
             },
           },
           {
@@ -75,6 +84,48 @@
               {
                 text: "rotation center y",
                 value: "rotationCenterY",
+              },
+            ],
+          },
+
+          AlignMenu: {
+            acceptReporters: false,
+            items: [ 
+              {
+                text: "по центру",
+                value: "center",
+              },
+              {
+                text: "по правому краю",
+                value: "right",
+              },
+              {
+                text: "по левому краю",
+                value: "left",
+              },
+              {
+                text: "по верхнему краю",
+                value: "top",
+              },
+              {
+                text: "по нижнему краю",
+                value: "bottom",
+              },
+              {
+                text: "в правом верхнем углу",
+                value: "rightTop",
+              },
+              {
+                text: "в правом нижнем углу",
+                value: "rightBottom",
+              },
+              {
+                text: "в левом верхнем углу",
+                value: "leftTop",
+              },
+              {
+                text: "в верхнем нижнем углу",
+                value: "leftBottom",
               },
             ],
           },
