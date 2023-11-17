@@ -134,30 +134,6 @@
       };
     }    
     
-    setXY(args, util) {
-      const x = Scratch.Cast.toNumber(args.AX);
-      const y = Scratch.Cast.toNumber(args.AY);
-      if (args.ALIGN == "center") {
-        const center = util.target.setXY( 0, 0 );
-      } else if (args.ALIGN == "right") {
-        const right = util.target.setXY( (Scratch.vm.runtime.stageWidth / 2) , 0 );
-      } else if (args.ALIGN == "left") {
-        const left = util.target.setXY( (-1 * (Scratch.vm.runtime.stageWidth / 2)) , 0 );
-      } else if (args.ALIGN == "top") {
-        const top = util.target.setXY( 0 , (Scratch.vm.runtime.stageHeight / 2) );
-      } else if (args.ALIGN == "bottom") {
-        const bottom = util.target.setXY( 0 , (-1 * (Scratch.vm.runtime.stageHeight / 2)) );
-      } else if (args.ALIGN == "rightTop") {
-        const rightTop = util.target.setXY( (Scratch.vm.runtime.stageWidth / 2) , (Scratch.vm.runtime.stageHeight / 2) );
-      } else if (args.ALIGN == "rightBottom") {
-        const rightBottom = util.target.setXY( (Scratch.vm.runtime.stageWidth / 2) , (-1 * (Scratch.vm.runtime.stageHeight / 2)) );
-      } else if (args.ALIGN == "leftTop") {
-        const leftTop = util.target.setXY( (-1 * (Scratch.vm.runtime.stageWidth / 2)) , (Scratch.vm.runtime.stageHeight / 2) );
-      } else if (args.ALIGN == "leftBottom") {
-        const leftBottom = util.target.setXY( (-1 * (Scratch.vm.runtime.stageWidth / 2)) , (-1 * (Scratch.vm.runtime.stageHeight / 2)) );
-      }
-      util.target.setXY(util.target.x + x, util.target.y + y);
-    }
 
 
     
@@ -223,10 +199,40 @@
       if (spriteNames.length > 0) {
         return spriteNames;
       } else {
-        return [{ text: "", value: 0 }]; //this should never happen but it's a failsafe
+        return [{ text: "", value: 0 }];
       }
     }
 
+
+    setXY(args, util) {
+      const x = Scratch.Cast.toNumber(args.AX);
+      const y = Scratch.Cast.toNumber(args.AY);
+
+      const spriteNames = [];
+      const targets = Scratch.vm.runtime.targets;
+      const myself = Scratch.vm.runtime.getEditingTarget().getName();
+      
+      if (args.ALIGN == "center") {
+        const center = util.target.setXY( 0, 0 );
+      } else if (args.ALIGN == "right") {
+        const right = util.target.setXY( ((Scratch.vm.runtime.stageWidth / 2) - costume.rotationCenterY ) , 0 );
+      } else if (args.ALIGN == "left") {
+        const left = util.target.setXY( (-1 * (Scratch.vm.runtime.stageWidth / 2)) , 0 );
+      } else if (args.ALIGN == "top") {
+        const top = util.target.setXY( 0 , (Scratch.vm.runtime.stageHeight / 2) );
+      } else if (args.ALIGN == "bottom") {
+        const bottom = util.target.setXY( 0 , (-1 * (Scratch.vm.runtime.stageHeight / 2)) );
+      } else if (args.ALIGN == "rightTop") {
+        const rightTop = util.target.setXY( (Scratch.vm.runtime.stageWidth / 2) , (Scratch.vm.runtime.stageHeight / 2) );
+      } else if (args.ALIGN == "rightBottom") {
+        const rightBottom = util.target.setXY( (Scratch.vm.runtime.stageWidth / 2) , (-1 * (Scratch.vm.runtime.stageHeight / 2)) );
+      } else if (args.ALIGN == "leftTop") {
+        const leftTop = util.target.setXY( (-1 * (Scratch.vm.runtime.stageWidth / 2)) , (Scratch.vm.runtime.stageHeight / 2) );
+      } else if (args.ALIGN == "leftBottom") {
+        const leftBottom = util.target.setXY( (-1 * (Scratch.vm.runtime.stageWidth / 2)) , (-1 * (Scratch.vm.runtime.stageHeight / 2)) );
+      }
+      util.target.setXY(util.target.x + x, util.target.y + y);
+    }
   }
   
 
