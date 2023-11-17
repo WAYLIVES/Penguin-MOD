@@ -194,9 +194,9 @@
       return {              
         id: "MainProgramBlocks",
         name: "MPB",
-        color1: "#BF6E8B",
-        color2: "#8E4861",
-        color3: "#8E4861",
+        color1: "#E72D22",
+        color2: "#B2231A",
+        color3: "#81201A",
         menuIconURI: menuIconURI,
         
         blocks: [
