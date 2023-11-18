@@ -95,6 +95,26 @@
               },
               WH: {
                 type: Scratch.ArgumentType.NUMBER,
+                defaultValue: "100",
+              },
+            },
+          },
+          {
+            opcode: "MoveWHXY",
+            blockType: Scratch.BlockType.COMMAND,
+            text: ": : : : set window [WHXY]: [WHXYA], [WHXYB]",
+            arguments: {
+              WHXY: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "WHXY",
+              },
+              WHXYA: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: "100",
+              },
+              WHXYB: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: "100",
               },
             },
           },
@@ -105,11 +125,11 @@
             arguments: {
               X: {
                 type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "0",
+                defaultValue: "100",
               },
               Y: {
                 type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "0",
+                defaultValue: "100",
               },
             },
           },
@@ -121,50 +141,6 @@
               PRESETS: {
                 type: Scratch.ArgumentType.STRING,
                 menu: "MOVE",
-              },
-            },
-          },
-          {
-            opcode: "changeX",
-            blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("change window x by [X]"),
-            arguments: {
-              X: {
-                type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "50",
-              },
-            },
-          },
-          {
-            opcode: "setX",
-            blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("set window x to [X]"),
-            arguments: {
-              X: {
-                type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "100",
-              },
-            },
-          },
-          {
-            opcode: "changeY",
-            blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("change window y by [Y]"),
-            arguments: {
-              Y: {
-                type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "50",
-              },
-            },
-          },
-          {
-            opcode: "setY",
-            blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("set window y to [Y]"),
-            arguments: {
-              Y: {
-                type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "100",
               },
             },
           },
@@ -204,50 +180,6 @@
               PRESETS: {
                 type: Scratch.ArgumentType.STRING,
                 menu: "RESIZE",
-              },
-            },
-          },
-          {
-            opcode: "changeW",
-            blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("change window width by [W]"),
-            arguments: {
-              W: {
-                type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "50",
-              },
-            },
-          },
-          {
-            opcode: "setW",
-            blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("set window width to [W]"),
-            arguments: {
-              W: {
-                type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "1000",
-              },
-            },
-          },
-          {
-            opcode: "changeH",
-            blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("change window height by [H]"),
-            arguments: {
-              H: {
-                type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "50",
-              },
-            },
-          },
-          {
-            opcode: "setH",
-            blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("set window height to [H]"),
-            arguments: {
-              H: {
-                type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "1000",
               },
             },
           },
@@ -382,6 +314,19 @@
               },
             ],
           },
+          WHXY: {
+            acceptReporters: false,
+            items: [
+              {
+                text: "width, height",
+                value: "WidthHeight",
+              },
+              {
+                text: "x position, y position",
+                value: "PositionXY",
+              },
+            ],
+          },
 
 
           
@@ -458,6 +403,17 @@
       window.moveTo(args.X, args.Y);
       Scratch.vm.runtime.requestRedraw();
     }
+
+    MoveWHXY(args) {
+      if (args.WHXY == "WidthHeight") {
+        window.resizeTo(args.WHXYA, args.WHXYB);
+      } else if (args.WHXY == "PositionXY") {
+        window.moveTo(args.WHXYA, args.WHXYB);
+      }
+      Scratch.vm.runtime.requestRedraw();
+    }
+
+    
     moveToPresets(args) {
       if (args.PRESETS == "center") {
         const left = (screen.width - window.outerWidth) / 2;
@@ -599,24 +555,6 @@
     }
 
     
-    changeW(args) {
-      window.resizeBy(args.W, 0);
-      Scratch.vm.runtime.requestRedraw();
-    }
-    setW(args) {
-      const currentH = window.outerHeight;
-      window.resizeTo(args.W, currentH);
-      Scratch.vm.runtime.requestRedraw();
-    }
-    changeH(args) {
-      window.resizeBy(0, args.H);
-      Scratch.vm.runtime.requestRedraw();
-    }
-    setH(args) {
-      const currentW = window.outerWidth;
-      window.resizeTo(currentW, args.H);
-      Scratch.vm.runtime.requestRedraw();
-    }
     matchStageSize() {
       window.resizeTo(
         Scratch.vm.runtime.stageWidth + (window.outerWidth - window.innerWidth),
