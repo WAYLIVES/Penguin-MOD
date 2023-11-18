@@ -56,8 +56,7 @@
         _updateAnchor({ target: target });
       }
     });
-  });
-  
+  });  
 
   const _touchingEdge = (target, axis) => {
     if (target.renderer) {
@@ -214,11 +213,7 @@
       target.x + target[anchor_offset_x],
       target.y + target[anchor_offset_y]
     );
-  };
-
-
-
-  
+  };  
 
   class nkmoremotion {
     getInfo() {
@@ -252,9 +247,6 @@
               },
             },
           },
-
-
-
           {
             opcode: 'setPosition',
             blockType: Scratch.BlockType.COMMAND,
