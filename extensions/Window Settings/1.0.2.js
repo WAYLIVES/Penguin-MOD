@@ -80,7 +80,24 @@
         menuIconURI: menuIconURI,
         
         blocks: [
-          
+          {
+            opcode: "WindowSCWH",
+            blockType: Scratch.BlockType.COMMAND,
+            text: ": : : :[MenuSC] window [MenuWH]: [WH]",
+            arguments: {
+              MenuSC: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "MenuSC",
+              },
+              MenuWH: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "MenuWH",
+              },
+              WH: {
+                type: Scratch.ArgumentType.NUMBER,
+              },
+            },
+          },
           {
             opcode: "moveTo",
             blockType: Scratch.BlockType.COMMAND,
@@ -331,6 +348,43 @@
 
 /* ________________________________________________________________________________________ */
         menus: {
+          MenuSC: {
+            acceptReporters: false,
+            items: [
+              {
+                text: "set",
+                value: "Set",
+              },
+              {
+                text: "change",
+                value: "Change",
+              },
+            ],
+          },
+          MenuWH: {
+            acceptReporters: false,
+            items: [
+              {
+                text: "width",
+                value: "Width",
+              },
+              {
+                text: "height",
+                value: "Height",
+              },
+              {
+                text: "x position",
+                value: "PositionX",
+              },
+              {
+                text: "y position",
+                value: "PositionY",
+              },
+            ],
+          },
+
+
+          
           MOVE: {
             acceptReporters: true,
             items: [
@@ -514,6 +568,37 @@
       }
       Scratch.vm.runtime.requestRedraw();
     }
+
+    WindowSCWH(args) {
+      if (args.MenuSC == "Set") {
+        if (args.MenuWH == "Width") {
+          const currentH = window.outerHeight;
+          window.resizeTo(args.WH, currentH);
+        } else if (args.MenuWH == "Height") {
+          const currentW = window.outerWidth;
+          window.resizeTo(currentW, args.WH);
+        } else if (args.MenuWH == "PositionX") {
+          const currentY = window.screenY;
+          window.moveTo(args.WH, currentY);
+        } else if (args.MenuWH == "PositionY") {
+          const currentX = window.screenX;
+          window.moveTo(currentX, args.WH);
+        }
+      } else if (args.MenuSC == "Change") {
+        if (args.MenuWH == "Width") {
+          window.resizeBy(args.WH, 0);
+        } else if (args.MenuWH == "Height") {
+          window.resizeBy(0, args.WH);
+        } else if (args.MenuWH == "PositionX") {
+          window.moveBy(args.WH, 0);
+        } else if (args.MenuWH == "PositionY") {
+          window.moveBy(0, args.WH);
+        }
+      }
+      Scratch.vm.runtime.requestRedraw();
+    }
+
+    
     changeW(args) {
       window.resizeBy(args.W, 0);
       Scratch.vm.runtime.requestRedraw();
