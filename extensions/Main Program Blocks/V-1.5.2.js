@@ -499,7 +499,7 @@
       if (args.ALIGN == "center") {
         const center = util.target.setXY( 0, 0 );
       } else if (args.ALIGN == "right") {
-        const right = util.target.setXY( ((Scratch.vm.runtime.stageWidth / 2) - 0 ) , 0 );
+        const right = util.target.setXY( ((Scratch.vm.runtime.stageWidth / 2) - Scratch.vm.anchor.offset.y ) , 0 );
       } else if (args.ALIGN == "left") {
         const left = util.target.setXY( (-1 * (Scratch.vm.runtime.stageWidth / 2)) , 0 );
       } else if (args.ALIGN == "top") {
