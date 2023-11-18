@@ -272,63 +272,10 @@
           
         ],
         menus: {
-          costumeAttribute: {
-            acceptReporters: false,
-            items: [ 
-              "width", 
-              "height", 
-              "format", 
-              {
-                text: "rotation center x",
-                value: "rotationCenterX",
-              },
-              {
-                text: "rotation center y",
-                value: "rotationCenterY",
-              },
-            ],
-          },
 
           AlignMenu: {
             acceptReporters: false,
-            items: [ 
-              {
-                text: "по центру",
-                value: "center",
-              },
-              {
-                text: "по правому краю",
-                value: "right",
-              },
-              {
-                text: "по левому краю",
-                value: "left",
-              },
-              {
-                text: "по верхнему краю",
-                value: "top",
-              },
-              {
-                text: "по нижнему краю",
-                value: "bottom",
-              },
-              {
-                text: "в правом верхнем углу",
-                value: "rightTop",
-              },
-              {
-                text: "в правом нижнем углу",
-                value: "rightBottom",
-              },
-              {
-                text: "в левом верхнем углу",
-                value: "leftTop",
-              },
-              {
-                text: "в левом нижнем углу",
-                value: "leftBottom",
-              },
-            ],
+            items: ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right', 'none']
           },
 
 
@@ -351,29 +298,10 @@
 
 
     setXYa(args, util) {
-      const x = Scratch.Cast.toNumber(args.AX);
-      const y = Scratch.Cast.toNumber(args.AY);
+      utils.target[anchor_position] = args.AlignMenu;
 
-      
-      if (args.ALIGN == "center") {
-        const center = util.target.setXY( 0, 0 );
-      } else if (args.ALIGN == "right") {
-        const right = util.target.setXY( (Scratch.vm.runtime.stageWidth / 2) , 0 );
-      } else if (args.ALIGN == "left") {
-        const left = util.target.setXY( (-1 * (Scratch.vm.runtime.stageWidth / 2)) , 0 );
-      } else if (args.ALIGN == "top") {
-        const top = util.target.setXY( 0 , (Scratch.vm.runtime.stageHeight / 2) );
-      } else if (args.ALIGN == "bottom") {
-        const bottom = util.target.setXY( 0 , (-1 * (Scratch.vm.runtime.stageHeight / 2)) );
-      } else if (args.ALIGN == "rightTop") {
-        const rightTop = util.target.setXY( (Scratch.vm.runtime.stageWidth / 2) , (Scratch.vm.runtime.stageHeight / 2) );
-      } else if (args.ALIGN == "rightBottom") {
-        const rightBottom = util.target.setXY( (Scratch.vm.runtime.stageWidth / 2) , (-1 * (Scratch.vm.runtime.stageHeight / 2)) );
-      } else if (args.ALIGN == "leftTop") {
-        const leftTop = util.target.setXY( (Scratch.vm.runtime.stageWidth / -2) , (Scratch.vm.runtime.stageHeight / 2) );
-        _move(target, info, 1, -1, target[anchor_resolution], target[anchor_retreat]);
-      } else if (args.ALIGN == "leftBottom") {
-        const leftBottom = util.target.setXY( (Scratch.vm.runtime.stageWidth / -2) , (Scratch.vm.runtime.stageHeight / -2) );
+      if (utils.target[anchor_updateAnchorEveryBlock]) {
+        this.updateAnchor(args, utils);
       }
       util.target.setXY(util.target.x + x, util.target.y + y);
     }
