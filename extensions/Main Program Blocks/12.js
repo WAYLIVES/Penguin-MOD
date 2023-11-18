@@ -8,8 +8,7 @@
 
   if (!Scratch.extensions.unsandboxed) {
     throw new Error("More Motion must run unsandboxed");
-  }
-  
+  }  
 
   const anchor_position = Symbol('anchor.position');
 
@@ -23,7 +22,6 @@
   const anchor_retreat = Symbol('anchor.retreat');
 
   const vm = Scratch.vm;
-
   
   const implementAnchorForTarget = (target, originalTarget) => {
     if (anchor_position in target) {
