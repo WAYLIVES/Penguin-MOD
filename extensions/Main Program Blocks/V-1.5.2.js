@@ -77,6 +77,7 @@
       }
     });
   });
+  
 
   const _touchingEdge = (target, axis) => {
     if (target.renderer) {
@@ -498,7 +499,7 @@
       if (args.ALIGN == "center") {
         const center = util.target.setXY( 0, 0 );
       } else if (args.ALIGN == "right") {
-        const right = util.target.setXY( ((Scratch.vm.runtime.stageWidth / 2) - (costumes[costume_number].size[1] * (scale[1] / 100)) ) , 0 );
+        const right = util.target.setXY( ((Scratch.vm.runtime.stageWidth / 2) - 0 ) , 0 );
       } else if (args.ALIGN == "left") {
         const left = util.target.setXY( (-1 * (Scratch.vm.runtime.stageWidth / 2)) , 0 );
       } else if (args.ALIGN == "top") {
