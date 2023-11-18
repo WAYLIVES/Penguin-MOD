@@ -79,7 +79,8 @@
         color3: "#7D1F18",
         menuIconURI: menuIconURI,
         
-        blocks: [ 
+        blocks: [
+          
           {
             opcode: "moveTo",
             blockType: Scratch.BlockType.COMMAND,
