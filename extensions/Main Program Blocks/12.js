@@ -373,7 +373,7 @@
         const leftTop = util.target.setXY( (Scratch.vm.runtime.stageWidth / -2) , (Scratch.vm.runtime.stageHeight / 2) );
         _move(target, info, 1, -1, target[anchor_resolution], target[anchor_retreat]);
       } else if (args.ALIGN == "leftBottom") {
-        const leftBottom = util.target.setXY( (-1 * (Scratch.vm.runtime.stageWidth / 2)) , (-1 * (Scratch.vm.runtime.stageHeight / 2)) );
+        const leftBottom = util.target.setXY( (Scratch.vm.runtime.stageWidth / -2) , (Scratch.vm.runtime.stageHeight / -2) );
       }
       util.target.setXY(util.target.x + x, util.target.y + y);
     }
