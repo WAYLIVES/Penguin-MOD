@@ -83,7 +83,7 @@
           {
             opcode: "WindowSCWH",
             blockType: Scratch.BlockType.COMMAND,
-            text: ": : : :[MenuSC] window [MenuWH]: [WH] / / / ",
+            text: " / / / [MenuSC] window [MenuWH]: [WH] / / / ",
             arguments: {
               MenuSC: {
                 type: Scratch.ArgumentType.STRING,
@@ -102,8 +102,12 @@
           {
             opcode: "MoveWHXY",
             blockType: Scratch.BlockType.COMMAND,
-            text: "set window [WHXY]: [WHXYA], [WHXYB] / / / ",
+            text: " / / / [SC] window [WHXY]: [WHXYA], [WHXYB] / / / ",
             arguments: {
+              SC: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "SC",
+              },
               WHXY: {
                 type: Scratch.ArgumentType.STRING,
                 menu: "WHXY",
@@ -240,26 +244,40 @@
           },
 
 
+
           {
-            opcode: "InnerW",
+            opcode: "setDimensions",
+            text: Scratch.translate(
+              "set stage size width: [width] height: [height]"
+            ),
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("width [W]"),
             arguments: {
-              W: {
-                type: Scratch.ArgumentType.STRING,
+              width: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: "480",
+              },
+              height: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: "360",
               },
             },
           },
           {
-            opcode: "InnerH",
-            blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("height [H]"),
+            opcode: "getDimension",
+            text: Scratch.translate({
+              default: "stage [dimension]",
+              description: "[dimension] is a dropdown of width and height",
+            }),
+            blockType: Scratch.BlockType.REPORTER,
             arguments: {
-              H: {
+              dimension: {
                 type: Scratch.ArgumentType.STRING,
+                defaultValue: "width",
+                menu: "dimension",
               },
             },
           },
+          
           
         ],
 /* ________________________________________________________________________________________ */
@@ -312,7 +330,7 @@
             ],
           },
           MenuQuestions: {
-            acceptReporters: true,
+            acceptReporters: false,
             items: [
               { text: "is window touching screen edge?", value: "A" },
               { text: "is window focused?", value: "B" },
@@ -324,6 +342,26 @@
             items: [
               { text: "enter", value: "Enter" },
               { text: "exit", value: "Exit" },
+            ],
+          },
+          dimension: {
+            acceptReporters: true,
+            items: [
+              {
+                text: Scratch.translate("width"),
+                value: "width",
+              },
+              {
+                text: Scratch.translate("height"),
+                value: "height",
+              },
+            ],
+          },
+          SC: {
+            acceptReporters: false,
+            items: [
+              { text: "set", value: "Set" },
+              { text: "change", value: "Change" },
             ],
           },
 
@@ -374,24 +412,36 @@
     }
 
 
-    InnerW(args) {
-      if (clicked) {
-        window.focus();
-        Scratch.vm.runtime.requestRedraw();
-      }
+    setDimensions({ width, height }) {
+      width = Scratch.Cast.toNumber(width);
+      height = Scratch.Cast.toNumber(height);
+      Scratch.vm.setStageSize(width, height);
     }
-    InnerH(args) {
-      const currentW = window.clientWidth;
-      window.resizeTo(currentW, args.H);
+
+    getDimension({ dimension }) {
+      if (dimension === "width") {
+        return Scratch.vm.runtime.stageWidth;
+      } else if (dimension === "height") {
+        return Scratch.vm.runtime.stageHeight;
+      }
+      return 0;
     }
 
     
 
     MoveWHXY(args) {
-      if (args.WHXY == "WidthHeight") {
-        window.resizeTo(args.WHXYA, args.WHXYB);
-      } else if (args.WHXY == "PositionXY") {
-        window.moveTo(args.WHXYA, args.WHXYB);
+      if (args.SC == "Set") {
+        if (args.WHXY == "WidthHeight") {
+          window.resizeTo(args.WHXYA, args.WHXYB);
+        } else if (args.WHXY == "PositionXY") {
+          window.moveTo(args.WHXYA, args.WHXYB);
+        }
+      } else if (args.SC == "Change") {
+        if (args.WHXY == "WidthHeight") {
+          window.resizeBy(args.WH, 0);
+        } else if (args.WHXY == "PositionXY") {
+          window.moveBy(args.WHXYA, args.WHXYB);
+        }
       }
       Scratch.vm.runtime.requestRedraw();
     }
