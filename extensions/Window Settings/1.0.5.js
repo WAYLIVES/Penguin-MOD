@@ -259,6 +259,25 @@
               },
             },
           },
+          {
+            opcode: "innerStageSizeWidthHeight",
+            blockType: Scratch.BlockType.COMMAND,
+            text: "[innerMenuSetChangeWH] window [innerMenuWidthHeight]: [innerWidthHeight] / / / ",
+            arguments: {
+              innerMenuSetChangeWH: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "innerMenuSetChangeWH",
+              },
+              innerMenuWidthHeight: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "innerMenuWidthHeight",
+              },
+              innerWidthHeight: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: "480",
+              },
+            },
+          },
           
           
           
@@ -354,6 +373,20 @@
               { text: "change", value: "change" },
             ],
           },
+          innerMenuSetChangeWH: {
+            acceptReporters: false,
+            items: [
+              { text: "set", value: "set" },
+              { text: "change", value: "change" },
+            ],
+          },
+          innerMenuWidthHeight: {
+            acceptReporters: false,
+            items: [
+              { text: "width", value: "width" },
+              { text: "height", value: "height" },
+            ],
+          },
 
 
           
@@ -422,6 +455,25 @@
         window.resizeTo(args.innerWidth + (window.outerWidth - window.innerWidth), args.innerHeight + (window.outerHeight - window.innerHeight));
       } else if (args.innerMenuSetChange == "change") {
         window.resizeBy(args.innerWidth, args.innerHeight);
+      }
+      Scratch.vm.runtime.requestRedraw();
+    }
+    
+    innerStageSizeWidthHeight(args) {
+      if (args.innerMenuSetChangeWH == "set") {
+        if (args.innerMenuWidthHeight == "width") {
+          const innerHeight = window.outerHeight;
+          window.resizeTo(args.innerWidthHeight + (window.outerWidth - window.innerWidth), innerHeight);
+        } else if (args.innerMenuWidthHeight == "height") {
+          const innerWidth = window.outerWidth;
+          window.resizeTo(innerWidth, args.innerWidthHeight + (window.outerHeight - window.innerHeight));
+        }
+      } else if (args.innerMenuSetChangeWH == "change") {       
+        if (args.innerMenuWidthHeight == "width") {
+          window.resizeBy(args.innerWidthHeight, 0);
+        } else if (args.innerMenuWidthHeight == "height") {
+          window.resizeBy(0, args.innerWidthHeight);
+        }
       }
       Scratch.vm.runtime.requestRedraw();
     }
