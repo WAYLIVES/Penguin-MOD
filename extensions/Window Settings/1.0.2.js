@@ -558,8 +558,7 @@
     matchStageSize() {
       window.resizeTo(
         Scratch.vm.runtime.stageWidth + (window.outerWidth - window.innerWidth),
-        Scratch.vm.runtime.stageHeight +
-          (window.outerHeight - window.innerHeight)
+        Scratch.vm.runtime.stageHeight + (window.outerHeight - window.innerHeight)
       );
       Scratch.vm.runtime.requestRedraw();
     }
