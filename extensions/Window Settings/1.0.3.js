@@ -102,7 +102,7 @@
           {
             opcode: "MoveWHXY",
             blockType: Scratch.BlockType.COMMAND,
-            text: ": : : : set window [WHXY]: [WHXYA], [WHXYB]",
+            text: "set window [WHXY]: [WHXYA], [WHXYB] ⁝ ⁝ ⁝ ⁝ ",
             arguments: {
               WHXY: {
                 type: Scratch.ArgumentType.STRING,
