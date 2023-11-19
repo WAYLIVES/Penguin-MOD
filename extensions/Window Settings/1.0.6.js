@@ -49,7 +49,7 @@
 
 /* ________________________________________________________________________________________ */  
   // иконка меню:
-  const menuIconURI = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiByeD0iMTAiIGZpbGw9IiNEMTM0MkEiLz4KPHJlY3QgeD0iMjIiIHk9IjIyIiB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHJ4PSI2IiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSIzMCIgeT0iNDIiIHdpZHRoPSI0MCIgaGVpZ2h0PSIyOCIgcng9IjMiIGZpbGw9IiNEMTM0MkEiLz4KPGNpcmNsZSBjeD0iNjUiIGN5PSIzMiIgcj0iNSIgZmlsbD0iI0QxMzQyQSIvPgo8L3N2Zz4K";
+  const menuIconURI = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjMiIHk9IjMiIHdpZHRoPSI5NCIgaGVpZ2h0PSI5NCIgcng9IjciIGZpbGw9IiM1ODc3MDAiLz4KPHJlY3QgeD0iMyIgeT0iMyIgd2lkdGg9Ijk0IiBoZWlnaHQ9Ijk0IiByeD0iNyIgc3Ryb2tlPSIjODFBRTAwIiBzdHJva2Utd2lkdGg9IjYiLz4KPHJlY3QgeD0iMjIiIHk9IjIyIiB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHJ4PSI2IiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSIzMCIgeT0iNDIiIHdpZHRoPSI0MCIgaGVpZ2h0PSIyOCIgcng9IjMiIGZpbGw9IiM1ODc3MDAiLz4KPGNpcmNsZSBjeD0iNjUiIGN5PSIzMiIgcj0iNSIgZmlsbD0iIzU4NzcwMCIvPgo8L3N2Zz4K";
   
   // иконки блоков:
 /* ________________________________________________________________________________________ */
@@ -81,11 +81,10 @@
         
         blocks: [
 
-        /*______ 1 ______ [ [set v] window [width v] (.), (.) ] ______*/
           {
             opcode: "MoveWHXY",
             blockType: Scratch.BlockType.COMMAND,
-            text: " / / / [SC] window [WHXY]: [WHXYA], [WHXYB] / / / ",
+            text: "[SC] window [WHXY]: [WHXYA], [WHXYB] / / / ",
             arguments: {
               SC: {
                 type: Scratch.ArgumentType.STRING,
@@ -105,12 +104,10 @@
               },
             },
           },
-          
-        /*______ 2 ______ [ [set v] window [width, height v] (.) ] ______*/
           {
             opcode: "WindowSCWH",
             blockType: Scratch.BlockType.COMMAND,
-            text: " / / / [MenuSC] window [MenuWH]: [WH] / / / ",
+            text: "[MenuSC] window [MenuWH]: [WH] / / / ",
             arguments: {
               MenuSC: {
                 type: Scratch.ArgumentType.STRING,
@@ -126,7 +123,6 @@
               },
             },
           },
-
           {
             opcode: "moveToPresets",
             blockType: Scratch.BlockType.COMMAND,
@@ -138,19 +134,17 @@
               },
             },
           },
-
           {
             opcode: "changeTitleTo",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("set window title to [TITLE]"),
+            text: Scratch.translate("set window title to [TITLE] / / / "),
             arguments: {
               TITLE: {
                 type: Scratch.ArgumentType.STRING,
                 defaultValue: Scratch.translate("Hello World!"),
               },
             },
-          },
-          
+          },          
           {
             opcode: "WindowWHXY",
             blockType: Scratch.BlockType.REPORTER,
@@ -162,13 +156,15 @@
               },
             },
           },
+          
 
           "---",
+          
 
           {
             opcode: "innerStageSize",
             blockType: Scratch.BlockType.COMMAND,
-            text: " / / / [innerMenuSetChange] inner stage size width: [innerWidth] height: [innerHeight] / / / ",
+            text: "[innerMenuSetChange] inner stage size width: [innerWidth] height: [innerHeight] / / / ",
             arguments: {
               innerMenuSetChange: {
                 type: Scratch.ArgumentType.STRING,
@@ -203,11 +199,10 @@
               },
             },
           },
-
           {
             opcode: "getDimension",
             text: Scratch.translate({
-              default: "stage [dimension]",
+              default: "stage [dimension] / / / ",
               description: "[dimension] is a dropdown of width and height",
             }),
             blockType: Scratch.BlockType.REPORTER,
@@ -219,8 +214,10 @@
               },
             },
           },  
+          
 
           "---",
+          
         
           {
             opcode: "FullscreenEnterExit",
@@ -261,8 +258,10 @@
               },
             },
           },
+          
 
-          "---",    
+          "---",   
+          
           
         ],
 /* ________________________________________________________________________________________ */
