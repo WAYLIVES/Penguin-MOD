@@ -183,21 +183,6 @@
             },
           },
 
-
-          "---",
-
-          {
-            opcode: "resizeToPresets",
-            blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("resize window to [PRESETS]"),
-            arguments: {
-              PRESETS: {
-                type: Scratch.ArgumentType.STRING,
-                menu: "RESIZE",
-              },
-            },
-          },
-
           "---",
 
           {
@@ -249,6 +234,28 @@
                 type: Scratch.ArgumentType.STRING,
                 defaultValue: "width",
                 menu: "dimension",
+              },
+            },
+          },
+
+
+
+          {
+            opcode: "innerStageSize",
+            blockType: Scratch.BlockType.COMMAND,
+            text: " / / / [innerMenuSetChange] inner stage size width: [innerWidth] height: [innerHeight] / / / ",
+            arguments: {
+              innerMenuSetChange: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "innerMenuSetChange",
+              },
+              innerWidth: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: "480",
+              },
+              innerHeight: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: "360",
               },
             },
           },
@@ -340,6 +347,13 @@
               { text: "change", value: "Change" },
             ],
           },
+          innerMenuSetChange: {
+            acceptReporters: false,
+            items: [
+              { text: "set", value: "set" },
+              { text: "change", value: "change" },
+            ],
+          },
 
 
           
@@ -357,32 +371,7 @@
               { text: Scratch.translate("bottom left"), value: "bottom left" },
             ],
           },
-          RESIZE: {
-            acceptReporters: false,
-            items: [
-              { text: "150x150 (1:1)", value: "150x150" },
-              { text: "225x225 (1:1)", value: "150x150" },
-              { text: "300x300 (1:1)", value: "150x150" },
 
-              { text: "200x150 (4:3)", value: "200x150" },
-              { text: "300x225 (4:3)", value: "200x150" },
-
-              { text: "272×153 (16:9)", value: "272x153" },
-              { text: "400×225 (16:9)", value: "272x153" },
-
-              
-
-              
-              { text: "480 × 360 (4:3)", value: "480x360" },
-              "640x480",
-              "1280x720",
-              "1920x1080",
-              "2560x1440",
-              "2048x1080",
-              "3840x2160",
-              "7680x4320",
-            ],
-          },
         },
       };
     }
@@ -414,16 +403,25 @@
     MoveWHXY(args) {
       if (args.SC == "Set") {
         if (args.WHXY == "WidthHeight") {
-          window.resizeTo(args.WHXYA + (window.outerWidth - window.innerWidth), args.WHXYB + (window.outerHeight - window.innerHeight));
+          window.resizeTo(args.WHXYA, args.WHXYB);
         } else if (args.WHXY == "PositionXY") {
           window.moveTo(args.WHXYA, args.WHXYB);
         }
       } else if (args.SC == "Change") {
         if (args.WHXY == "WidthHeight") {
-          window.resizeBy(args.WH, 0);
+          window.resizeBy(args.WHXYA, args.WHXYB);
         } else if (args.WHXY == "PositionXY") {
           window.moveBy(args.WHXYA, args.WHXYB);
         }
+      }
+      Scratch.vm.runtime.requestRedraw();
+    }
+
+    innerStageSize(args) {
+      if (args.innerMenuSetChange == "set") {
+        window.resizeTo(args.innerWidth + (window.outerWidth - window.innerWidth), args.innerHeight + (window.outerHeight - window.innerHeight));
+      } else if (args.innerMenuSetChange == "change") {
+        window.resizeBy(args.innerWidth, args.innerHeight);
       }
       Scratch.vm.runtime.requestRedraw();
     }
@@ -512,53 +510,6 @@
           document.exitFullscreen();
         }
       }
-    }
-
-
-
-    resizeToPresets(args) {
-      if (args.PRESETS == "480x360") {
-        window.resizeTo(
-          480 + (window.outerWidth - window.innerWidth),
-          360 + (window.outerHeight - window.innerHeight)
-        );
-      } else if (args.PRESETS == "640x480") {
-        window.resizeTo(
-          640 + (window.outerWidth - window.innerWidth),
-          480 + (window.outerHeight - window.innerHeight)
-        );
-      } else if (args.PRESETS == "1280x720") {
-        window.resizeTo(
-          1280 + (window.outerWidth - window.innerWidth),
-          720 + (window.outerHeight - window.innerHeight)
-        );
-      } else if (args.PRESETS == "1920x1080") {
-        window.resizeTo(
-          1920 + (window.outerWidth - window.innerWidth),
-          1080 + (window.outerHeight - window.innerHeight)
-        );
-      } else if (args.PRESETS == "2560x1440") {
-        window.resizeTo(
-          2560 + (window.outerWidth - window.innerWidth),
-          1440 + (window.outerHeight - window.innerHeight)
-        );
-      } else if (args.PRESETS == "2048x1080") {
-        window.resizeTo(
-          2048 + (window.outerWidth - window.innerWidth),
-          1080 + (window.outerHeight - window.innerHeight)
-        );
-      } else if (args.PRESETS == "3840x2160") {
-        window.resizeTo(
-          3840 + (window.outerWidth - window.innerWidth),
-          2160 + (window.outerHeight - window.innerHeight)
-        );
-      } else if (args.PRESETS == "7680x4320") {
-        window.resizeTo(
-          7680 + (window.outerWidth - window.innerWidth),
-          4320 + (window.outerHeight - window.innerHeight)
-        );
-      }
-      Scratch.vm.runtime.requestRedraw();
     }
 
     WindowSCWH(args) {
