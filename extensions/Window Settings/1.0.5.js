@@ -74,9 +74,9 @@
       return {              
         id: "WindowSettings",
         name: Scratch.translate({ id: "ExtensionName", default: "Window Settings" }),
-        color1: "#D1342A",
-        color2: "#A92B22",
-        color3: "#7D1F18",
+        color1: "#81AE00",
+        color2: "#729A00",
+        color3: "#587700",
         menuIconURI: menuIconURI,
         
         blocks: [
@@ -128,50 +128,6 @@
           },
 
           {
-            opcode: "WindowWHXY",
-            blockType: Scratch.BlockType.REPORTER,
-            text: Scratch.translate("window [MenuWindowWHXY] / / / "),
-            arguments: {
-              MenuWindowWHXY: {
-                type: Scratch.ArgumentType.STRING,
-                menu: "MenuWindowWHXY",
-              },
-            },
-          },
-          {
-            opcode: "ScreenWHXY",
-            blockType: Scratch.BlockType.REPORTER,
-            text: Scratch.translate("screen [MenuScreenWHXY] / / / "),
-            arguments: {
-              MenuScreenWHXY: {
-                type: Scratch.ArgumentType.STRING,
-                menu: "MenuScreenWHXY",
-              },
-            },
-          },
-          {
-            opcode: "QuestionsWS",
-            blockType: Scratch.BlockType.BOOLEAN,
-            text: Scratch.translate(" / / / [MenuQuestions] / / / "),
-            arguments: {
-              MenuQuestions: {
-                type: Scratch.ArgumentType.STRING,
-                menu: "MenuQuestions",
-              },
-            },
-          },
-          {
-            opcode: "FullscreenEnterExit",
-            blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("fullscreen [MenuFEE] / / / "),
-            arguments: {
-              MenuFEE: {
-                type: Scratch.ArgumentType.STRING,
-                menu: "MenuFEE",
-              },
-            },
-          },
-          {
             opcode: "moveToPresets",
             blockType: Scratch.BlockType.COMMAND,
             text: Scratch.translate("move window to the [PRESETS]"),
@@ -182,8 +138,6 @@
               },
             },
           },
-
-          "---",
 
           {
             opcode: "changeTitleTo",
@@ -196,49 +150,20 @@
               },
             },
           },
+          
           {
-            opcode: "closeWindow",
-            blockType: Scratch.BlockType.COMMAND,
-            isTerminal: true,
-            text: Scratch.translate("close window"),
-          },
-
-
-
-          {
-            opcode: "setDimensions",
-            text: Scratch.translate(
-              "set stage size width: [width] height: [height]"
-            ),
-            blockType: Scratch.BlockType.COMMAND,
-            arguments: {
-              width: {
-                type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "480",
-              },
-              height: {
-                type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "360",
-              },
-            },
-          },
-          {
-            opcode: "getDimension",
-            text: Scratch.translate({
-              default: "stage [dimension]",
-              description: "[dimension] is a dropdown of width and height",
-            }),
+            opcode: "WindowWHXY",
             blockType: Scratch.BlockType.REPORTER,
+            text: Scratch.translate("window [MenuWindowWHXY] / / / "),
             arguments: {
-              dimension: {
+              MenuWindowWHXY: {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: "width",
-                menu: "dimension",
+                menu: "MenuWindowWHXY",
               },
             },
           },
 
-
+          "---",
 
           {
             opcode: "innerStageSize",
@@ -278,8 +203,66 @@
               },
             },
           },
-          
-          
+
+          {
+            opcode: "getDimension",
+            text: Scratch.translate({
+              default: "stage [dimension]",
+              description: "[dimension] is a dropdown of width and height",
+            }),
+            blockType: Scratch.BlockType.REPORTER,
+            arguments: {
+              dimension: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "width",
+                menu: "dimension",
+              },
+            },
+          },  
+
+          "---",
+        
+          {
+            opcode: "FullscreenEnterExit",
+            blockType: Scratch.BlockType.COMMAND,
+            text: Scratch.translate("fullscreen [MenuFEE] / / / "),
+            arguments: {
+              MenuFEE: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "MenuFEE",
+              },
+            },
+          },
+          {
+            opcode: "closeWindow",
+            blockType: Scratch.BlockType.COMMAND,
+            isTerminal: true,
+            text: Scratch.translate("close window"),
+          },   
+          {
+            opcode: "QuestionsWS",
+            blockType: Scratch.BlockType.BOOLEAN,
+            text: Scratch.translate(" / / / [MenuQuestions] / / / "),
+            arguments: {
+              MenuQuestions: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "MenuQuestions",
+              },
+            },
+          },
+          {
+            opcode: "ScreenWHXY",
+            blockType: Scratch.BlockType.REPORTER,
+            text: Scratch.translate("screen [MenuScreenWHXY] / / / "),
+            arguments: {
+              MenuScreenWHXY: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "MenuScreenWHXY",
+              },
+            },
+          },
+
+          "---",    
           
         ],
 /* ________________________________________________________________________________________ */
@@ -416,12 +399,6 @@
 
 
 /* ________________________________________________________________________________________ */
-    setDimensions({ width, height }) {
-      width = Scratch.Cast.toNumber(width);
-      height = Scratch.Cast.toNumber(height);
-      Scratch.vm.setStageSize(width, height);
-    }
-
     getDimension({ dimension }) {
       if (dimension === "width") {
         return Scratch.vm.runtime.stageWidth;
