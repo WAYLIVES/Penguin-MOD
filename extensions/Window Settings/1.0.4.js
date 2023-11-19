@@ -254,6 +254,7 @@
           },
           
           
+          
         ],
 /* ________________________________________________________________________________________ */
 
@@ -354,13 +355,25 @@
               { text: Scratch.translate("top left"), value: "top left" },
               { text: Scratch.translate("bottom right"), value: "bottom right" },
               { text: Scratch.translate("bottom left"), value: "bottom left" },
-              { text: Scratch.translate("random position"), value: "random position" },
             ],
           },
           RESIZE: {
-            acceptReporters: true,
+            acceptReporters: false,
             items: [
-              "480x360",
+              { text: "150x150 (1:1)", value: "150x150" },
+              { text: "225x225 (1:1)", value: "150x150" },
+              { text: "300x300 (1:1)", value: "150x150" },
+
+              { text: "200x150 (4:3)", value: "200x150" },
+              { text: "300x225 (4:3)", value: "200x150" },
+
+              { text: "272×153 (16:9)", value: "272x153" },
+              { text: "400×225 (16:9)", value: "272x153" },
+
+              
+
+              
+              { text: "480 × 360 (4:3)", value: "480x360" },
               "640x480",
               "1280x720",
               "1920x1080",
@@ -401,7 +414,7 @@
     MoveWHXY(args) {
       if (args.SC == "Set") {
         if (args.WHXY == "WidthHeight") {
-          window.resizeTo(args.WHXYA, args.WHXYB);
+          window.resizeTo(args.WHXYA + (window.outerWidth - window.innerWidth), args.WHXYB + (window.outerHeight - window.innerHeight));
         } else if (args.WHXY == "PositionXY") {
           window.moveTo(args.WHXYA, args.WHXYB);
         }
@@ -448,10 +461,6 @@
       } else if (args.PRESETS == "bottom left") {
         const bottom = screen.height - window.outerHeight;
         window.moveTo(0, bottom);
-      } else if (args.PRESETS == "random position") {
-        const randomX = getRandomInt(0, screen.width);
-        const randomY = getRandomInt(0, screen.height);
-        window.moveTo(randomX, randomY);
       }
       Scratch.vm.runtime.requestRedraw();
     }
