@@ -213,21 +213,6 @@
             text: Scratch.translate("match stage size"),
           },
 
-
-          "---",
-
-          {
-            opcode: "isTouchingEdge",
-            blockType: Scratch.BlockType.BOOLEAN,
-            text: Scratch.translate("is window touching screen edge?"),
-          },
-
-          {
-            opcode: "isFocused",
-            blockType: Scratch.BlockType.BOOLEAN,
-            text: Scratch.translate("is window focused?"),
-          },
-
           "---",
 
           {
@@ -254,11 +239,6 @@
             opcode: "exitFullscreen",
             blockType: Scratch.BlockType.COMMAND,
             text: Scratch.translate("exit fullscreen"),
-          },
-          {
-            opcode: "isFullscreen",
-            blockType: Scratch.BlockType.BOOLEAN,
-            text: Scratch.translate("is window fullscreen?"),
           },
 
           "---",
@@ -455,9 +435,9 @@
           window.screenTop >= edgeY
         );
       } else if (args.MenuQuestions == "B") {
-        return window.outerHeight;
+        return document.hasFocus();
       } else if (args.MenuQuestions == "C") {
-        return window.screenLeft;
+        return document.fullscreenElement !== null;
       }
     }
 
@@ -567,19 +547,6 @@
       );
       Scratch.vm.runtime.requestRedraw();
     }
-    isTouchingEdge() {
-      const edgeX = screen.width - window.outerWidth;
-      const edgeY = screen.height - window.outerHeight;
-      return (
-        window.screenLeft <= 0 ||
-        window.screenTop <= 0 ||
-        window.screenLeft >= edgeX ||
-        window.screenTop >= edgeY
-      );
-    }
-    isFocused() {
-      return document.hasFocus();
-    }
     changeTitleTo(args) {
       document.title = args.TITLE;
     }
@@ -592,9 +559,6 @@
       if (document.fullscreenElement !== null) {
         document.exitFullscreen();
       }
-    }
-    isFullscreen() {
-      return document.fullscreenElement !== null;
     }
     closeWindow() {
       const editorConfirmation = Scratch.translate({
