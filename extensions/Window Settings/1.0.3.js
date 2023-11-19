@@ -375,8 +375,10 @@
 
 
     InnerW(args) {
-      const currentH = window.clientHeight;
-      window.resizeTo(args.W, currentH);
+      if (clicked) {
+        window.focus();
+        Scratch.vm.runtime.requestRedraw();
+      }
     }
     InnerH(args) {
       const currentW = window.clientWidth;
