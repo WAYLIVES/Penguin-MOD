@@ -152,6 +152,17 @@
             },
           },
           {
+            opcode: "FullscreenEnterExit",
+            blockType: Scratch.BlockType.COMMAND,
+            text: Scratch.translate("fullscreen [MenuFEE] / / / "),
+            arguments: {
+              MenuFEE: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "MenuFEE",
+              },
+            },
+          },
+          {
             opcode: "moveTo",
             blockType: Scratch.BlockType.COMMAND,
             text: Scratch.translate("move window to x: [X] y: [Y]"),
@@ -206,11 +217,6 @@
                 menu: "RESIZE",
               },
             },
-          },
-          {
-            opcode: "matchStageSize",
-            blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("match stage size"),
           },
 
           "---",
@@ -305,6 +311,13 @@
               { text: "is window touching screen edge?", value: "A" },
               { text: "is window focused?", value: "B" },
               { text: "is window fullscreen?", value: "C" },
+            ],
+          },
+          MenuFEE: {
+            acceptReporters: false,
+            items: [
+              { text: "enter", value: "Enter" },
+              { text: "exit", value: "Exit" },
             ],
           },
 
@@ -539,14 +552,6 @@
       Scratch.vm.runtime.requestRedraw();
     }
 
-    
-    matchStageSize() {
-      window.resizeTo(
-        Scratch.vm.runtime.stageWidth + (window.outerWidth - window.innerWidth),
-        Scratch.vm.runtime.stageHeight + (window.outerHeight - window.innerHeight)
-      );
-      Scratch.vm.runtime.requestRedraw();
-    }
     changeTitleTo(args) {
       document.title = args.TITLE;
     }
