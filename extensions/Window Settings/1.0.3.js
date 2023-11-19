@@ -83,7 +83,7 @@
           {
             opcode: "WindowSCWH",
             blockType: Scratch.BlockType.COMMAND,
-            text: ": : : :[MenuSC] window [MenuWH]: [WH]",
+            text: ": : : :[MenuSC] window [MenuWH]: [WH] / / / ",
             arguments: {
               MenuSC: {
                 type: Scratch.ArgumentType.STRING,
@@ -137,6 +137,17 @@
               MenuScreenWHXY: {
                 type: Scratch.ArgumentType.STRING,
                 menu: "MenuScreenWHXY",
+              },
+            },
+          },
+          {
+            opcode: "QuestionsWS",
+            blockType: Scratch.BlockType.BOOLEAN,
+            text: Scratch.translate(" / / / [MenuQuestions] / / / "),
+            arguments: {
+              MenuQuestions: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "MenuQuestions",
               },
             },
           },
@@ -308,6 +319,14 @@
               { text: "height", value: "Height" },
             ],
           },
+          MenuQuestions: {
+            acceptReporters: true,
+            items: [
+              { text: "is window touching screen edge?", value: "A" },
+              { text: "is window focused?", value: "B" },
+              { text: "is window fullscreen?", value: "C" },
+            ],
+          },
 
 
           
@@ -423,6 +442,22 @@
         return screen.width;
       } else if (args.MenuScreenWHXY == "Height") {
         return screen.height;
+      }
+    }
+    QuestionsWS(args) {
+      if (args.MenuQuestions == "A") {
+        const edgeX = screen.width - window.outerWidth;
+        const edgeY = screen.height - window.outerHeight;
+        return (
+          window.screenLeft <= 0 ||
+          window.screenTop <= 0 ||
+          window.screenLeft >= edgeX ||
+          window.screenTop >= edgeY
+        );
+      } else if (args.MenuQuestions == "B") {
+        return window.outerHeight;
+      } else if (args.MenuQuestions == "C") {
+        return window.screenLeft;
       }
     }
 
