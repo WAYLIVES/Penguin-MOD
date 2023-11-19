@@ -232,29 +232,35 @@
               },
             },
           },
-
-
-          "---",
-
-          {
-            opcode: "enterFullscreen",
-            blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("enter fullscreen"),
-          },
-          {
-            opcode: "exitFullscreen",
-            blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("exit fullscreen"),
-          },
-
-          "---",
-
           {
             opcode: "closeWindow",
             blockType: Scratch.BlockType.COMMAND,
             isTerminal: true,
             text: Scratch.translate("close window"),
           },
+
+
+          {
+            opcode: "InnerW",
+            blockType: Scratch.BlockType.COMMAND,
+            text: Scratch.translate("width [W]"),
+            arguments: {
+              W: {
+                type: Scratch.ArgumentType.STRING,
+              },
+            },
+          },
+          {
+            opcode: "InnerH",
+            blockType: Scratch.BlockType.COMMAND,
+            text: Scratch.translate("height [H]"),
+            arguments: {
+              H: {
+                type: Scratch.ArgumentType.STRING,
+              },
+            },
+          },
+          
         ],
 /* ________________________________________________________________________________________ */
 
@@ -367,6 +373,18 @@
       Scratch.vm.runtime.requestRedraw();
     }
 
+
+    InnerW(args) {
+      const currentH = window.clientHeight;
+      window.resizeTo(args.W, currentH);
+    }
+    InnerH(args) {
+      const currentW = window.clientWidth;
+      window.resizeTo(currentW, args.H);
+    }
+
+    
+
     MoveWHXY(args) {
       if (args.WHXY == "WidthHeight") {
         window.resizeTo(args.WHXYA, args.WHXYB);
@@ -375,6 +393,7 @@
       }
       Scratch.vm.runtime.requestRedraw();
     }
+    
 
     
     moveToPresets(args) {
@@ -453,27 +472,21 @@
         return document.fullscreenElement !== null;
       }
     }
+    FullscreenEnterExit(args) {
+      if (args.MenuFEE == "Enter") {
+        if (document.fullscreenElement == null) {
+          document.documentElement.requestFullscreen();
+        }
+      } else if (args.MenuFEE == "Exit") {
+        if (document.fullscreenElement !== null) {
+          document.exitFullscreen();
+        }
+      }
+    }
 
 
     
-    changeX(args) {
-      window.moveBy(args.X, 0);
-      Scratch.vm.runtime.requestRedraw();
-    }
-    setX(args) {
-      const currentY = window.screenY;
-      window.moveTo(args.X, currentY);
-      Scratch.vm.runtime.requestRedraw();
-    }
-    changeY(args) {
-      window.moveBy(0, args.Y);
-      Scratch.vm.runtime.requestRedraw();
-    }
-    setY(args) {
-      const currentX = window.screenX;
-      window.moveTo(currentX, args.Y);
-      Scratch.vm.runtime.requestRedraw();
-    }
+
     resizeTo(args) {
       window.resizeTo(args.W, args.H);
       Scratch.vm.runtime.requestRedraw();
@@ -554,16 +567,6 @@
 
     changeTitleTo(args) {
       document.title = args.TITLE;
-    }
-    enterFullscreen() {
-      if (document.fullscreenElement == null) {
-        document.documentElement.requestFullscreen();
-      }
-    }
-    exitFullscreen() {
-      if (document.fullscreenElement !== null) {
-        document.exitFullscreen();
-      }
     }
     closeWindow() {
       const editorConfirmation = Scratch.translate({
