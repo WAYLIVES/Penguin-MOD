@@ -102,7 +102,7 @@
           {
             opcode: "MoveWHXY",
             blockType: Scratch.BlockType.COMMAND,
-            text: "set window [WHXY]: [WHXYA], [WHXYB] ⁝ ⁝ ⁝ ⁝ ",
+            text: "set window [WHXY]: [WHXYA], [WHXYB] / / / ",
             arguments: {
               WHXY: {
                 type: Scratch.ArgumentType.STRING,
@@ -121,11 +121,22 @@
           {
             opcode: "WindowWHXY",
             blockType: Scratch.BlockType.REPORTER,
-            text: Scratch.translate("window [MenuWindowWHXY] ⁝ ⁝ ⁝ ⁝ "),
+            text: Scratch.translate("window [MenuWindowWHXY] / / / "),
             arguments: {
               MenuWindowWHXY: {
                 type: Scratch.ArgumentType.STRING,
                 menu: "MenuWindowWHXY",
+              },
+            },
+          },
+          {
+            opcode: "ScreenWHXY",
+            blockType: Scratch.BlockType.REPORTER,
+            text: Scratch.translate("screen [MenuScreenWHXY] / / / "),
+            arguments: {
+              MenuScreenWHXY: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "MenuScreenWHXY",
               },
             },
           },
@@ -199,18 +210,6 @@
             blockType: Scratch.BlockType.BOOLEAN,
             text: Scratch.translate("is window touching screen edge?"),
           },
-          {
-            opcode: "screenW",
-            blockType: Scratch.BlockType.REPORTER,
-            text: Scratch.translate("screen width"),
-          },
-          {
-            opcode: "screenH",
-            blockType: Scratch.BlockType.REPORTER,
-            text: Scratch.translate("screen height"),
-          },
-
-          "---",
 
           {
             opcode: "isFocused",
@@ -300,6 +299,13 @@
               { text: "x position", value: "PositionX" },
               { text: "y position", value: "PositionY" },
               { text: "title", value: "Title" },
+            ],
+          },
+          MenuScreenWHXY: {
+            acceptReporters: true,
+            items: [
+              { text: "width", value: "Width" },
+              { text: "height", value: "Height" },
             ],
           },
 
@@ -410,6 +416,13 @@
         return window.screenTop;
       } else if (args.MenuWindowWHXY == "Title") {
         return document.title;
+      }
+    }
+    ScreenWHXY(args) {
+      if (args.MenuScreenWHXY == "Width") {
+        return screen.width;
+      } else if (args.MenuScreenWHXY == "Height") {
+        return screen.height;
       }
     }
 
@@ -528,12 +541,6 @@
         window.screenLeft >= edgeX ||
         window.screenTop >= edgeY
       );
-    }
-    screenW() {
-      return screen.width;
-    }
-    screenH() {
-      return screen.height;
     }
     isFocused() {
       return document.hasFocus();
