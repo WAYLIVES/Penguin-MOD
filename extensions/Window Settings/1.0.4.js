@@ -80,25 +80,8 @@
         menuIconURI: menuIconURI,
         
         blocks: [
-          {
-            opcode: "WindowSCWH",
-            blockType: Scratch.BlockType.COMMAND,
-            text: " / / / [MenuSC] window [MenuWH]: [WH] / / / ",
-            arguments: {
-              MenuSC: {
-                type: Scratch.ArgumentType.STRING,
-                menu: "MenuSC",
-              },
-              MenuWH: {
-                type: Scratch.ArgumentType.STRING,
-                menu: "MenuWH",
-              },
-              WH: {
-                type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "100",
-              },
-            },
-          },
+
+        /*______ 1 ______ [ [set v] window [width v] (.), (.) ] ______*/
           {
             opcode: "MoveWHXY",
             blockType: Scratch.BlockType.COMMAND,
@@ -114,14 +97,36 @@
               },
               WHXYA: {
                 type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "100",
+                defaultValue: "480",
               },
               WHXYB: {
                 type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "100",
+                defaultValue: "360",
               },
             },
           },
+          
+        /*______ 2 ______ [ [set v] window [width, height v] (.) ] ______*/
+          {
+            opcode: "WindowSCWH",
+            blockType: Scratch.BlockType.COMMAND,
+            text: " / / / [MenuSC] window [MenuWH]: [WH] / / / ",
+            arguments: {
+              MenuSC: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "MenuSC",
+              },
+              MenuWH: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "MenuWH",
+              },
+              WH: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: "480",
+              },
+            },
+          },
+
           {
             opcode: "WindowWHXY",
             blockType: Scratch.BlockType.REPORTER,
@@ -167,21 +172,6 @@
             },
           },
           {
-            opcode: "moveTo",
-            blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("move window to x: [X] y: [Y]"),
-            arguments: {
-              X: {
-                type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "100",
-              },
-              Y: {
-                type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "100",
-              },
-            },
-          },
-          {
             opcode: "moveToPresets",
             blockType: Scratch.BlockType.COMMAND,
             text: Scratch.translate("move window to the [PRESETS]"),
@@ -196,21 +186,6 @@
 
           "---",
 
-          {
-            opcode: "resizeTo",
-            blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("resize window to width: [W] height: [H]"),
-            arguments: {
-              W: {
-                type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "480",
-              },
-              H: {
-                type: Scratch.ArgumentType.NUMBER,
-                defaultValue: "360",
-              },
-            },
-          },
           {
             opcode: "resizeToPresets",
             blockType: Scratch.BlockType.COMMAND,
@@ -406,12 +381,6 @@
 
 
 /* ________________________________________________________________________________________ */
-    moveTo(args) {
-      window.moveTo(args.X, args.Y);
-      Scratch.vm.runtime.requestRedraw();
-    }
-
-
     setDimensions({ width, height }) {
       width = Scratch.Cast.toNumber(width);
       height = Scratch.Cast.toNumber(height);
@@ -537,12 +506,7 @@
     }
 
 
-    
 
-    resizeTo(args) {
-      window.resizeTo(args.W, args.H);
-      Scratch.vm.runtime.requestRedraw();
-    }
     resizeToPresets(args) {
       if (args.PRESETS == "480x360") {
         window.resizeTo(
