@@ -132,6 +132,7 @@
               },
             },
           },
+          
           {
             opcode: "WindowSCWH",
             blockType: Scratch.BlockType.COMMAND,
@@ -151,6 +152,7 @@
               },
             },
           },
+          
           {
             opcode: "moveToPresets",
             blockType: Scratch.BlockType.COMMAND,
@@ -162,6 +164,7 @@
               },
             },
           },
+          
           {
             opcode: "changeTitleTo",
             blockType: Scratch.BlockType.COMMAND,
@@ -172,7 +175,8 @@
                 defaultValue: Scratch.translate("WAYLIVES"),
               },
             },
-          },          
+          },  
+          
           {
             opcode: "WindowWHXY",
             blockType: Scratch.BlockType.REPORTER,
@@ -208,6 +212,7 @@
               },
             },
           },
+          
           {
             opcode: "innerStageSizeWidthHeight",
             blockType: Scratch.BlockType.COMMAND,
@@ -227,6 +232,7 @@
               },
             },
           },
+          
           {
             opcode: "getDimension",
             text: Scratch.translate({
@@ -258,12 +264,14 @@
               },
             },
           },
+          
           {
             opcode: "closeWindow",
             blockType: Scratch.BlockType.COMMAND,
             isTerminal: true,
             text: Scratch.translate("close window"),
-          },   
+          },  
+          
           {
             opcode: "QuestionsWS",
             blockType: Scratch.BlockType.BOOLEAN,
@@ -276,6 +284,7 @@
               },
             },
           },
+          
           {
             opcode: "ScreenWHXY",
             blockType: Scratch.BlockType.REPORTER,
@@ -336,15 +345,15 @@
           MOVE: {
             acceptReporters: false,
             items: [
-              { text: Scratch.translate("center"), value: "center" },
-              { text: Scratch.translate("right"), value: "right" },
-              { text: Scratch.translate("left"), value: "left" },
-              { text: Scratch.translate("top"), value: "top" },
-              { text: Scratch.translate("bottom"), value: "bottom" },
-              { text: Scratch.translate("top right"), value: "top right" },
-              { text: Scratch.translate("top left"), value: "top left" },
-              { text: Scratch.translate("bottom right"), value: "bottom right" },
-              { text: Scratch.translate("bottom left"), value: "bottom left" },
+              { text: Scratch.translate({ id: "PRESETSA", default: "center" }), value: "center" },
+              { text: Scratch.translate({ id: "PRESETSB", default: "right" }), value: "right" },
+              { text: Scratch.translate({ id: "PRESETSC", default: "left" }), value: "left" },
+              { text: Scratch.translate({ id: "PRESETSD", default: "top" }), value: "top" },
+              { text: Scratch.translate({ id: "PRESETSE", default: "bottom" }), value: "bottom" },
+              { text: Scratch.translate({ id: "PRESETSF", default: "top right" }), value: "top right" },
+              { text: Scratch.translate({ id: "PRESETSG", default: "top left" }), value: "top left" },
+              { text: Scratch.translate({ id: "PRESETSH", default: "bottom right" }), value: "bottom right" },
+              { text: Scratch.translate({ id: "PRESETSI", default: "bottom left" }), value: "bottom left" },
             ],
           },         
           MenuWindowWHXY: {
