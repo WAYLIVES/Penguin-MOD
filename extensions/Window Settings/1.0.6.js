@@ -57,6 +57,11 @@
           PRESETSH: "в нижнем правом углу",
           PRESETSI: "в нижнем левом углу",
       changeTitleTo: "задать окну имя [TITLE]",
+      WindowWHXY: "окно [MenuWindowWHXY]",
+      innerStageSize: "размер внутренней сцены [innerMenuSetChange] ширину: [innerWidth] высоту: [innerHeight] / / / ",
+        // [innerMenuSetChange]:
+          innerMenuSetChangeA: "задать",
+          innerMenuSetChangeB: "изменить",
     },
   }); 
 /* ________________________________________________________________________________________ */
@@ -181,7 +186,7 @@
           {
             opcode: "WindowWHXY",
             blockType: Scratch.BlockType.REPORTER,
-            text: Scratch.translate("window [MenuWindowWHXY] / / / "),
+            text: Scratch.translate({ id: "WindowWHXY", default: "window [MenuWindowWHXY] / / / " }),
             arguments: {
               MenuWindowWHXY: {
                 type: Scratch.ArgumentType.STRING,
@@ -197,7 +202,7 @@
           {
             opcode: "innerStageSize",
             blockType: Scratch.BlockType.COMMAND,
-            text: "inner stage size [innerMenuSetChange] width: [innerWidth] height: [innerHeight] / / / ",
+            text: Scratch.translate({ id: "innerStageSize", default: "inner stage size [innerMenuSetChange] width: [innerWidth] height: [innerHeight] / / / " }),
             arguments: {
               innerMenuSetChange: {
                 type: Scratch.ArgumentType.STRING,
@@ -370,8 +375,8 @@
           innerMenuSetChange: {
             acceptReporters: false,
             items: [
-              { text: "set", value: "set" },
-              { text: "change", value: "change" },
+              { text: Scratch.translate({ id: "innerMenuSetChangeA", default: "set" }), value: "set" },
+              { text: Scratch.translate({ id: "innerMenuSetChangeB", default: "change" }), value: "change" },
             ],
           },
           innerMenuSetChangeWH: {
