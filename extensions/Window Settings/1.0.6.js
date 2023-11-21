@@ -275,6 +275,21 @@
 
 /* ________________________________________________________________________________________ */
         menus: {
+          
+          SC: {
+            acceptReporters: false,
+            items: [
+              { text: "set", value: "Set" },
+              { text: "change", value: "Change" },
+            ],
+          },
+          WHXY: {
+            acceptReporters: false,
+            items: [
+              { text: "width, height", value: "WidthHeight" },
+              { text: "x position, y position", value: "PositionXY" },
+            ],
+          },      
           MenuSC: {
             acceptReporters: false,
             items: [
@@ -291,13 +306,20 @@
               { text: "y position", value: "PositionY" },
             ],
           },
-          WHXY: {
+          MOVE: {
             acceptReporters: false,
             items: [
-              { text: "width, height", value: "WidthHeight" },
-              { text: "x position, y position", value: "PositionXY" },
+              { text: Scratch.translate("center"), value: "center" },
+              { text: Scratch.translate("right"), value: "right" },
+              { text: Scratch.translate("left"), value: "left" },
+              { text: Scratch.translate("top"), value: "top" },
+              { text: Scratch.translate("bottom"), value: "bottom" },
+              { text: Scratch.translate("top right"), value: "top right" },
+              { text: Scratch.translate("top left"), value: "top left" },
+              { text: Scratch.translate("bottom right"), value: "bottom right" },
+              { text: Scratch.translate("bottom left"), value: "bottom left" },
             ],
-          },
+          },         
           MenuWindowWHXY: {
             acceptReporters: true,
             items: [
@@ -306,48 +328,6 @@
               { text: "x position", value: "PositionX" },
               { text: "y position", value: "PositionY" },
               { text: "title", value: "Title" },
-            ],
-          },
-          MenuScreenWHXY: {
-            acceptReporters: true,
-            items: [
-              { text: "width", value: "Width" },
-              { text: "height", value: "Height" },
-            ],
-          },
-          MenuQuestions: {
-            acceptReporters: false,
-            items: [
-              { text: "is window touching screen edge?", value: "A" },
-              { text: "is window focused?", value: "B" },
-              { text: "is window fullscreen?", value: "C" },
-            ],
-          },
-          MenuFEE: {
-            acceptReporters: false,
-            items: [
-              { text: "enter", value: "Enter" },
-              { text: "exit", value: "Exit" },
-            ],
-          },
-          dimension: {
-            acceptReporters: true,
-            items: [
-              {
-                text: Scratch.translate("width"),
-                value: "width",
-              },
-              {
-                text: Scratch.translate("height"),
-                value: "height",
-              },
-            ],
-          },
-          SC: {
-            acceptReporters: false,
-            items: [
-              { text: "set", value: "Set" },
-              { text: "change", value: "Change" },
             ],
           },
           innerMenuSetChange: {
@@ -371,24 +351,42 @@
               { text: "height", value: "height" },
             ],
           },
-
-
-          
-          MOVE: {
-            acceptReporters: false,
+          dimension: {
+            acceptReporters: true,
             items: [
-              { text: Scratch.translate("center"), value: "center" },
-              { text: Scratch.translate("right"), value: "right" },
-              { text: Scratch.translate("left"), value: "left" },
-              { text: Scratch.translate("top"), value: "top" },
-              { text: Scratch.translate("bottom"), value: "bottom" },
-              { text: Scratch.translate("top right"), value: "top right" },
-              { text: Scratch.translate("top left"), value: "top left" },
-              { text: Scratch.translate("bottom right"), value: "bottom right" },
-              { text: Scratch.translate("bottom left"), value: "bottom left" },
+              {
+                text: Scratch.translate("width"),
+                value: "width",
+              },
+              {
+                text: Scratch.translate("height"),
+                value: "height",
+              },
             ],
           },
-
+          MenuFEE: {
+            acceptReporters: false,
+            items: [
+              { text: "enter", value: "Enter" },
+              { text: "exit", value: "Exit" },
+            ],
+          },
+          MenuQuestions: {
+            acceptReporters: false,
+            items: [
+              { text: "is window touching screen edge?", value: "A" },
+              { text: "is window focused?", value: "B" },
+              { text: "is window fullscreen?", value: "C" },
+            ],
+          },
+          MenuScreenWHXY: {
+            acceptReporters: true,
+            items: [
+              { text: "width", value: "Width" },
+              { text: "height", value: "Height" },
+            ],
+          },
+                    
         },
       };
     }
