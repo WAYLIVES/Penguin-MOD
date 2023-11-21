@@ -45,6 +45,17 @@
           MenuWHB: "высоту",
           MenuWHC: "позицию x",
           MenuWHD: "позицию y",
+      moveToPresets: "переместить окно [PRESETS] / / / ",
+        // [PRESETS]:
+          PRESETSA: "по центру",
+          PRESETSB: "справа",
+          PRESETSC: "слева",
+          PRESETSD: "сверху",
+          PRESETSE: "снизу",
+          PRESETSF: "в верхнем правом углу",
+          PRESETSG: "в верхнем левом углу",
+          PRESETSH: "в нижнем правом углу",
+          PRESETSI: "в нижнем левом углу",
     },
   }); 
 /* ________________________________________________________________________________________ */
@@ -143,7 +154,7 @@
           {
             opcode: "moveToPresets",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("move window to the [PRESETS]"),
+            text: Scratch.translate({ id: "moveToPresets", default: "move window to the [PRESETS] / / / " }),
             arguments: {
               PRESETS: {
                 type: Scratch.ArgumentType.STRING,
