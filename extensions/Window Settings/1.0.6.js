@@ -56,6 +56,7 @@
           PRESETSG: "в верхнем левом углу",
           PRESETSH: "в нижнем правом углу",
           PRESETSI: "в нижнем левом углу",
+      changeTitleTo: "задать окну имя [TITLE]",
     },
   }); 
 /* ________________________________________________________________________________________ */
@@ -168,7 +169,7 @@
           {
             opcode: "changeTitleTo",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("set window title to [TITLE] / / / "),
+            text: Scratch.translate({ id: "changeTitleTo", default: "set window title to [TITLE] / / / " }),
             arguments: {
               TITLE: {
                 type: Scratch.ArgumentType.STRING,
