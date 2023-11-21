@@ -29,13 +29,22 @@
     ru /*_РусскийЯзык_*/: {
       ExtensionName: "Настройки Окна",
       LabelA: "Window Settings:",
-      MoveWHXY: "окно [SC] по [WHXY]: [WHXYA], [WHXYB] / / / ",
-          // [SC]:
-            SCA: "задать",
-            SCB: "изменить",
-          // [WHXY]:
-            WHXYA: "ширине, высоте",
-            WHXYB: "позиции x, позиции y",
+      MoveWHXY: "окно [SC] [WHXY]: [WHXYA], [WHXYB] / / / ",
+        // [SC]:
+          SCA: "задать",
+          SCB: "изменить",
+        // [WHXY]:
+          WHXYA: "ширину, высоту",
+          WHXYB: "позицию x, позицию y",
+      WindowSCWH: "окно [MenuSC] [MenuWH]: [WH] / / / ",
+        // [MenuSC]:
+          MenuSCA: "задать",
+          MenuSCB: "изменить",
+        // [MenuWH]:
+          MenuWHA: "ширину",
+          MenuWHB: "высоту",
+          MenuWHC: "позицию x",
+          MenuWHD: "позицию y",
     },
   }); 
 /* ________________________________________________________________________________________ */
@@ -115,7 +124,7 @@
           {
             opcode: "WindowSCWH",
             blockType: Scratch.BlockType.COMMAND,
-            text: "window [MenuSC] [MenuWH]: [WH] / / / ",
+            text: Scratch.translate({ id: "WindowSCWH", default: "window [MenuSC] [MenuWH]: [WH] / / / " }),
             arguments: {
               MenuSC: {
                 type: Scratch.ArgumentType.STRING,
@@ -290,27 +299,27 @@
               { text: Scratch.translate({ id: "SCB", default: "change" }), value: "Change" },
             ],
           },
-          WHXY: 
+          WHXY: {
             acceptReporters: false,
             items: [
-              { text: { text: Scratch.translate({ id: "WHXYA", default: "width, height" }), value: "WidthHeight" },
-              { text: { text: Scratch.translate({ id: "WHXYB", default: "x position, y position" }), value: "PositionXY" },
+              { text: Scratch.translate({ id: "WHXYA", default: "width, height" }), value: "WidthHeight" },
+              { text: Scratch.translate({ id: "WHXYB", default: "x position, y position" }), value: "PositionXY" },
             ],
           },      
           MenuSC: {
             acceptReporters: false,
             items: [
-              { text: "set", value: "Set" },
-              { text: "change", value: "Change" },
+              { text: Scratch.translate({ id: "MenuSCA", default: "set" }), value: "Set" },
+              { text: Scratch.translate({ id: "MenuSCB", default: "change" }), value: "Change" },
             ],
           },
           MenuWH: {
             acceptReporters: false,
             items: [
-              { text: "width", value: "Width" },
-              { text: "height", value: "Height" },
-              { text: "x position", value: "PositionX" },
-              { text: "y position", value: "PositionY" },
+              { text: Scratch.translate({ id: "MenuWHA", default: "width" }), value: "Width" },
+              { text: Scratch.translate({ id: "MenuWHB", default: "height" }), value: "Height" },
+              { text: Scratch.translate({ id: "MenuWHC", default: "x position" }), value: "PositionX" },
+              { text: Scratch.translate({ id: "MenuWHD", default: "y position" }), value: "PositionY" },
             ],
           },
           MOVE: {
