@@ -62,6 +62,13 @@
         // [innerMenuSetChange]:
           innerMenuSetChangeA: "задать",
           innerMenuSetChangeB: "изменить",
+      innerStageSizeWidthHeight: "размер внутренней сцены [innerMenuSetChangeWH] [innerMenuWidthHeight]: [innerWidthHeight] / / / ",
+        // [innerMenuSetChangeWH]:
+          innerMenuSetChangeWHA: "задать",
+          innerMenuSetChangeWHB: "изменить",
+        // [innerMenuWidthHeight]:
+          innerMenuWidthHeightA: "ширину",
+          innerMenuWidthHeightB: "высоту",
     },
   }); 
 /* ________________________________________________________________________________________ */
@@ -222,7 +229,7 @@
           {
             opcode: "innerStageSizeWidthHeight",
             blockType: Scratch.BlockType.COMMAND,
-            text: "window [innerMenuSetChangeWH] [innerMenuWidthHeight]: [innerWidthHeight] / / / ",
+            text: Scratch.translate({ id: "innerStageSizeWidthHeight", default: "inner stage size [innerMenuSetChangeWH] [innerMenuWidthHeight]: [innerWidthHeight] / / / " }),
             arguments: {
               innerMenuSetChangeWH: {
                 type: Scratch.ArgumentType.STRING,
@@ -382,15 +389,15 @@
           innerMenuSetChangeWH: {
             acceptReporters: false,
             items: [
-              { text: "set", value: "set" },
-              { text: "change", value: "change" },
+              { text: Scratch.translate({ id: "innerMenuSetChangeWHA", default: "set" }), value: "set" },
+              { text: Scratch.translate({ id: "innerMenuSetChangeWHB", default: "change" }), value: "change" },
             ],
           },
           innerMenuWidthHeight: {
             acceptReporters: false,
             items: [
-              { text: "width", value: "width" },
-              { text: "height", value: "height" },
+              { text: Scratch.translate({ id: "innerMenuWidthHeightA", default: "width" }), value: "width" },
+              { text: Scratch.translate({ id: "innerMenuWidthHeightB", default: "height" }), value: "height" },
             ],
           },
           dimension: {
