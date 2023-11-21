@@ -29,6 +29,13 @@
     ru /*_РусскийЯзык_*/: {
       ExtensionName: "Настройки Окна",
       LabelA: "Window Settings:",
+      MoveWHXY: "окно [SC] по [WHXY]: [WHXYA], [WHXYB] / / / ",
+          // [SC]:
+            SCA: "задать",
+            SCB: "изменить",
+          // [WHXY]:
+            WHXYA: "ширине, высоте",
+            WHXYB: "позиции x, позиции y",
     },
   }); 
 /* ________________________________________________________________________________________ */
@@ -85,7 +92,7 @@
           {
             opcode: "MoveWHXY",
             blockType: Scratch.BlockType.COMMAND,
-            text: "window [SC] [WHXY]: [WHXYA], [WHXYB] / / / ",
+            text: Scratch.translate({ id: "MoveWHXY", default: "window [SC] [WHXY]: [WHXYA], [WHXYB] / / / " }),
             arguments: {
               SC: {
                 type: Scratch.ArgumentType.STRING,
@@ -279,15 +286,15 @@
           SC: {
             acceptReporters: false,
             items: [
-              { text: "set", value: "Set" },
-              { text: "change", value: "Change" },
+              { text: Scratch.translate({ id: "SCA", default: "set" }), value: "Set" },
+              { text: Scratch.translate({ id: "SCB", default: "change" }), value: "Change" },
             ],
           },
-          WHXY: {
+          WHXY: 
             acceptReporters: false,
             items: [
-              { text: "width, height", value: "WidthHeight" },
-              { text: "x position, y position", value: "PositionXY" },
+              { text: { text: Scratch.translate({ id: "WHXYA", default: "width, height" }), value: "WidthHeight" },
+              { text: { text: Scratch.translate({ id: "WHXYB", default: "x position, y position" }), value: "PositionXY" },
             ],
           },      
           MenuSC: {
