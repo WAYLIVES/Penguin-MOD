@@ -85,8 +85,7 @@
           {
             opcode: "MoveWHXY",
             blockType: Scratch.BlockType.COMMAND,
-            text: "[SC] window [WHXY]: [WHXYA], [WHXYB] / / / ",
-            blockIconURI: MoveWHXY,
+            text: "window [SC] [WHXY]: [WHXYA], [WHXYB] / / / ",
             arguments: {
               SC: {
                 type: Scratch.ArgumentType.STRING,
@@ -109,7 +108,7 @@
           {
             opcode: "WindowSCWH",
             blockType: Scratch.BlockType.COMMAND,
-            text: "[MenuSC] window [MenuWH]: [WH] / / / ",
+            text: "window [MenuSC] [MenuWH]: [WH] / / / ",
             arguments: {
               MenuSC: {
                 type: Scratch.ArgumentType.STRING,
@@ -143,7 +142,7 @@
             arguments: {
               TITLE: {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: Scratch.translate("Hello World!"),
+                defaultValue: Scratch.translate("WAYLIVES"),
               },
             },
           },          
@@ -166,7 +165,7 @@
           {
             opcode: "innerStageSize",
             blockType: Scratch.BlockType.COMMAND,
-            text: "[innerMenuSetChange] inner stage size width: [innerWidth] height: [innerHeight] / / / ",
+            text: "inner stage size [innerMenuSetChange] width: [innerWidth] height: [innerHeight] / / / ",
             arguments: {
               innerMenuSetChange: {
                 type: Scratch.ArgumentType.STRING,
@@ -185,7 +184,7 @@
           {
             opcode: "innerStageSizeWidthHeight",
             blockType: Scratch.BlockType.COMMAND,
-            text: "[innerMenuSetChangeWH] window [innerMenuWidthHeight]: [innerWidthHeight] / / / ",
+            text: "window [innerMenuSetChangeWH] [innerMenuWidthHeight]: [innerWidthHeight] / / / ",
             arguments: {
               innerMenuSetChangeWH: {
                 type: Scratch.ArgumentType.STRING,
@@ -376,7 +375,7 @@
 
           
           MOVE: {
-            acceptReporters: true,
+            acceptReporters: false,
             items: [
               { text: Scratch.translate("center"), value: "center" },
               { text: Scratch.translate("right"), value: "right" },
