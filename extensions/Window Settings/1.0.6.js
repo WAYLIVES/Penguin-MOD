@@ -93,6 +93,7 @@
  
   // иконки блоков:
   const MoveWHXY = "data:image/gif;base64,";
+  const greenFlagURI="data:image/gif;base64,";
 /* ________________________________________________________________________________________ */
 
 
@@ -245,6 +246,24 @@
               },
             },
           },
+
+          {
+            opcode: "setDimensions",
+            text: Scratch.translate(
+              "set stage size width: [width] height: [height]"
+            ),
+            blockType: Scratch.BlockType.COMMAND,
+            arguments: {
+              width: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: "480",
+              },
+              height: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: "360",
+              },
+            },
+          },
           
           {
             opcode: "getDimension",
@@ -265,7 +284,18 @@
 
           "---",
           
-        
+          {
+            opcode: "greenFlag",
+            text: Scratch.translate("run green flag [flag]"),
+            blockType: Scratch.BlockType.COMMAND,
+            arguments: {
+              flag: {
+                type: Scratch.ArgumentType.IMAGE,
+                dataURI: greenFlagURI,
+              },
+            },
+          },
+
           {
             opcode: "FullscreenEnterExit",
             blockType: Scratch.BlockType.COMMAND,
@@ -456,6 +486,13 @@
       return 0;
     }
 
+
+    setDimensions({ width, height }) {
+      width = Scratch.Cast.toNumber(width);
+      height = Scratch.Cast.toNumber(height);
+      Scratch.vm.setStageSize(width, height);
+    }
+
     
 
     MoveWHXY(args) {
@@ -631,6 +668,10 @@
       if (typeof ScratchBlocks === "undefined" || confirm(editorConfirmation)) {
         window.close();
       }
+    }
+
+    greenFlag() {
+      Scratch.vm.runtime.greenFlag();
     }
 /* ________________________________________________________________________________________ */
 
