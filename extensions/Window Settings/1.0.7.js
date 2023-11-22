@@ -107,6 +107,52 @@
   const REMOVE_FENCING = "remove fencing";
   const REMOVE_MISC_LIMITS = "remove misc limits";
   const HIGH_QUALITY_PEN = "high quality pen";
+
+
+  var fullScreen;
+  var greenFlag;
+  var pauseButton;
+  var stopButton;
+
+  const getButtons = () => {
+    fullScreen = undefined;
+    greenFlag = undefined;
+    pauseButton = undefined;
+    stopButton = undefined;
+
+    const rightButtons = document.querySelectorAll(
+      '[class*="stage-header_stage-button_"]'
+    );
+    fullScreen = rightButtons[rightButtons.length - 1];
+    if (!fullScreen) {
+      fullScreen =
+        document.querySelector(".fullscreen-button") ||
+        document.querySelector(".standalone-fullscreen-button");
+    }
+
+    greenFlag =
+      document.querySelector('[class*="green-flag_green-flag_"]') ||
+      document.querySelector(".green-flag-button");
+    pauseButton =
+      document.querySelector(".pause-btn") ||
+      document.querySelector(".pause-button");
+    stopButton =
+      document.querySelector('[class*="stop-all_stop-all_"]') ||
+      document.querySelector(".stop-all-button");
+  };
+
+  class controlcontrols {
+    constructor() {
+      Scratch.vm.runtime.on("RUNTIME_DISPOSED", () => {
+        getButtons();
+        for (const button of [fullScreen, greenFlag, pauseButton, stopButton]) {
+          if (button) {
+            button.style.display = "block";
+          }
+        }
+      });
+    }
+  }
 /* ________________________________________________________________________________________ */
 
 
@@ -847,6 +893,62 @@
     setFramerate({ fps }) {
       fps = Scratch.Cast.toNumber(fps);
       Scratch.vm.setFramerate(fps);
+    }
+
+
+
+    showOption(args) {
+      getButtons();
+      if (args.OPTION === "green flag" && greenFlag) {
+        greenFlag.style.display = "block";
+      } else if (args.OPTION === "pause" && pauseButton) {
+        pauseButton.style.display = "block";
+      } else if (args.OPTION === "stop" && stopButton) {
+        stopButton.style.display = "block";
+      } else if (args.OPTION === "fullscreen" && fullScreen) {
+        fullScreen.style.display = "block";
+      }
+    }
+
+    hideOption(args) {
+      getButtons();
+      if (args.OPTION === "green flag" && greenFlag) {
+        greenFlag.style.display = "none";
+      } else if (args.OPTION === "pause" && pauseButton) {
+        pauseButton.style.display = "none";
+      } else if (args.OPTION === "stop" && stopButton) {
+        stopButton.style.display = "none";
+      } else if (args.OPTION === "fullscreen" && fullScreen) {
+        fullScreen.style.display = "none";
+      }
+    }
+
+    optionShown(args) {
+      getButtons();
+      if (args.OPTION === "green flag" && greenFlag) {
+        return greenFlag.style.display !== "none";
+      } else if (args.OPTION === "pause" && pauseButton) {
+        return pauseButton.style.display !== "none";
+      } else if (args.OPTION === "stop" && stopButton) {
+        return stopButton.style.display !== "none";
+      } else if (args.OPTION === "fullscreen" && fullScreen) {
+        return fullScreen.style.display !== "none";
+      }
+      return false;
+    }
+
+    optionExists(args) {
+      getButtons();
+      if (args.OPTION === "green flag" && greenFlag) {
+        return true;
+      } else if (args.OPTION === "pause" && pauseButton) {
+        return true;
+      } else if (args.OPTION === "stop" && stopButton) {
+        return true;
+      } else if (args.OPTION === "fullscreen" && fullScreen) {
+        return true;
+      }
+      return false;
     }
 /* ________________________________________________________________________________________ */
 
