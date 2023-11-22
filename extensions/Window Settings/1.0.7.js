@@ -102,7 +102,11 @@
 
 
 /* ________________________________________________________________________________________ */  
-
+  const TURBO_MODE = "turbo mode";
+  const INTERPOLATION = "interpolation";
+  const REMOVE_FENCING = "remove fencing";
+  const REMOVE_MISC_LIMITS = "remove misc limits";
+  const HIGH_QUALITY_PEN = "high quality pen";
 /* ________________________________________________________________________________________ */
 
 
@@ -339,9 +343,88 @@
               },
             },
           },
+
+          "---",
+
+          {
+            opcode: "setEnabled",
+            text: Scratch.translate("set [thing] to [enabled] / / / "),
+            blockType: Scratch.BlockType.COMMAND,
+            arguments: {
+              thing: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: TURBO_MODE,
+                menu: "thing",
+              },
+              enabled: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: "true",
+                menu: "enabled",
+              },
+            },
+          },
+          {
+            opcode: "setFramerate",
+            text: Scratch.translate("set framerate limit to [fps] / / / "),
+            blockType: Scratch.BlockType.COMMAND,
+            arguments: {
+              fps: {
+                type: Scratch.ArgumentType.NUMBER,
+                defaultValue: "30",
+              },
+            },
+          },
           
 
-          "---",   
+          "---",  
+
+
+          {
+            opcode: "showOption",
+            blockType: Scratch.BlockType.COMMAND,
+            text: Scratch.translate("show [OPTION]"),
+            arguments: {
+              OPTION: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "OPTION",
+              },
+            },
+          },
+          {
+            opcode: "hideOption",
+            blockType: Scratch.BlockType.COMMAND,
+            text: Scratch.translate("hide [OPTION]"),
+            arguments: {
+              OPTION: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "OPTION",
+              },
+            },
+          },
+          "---",
+          {
+            opcode: "optionShown",
+            blockType: Scratch.BlockType.BOOLEAN,
+            text: Scratch.translate("[OPTION] shown?"),
+            arguments: {
+              OPTION: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "OPTION",
+              },
+            },
+          },
+          "---",
+          {
+            opcode: "optionExists",
+            blockType: Scratch.BlockType.BOOLEAN,
+            text: Scratch.translate("[OPTION] exists?"),
+            arguments: {
+              OPTION: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "OPTION",
+              },
+            },
+          },
           
           
         ],
@@ -463,6 +546,73 @@
             items: [
               { text: "width", value: "Width" },
               { text: "height", value: "Height" },
+            ],
+          },
+
+
+
+
+          thing: {
+            acceptReporters: false,
+            items: [
+              {
+                text: Scratch.translate("turbo mode"),
+                value: TURBO_MODE,
+              },
+              {
+                text: Scratch.translate("interpolation"),
+                value: INTERPOLATION,
+              },
+              {
+                text: Scratch.translate("remove fencing"),
+                value: REMOVE_FENCING,
+              },
+              {
+                text: Scratch.translate("remove misc limits"),
+                value: REMOVE_MISC_LIMITS,
+              },
+              {
+                text: Scratch.translate("high quality pen"),
+                value: HIGH_QUALITY_PEN,
+              },
+            ],
+          },
+
+          enabled: {
+            acceptReporters: false,
+            items: [
+              {
+                text: Scratch.translate("enabled"),
+                value: "true",
+              },
+              {
+                text: Scratch.translate("disabled"),
+                value: "false",
+              },
+            ],
+          },
+
+
+
+          OPTION: {
+            acceptReporters: true,
+            items: [
+              {
+                text: Scratch.translate("green flag"),
+                value: "green flag",
+              },
+              {
+                text: Scratch.translate("pause"),
+                value: "pause",
+              },
+              {
+                text: Scratch.translate("stop"),
+                value: "stop",
+              },
+              {
+                text: Scratch.translate("fullscreen"),
+                value: "fullscreen",
+              },
             ],
           },
                     
@@ -672,6 +822,31 @@
 
     greenFlag() {
       Scratch.vm.runtime.greenFlag();
+    }
+
+    setEnabled({ thing, enabled }) {
+      enabled = Scratch.Cast.toBoolean(enabled);
+
+      if (thing === TURBO_MODE) {
+        Scratch.vm.setTurboMode(enabled);
+      } else if (thing === INTERPOLATION) {
+        Scratch.vm.setInterpolation(enabled);
+      } else if (thing === REMOVE_FENCING) {
+        Scratch.vm.setRuntimeOptions({
+          fencing: !enabled,
+        });
+      } else if (thing === REMOVE_MISC_LIMITS) {
+        Scratch.vm.setRuntimeOptions({
+          miscLimits: !enabled,
+        });
+      } else if (thing === HIGH_QUALITY_PEN) {
+        Scratch.renderer.setUseHighQualityRender(enabled);
+      }      
+    }
+
+    setFramerate({ fps }) {
+      fps = Scratch.Cast.toNumber(fps);
+      Scratch.vm.setFramerate(fps);
     }
 /* ________________________________________________________________________________________ */
 
