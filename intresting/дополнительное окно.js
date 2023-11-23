@@ -215,7 +215,7 @@
         close.style.position = "absolute";
         close.style.top = "0";
         close.style.right = "0";
-        close.style.padding = "5px";
+        close.style.padding = "50px";
         close.style.border = "none";
         close.style.background = "#ff0000";
         close.style.fontSize = "0.8em";
