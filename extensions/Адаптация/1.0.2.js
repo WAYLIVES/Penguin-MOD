@@ -32,7 +32,7 @@
                     {
                         opcode: "createFrame",
                         blockType: Scratch.BlockType.COMMAND,
-                        text: "create frame: [frame]",
+                        text: " | | | create frame: [frame] | | | ",
                         arguments: {
                             frame: {
                                 type: Scratch.ArgumentType.STRING,
@@ -43,7 +43,7 @@
                     {
                         opcode: "deleteFrame",
                         blockType: Scratch.BlockType.COMMAND,
-                        text: "delete frame: [frame]",
+                        text: " | | | delete frame: [frame] | | | ",
                         arguments: {
                             frame: {
                                 type: Scratch.ArgumentType.STRING,
@@ -55,7 +55,7 @@
                     {
                         opcode: "setPosFrame",
                         blockType: Scratch.BlockType.COMMAND,
-                        text: "set pos of frame [frame] x: [x] y: [y]",
+                        text: " | | | set pos of frame [frame] x: [x] y: [y] | | | ",
                         arguments: {
                             frame: {
                                 type: Scratch.ArgumentType.STRING,
@@ -75,7 +75,7 @@
                     {
                         opcode: "setSizeFrame",
                         blockType: Scratch.BlockType.COMMAND,
-                        text: "set size of frame [frame] width: [width] height: [height]",
+                        text: " | | | set size of frame [frame] width: [width] height: [height] | | | ",
                         arguments: {
                             frame: {
                                 type: Scratch.ArgumentType.STRING,
@@ -95,7 +95,7 @@
                     {
                         opcode: "setPosAncXFrame",
                         blockType: Scratch.BlockType.COMMAND,
-                        text: "set x of frame [frame] at [anchor] with offset x [margin]",
+                        text: " | | | set x of frame [frame] at [anchor] with offset x [margin] | | | ",
                         arguments: {
                             frame: {
                                 type: Scratch.ArgumentType.STRING,
@@ -115,7 +115,7 @@
                     {
                         opcode: "setPosAncYFrame",
                         blockType: Scratch.BlockType.COMMAND,
-                        text: "set y of frame [frame] at [anchor] with offset y [margin]",
+                        text: " | | | set y of frame [frame] at [anchor] with offset y [margin] | | | ",
                         arguments: {
                             frame: {
                                 type: Scratch.ArgumentType.STRING,
@@ -133,14 +133,8 @@
                         }
                     },
                     {
-                        opcode: "listFrames",
-                        text: "список frames",
-                        blockType: Scratch.BlockType.REPORTER,
-                        disableMontor: true
-                    },
-                    {
                         opcode: "keyOfFrame",
-                        text: "[key] of [frame]",
+                        text: " | | | [key] of [frame] | | | ",
                         blockType: Scratch.BlockType.REPORTER,
                         arguments: {
                             key: {
@@ -155,11 +149,17 @@
                             }
                         }
                     },
+                    {
+                        opcode: "listFrames",
+                        text: " | | | список frames | | | ",
+                        blockType: Scratch.BlockType.REPORTER,
+                        disableMontor: true
+                    },
                     "---",
                     {
                         opcode: "setPosAncXSprite",
                         blockType: Scratch.BlockType.COMMAND,
-                        text: "set x on [frame] at [anchor] with offset x [margin]",
+                        text: " | | | set x on [frame] at [anchor] with offset x [margin] | | | ",
                         arguments: {
                             frame: {
                                 type: Scratch.ArgumentType.STRING,
@@ -179,7 +179,7 @@
                     {
                         opcode: "setPosAncYSprite",
                         blockType: Scratch.BlockType.COMMAND,
-                        text: "set y on [frame] at [anchor] with offset y [margin]",
+                        text: " | | | set y on [frame] at [anchor] with offset y [margin] | | | ",
                         arguments: {
                             frame: {
                                 type: Scratch.ArgumentType.STRING,
