@@ -24,76 +24,11 @@
             return {
                 id: "guipositioning",
                 color1: "#5D607A",
-                color2: "#4B4D63",
-                color3: "#3B3D4F",
-                name: "GUI Positioning",
+                color2: "#536E8E",
+                color3: "#1F202C",
+                name: "Adaptation",
                 docsURI: "https://orangeleaf36.is-a.dev/docs/gui-positioning/",
-                blocks: [
-                    {
-                        opcode: "setPosAncXSprite",
-                        blockType: Scratch.BlockType.COMMAND,
-                        text: "set x on [frame] at [anchor] with offset x [margin]",
-                        arguments: {
-                            frame: {
-                                type: Scratch.ArgumentType.STRING,
-                                menu: "FRAMES",
-                                defaultValue: "stage"
-                            },
-                            anchor: {
-                                type: Scratch.ArgumentType.STRING,
-                                menu: "ANCHOR_X",
-                                defaultValue: "center"
-                            },
-                            margin: {
-                                type: Scratch.ArgumentType.NUMBER
-                            }
-                        }
-                    },
-                    {
-                        opcode: "setPosAncYSprite",
-                        blockType: Scratch.BlockType.COMMAND,
-                        text: "set y on [frame] at [anchor] with offset y [margin]",
-                        arguments: {
-                            frame: {
-                                type: Scratch.ArgumentType.STRING,
-                                menu: "FRAMES",
-                                defaultValue: "stage"
-                            },
-                            anchor: {
-                                type: Scratch.ArgumentType.STRING,
-                                menu: "ANCHOR_Y",
-                                defaultValue: "center"
-                            },
-                            margin: {
-                                type: Scratch.ArgumentType.NUMBER
-                            }
-                        }
-                    },
-                    "---",
-                    {
-                        opcode: "listFrames",
-                        text: "список frames",
-                        blockType: Scratch.BlockType.REPORTER,
-                        disableMontor: true
-                    },
-                    {
-                        opcode: "keyOfFrame",
-                        text: "[key] of [frame]",
-                        blockType: Scratch.BlockType.REPORTER,
-                        arguments: {
-                            key: {
-                                type: Scratch.ArgumentType.STRING,
-                                menu: "FRAME_PROPERTIES",
-                                defaultValue: "x"
-                            },
-                            frame: {
-                                type: Scratch.ArgumentType.STRING,
-                                menu: "FRAMES_NOSTAGE",
-                                defaultValue: "frame1"
-                            }
-                        }
-                    },
-                    "---",
+                blocks: [                    
                     {
                         opcode: "createFrame",
                         blockType: Scratch.BlockType.COMMAND,
@@ -197,6 +132,73 @@
                             }
                         }
                     },
+                    {
+                        opcode: "listFrames",
+                        text: "список frames",
+                        blockType: Scratch.BlockType.REPORTER,
+                        disableMontor: true
+                    },
+                    {
+                        opcode: "keyOfFrame",
+                        text: "[key] of [frame]",
+                        blockType: Scratch.BlockType.REPORTER,
+                        arguments: {
+                            key: {
+                                type: Scratch.ArgumentType.STRING,
+                                menu: "FRAME_PROPERTIES",
+                                defaultValue: "x"
+                            },
+                            frame: {
+                                type: Scratch.ArgumentType.STRING,
+                                menu: "FRAMES_NOSTAGE",
+                                defaultValue: "frame1"
+                            }
+                        }
+                    },
+                    "---",
+                    {
+                        opcode: "setPosAncXSprite",
+                        blockType: Scratch.BlockType.COMMAND,
+                        text: "set x on [frame] at [anchor] with offset x [margin]",
+                        arguments: {
+                            frame: {
+                                type: Scratch.ArgumentType.STRING,
+                                menu: "FRAMES",
+                                defaultValue: "stage"
+                            },
+                            anchor: {
+                                type: Scratch.ArgumentType.STRING,
+                                menu: "ANCHOR_X",
+                                defaultValue: "center"
+                            },
+                            margin: {
+                                type: Scratch.ArgumentType.NUMBER
+                            }
+                        }
+                    },
+                    {
+                        opcode: "setPosAncYSprite",
+                        blockType: Scratch.BlockType.COMMAND,
+                        text: "set y on [frame] at [anchor] with offset y [margin]",
+                        arguments: {
+                            frame: {
+                                type: Scratch.ArgumentType.STRING,
+                                menu: "FRAMES",
+                                defaultValue: "stage"
+                            },
+                            anchor: {
+                                type: Scratch.ArgumentType.STRING,
+                                menu: "ANCHOR_Y",
+                                defaultValue: "center"
+                            },
+                            margin: {
+                                type: Scratch.ArgumentType.NUMBER
+                            }
+                        }
+                    },
+
+
+                    
                 ],
                 menus: {
                     RES_MENU: {
