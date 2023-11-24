@@ -97,7 +97,7 @@
                     {
                         opcode: "createFrame",
                         blockType: Scratch.BlockType.COMMAND,
-                        text: "create frame [frame]",
+                        text: "create frame: [frame]",
                         arguments: {
                             frame: {
                                 type: Scratch.ArgumentType.STRING,
@@ -108,12 +108,12 @@
                     {
                         opcode: "deleteFrame",
                         blockType: Scratch.BlockType.COMMAND,
-                        text: "delete frame [frame]",
+                        text: "delete frame: [frame]",
                         arguments: {
                             frame: {
                                 type: Scratch.ArgumentType.STRING,
                                 menu: "FRAMES_NOSTAGE",
-                                defaultValue: "frame1"
+                                defaultValue: " "
                             }
                         }
                     },
