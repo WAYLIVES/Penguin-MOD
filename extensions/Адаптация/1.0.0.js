@@ -23,9 +23,9 @@
         getInfo() {
             return {
                 id: "guipositioning",
-                color1: "#8059ad",
-                color2: "#6f489c",
-                color3: "#5f388a",
+                color1: "#5D607A",
+                color2: "#4B4D63",
+                color3: "#3B3D4F",
                 name: "GUI Positioning",
                 docsURI: "https://orangeleaf36.is-a.dev/docs/gui-positioning/",
                 blocks: [
