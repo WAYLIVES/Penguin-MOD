@@ -271,14 +271,30 @@
             zoom = args.zoom / 100;
             if (args.frame === "stage"){
                 const stagewidth = Scratch.vm.runtime.stageWidth;
-                if (attribute === "left") {
-                    newX = -stagewidth / 2 / zoom + costumewidth / 2 * (util.target.size/100) + args.margin;
-                } else if (attribute === "right") {
-                    newX = stagewidth / 2 / zoom - costumewidth / 2 * (util.target.size/100) + args.margin;
-                } else if (attribute === "center") {
-                    newX = args.margin;
-                } else {
-                    newX = 0;
+                if (args.anchor === "left") {
+                    if (args.inCenterOut === "in") {
+                        newX = -stagewidth / 2 / zoom + costumewidth / 2 * (util.target.size/100) + args.margin;
+                    } else if (args.inCenterOut === "center") {
+                        newX = -stagewidth / 2 / zoom + (util.target.size/100) + args.margin;
+                    } else if (args.inCenterOut === "out") {
+                        newX = -stagewidth / 2 / zoom - costumewidth / 2 * (util.target.size/100) + args.margin;
+                    }
+                } else if (args.anchor === "right") {
+                    if (args.inCenterOut === "in") {
+                        newX = stagewidth / 2 / zoom - costumewidth / 2 * (util.target.size/100) + args.margin;
+                    } else if (args.inCenterOut === "center") {
+                        newX = stagewidth / 2 / zoom - costumewidth / 2 * (util.target.size/100) + args.margin;
+                    } else if (args.inCenterOut === "out") {
+                        newX = stagewidth / 2 / zoom + costumewidth / 2 * (util.target.size/100) + args.margin;
+                    }
+                } else if (args.anchor === "center") {
+                    if (args.inCenterOut === "in") {
+                        newX = args.margin;
+                    } else if (args.inCenterOut === "center") {
+                        newX = args.margin;
+                    } else if (args.inCenterOut === "out") {
+                        newX = args.margin;
+                    }
                 }
             } else {
                 const frame = frames[args.frame];
