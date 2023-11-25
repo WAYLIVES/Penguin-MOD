@@ -184,7 +184,7 @@
                     {
                         opcode: "setPosAncXSprite",
                         blockType: Scratch.BlockType.COMMAND,
-                        text: " | | |    // положение-x //    | | |    задать положение спрайта по x в: [frame] выравнить по: [anchor] [inCenterOut], если zoom: [zoom] with offset x: [margin] | | | [imga]",
+                        text: " | | | задать положение спрайта по x в: [frame] выравнить по: [anchor] [inCenterOut], если zoom: [zoom] with offset x: [margin] | | | [imga]",
                         arguments: {
                             imga: {
                                 type: Scratch.ArgumentType.IMAGE,
