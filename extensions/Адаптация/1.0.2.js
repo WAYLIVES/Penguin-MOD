@@ -159,7 +159,7 @@
                     {
                         opcode: "setPosAncXSprite",
                         blockType: Scratch.BlockType.COMMAND,
-                        text: " | | | set x on [frame] at [anchor] [inCenterOut] with offset x [margin] | | | ",
+                        text: " | | | задать положение спрайта по x в [frame] at [anchor] [inCenterOut], если zoom: [zoom] with offset x [margin] | | | ",
                         arguments: {
                             frame: {
                                 type: Scratch.ArgumentType.STRING,
@@ -178,6 +178,10 @@
                                 type: Scratch.ArgumentType.STRING,
                                 menu: "inCenterOut",
                                 defaultValue: "in"
+                            },
+                            zoom: {
+                                type: Scratch.ArgumentType.NUMBER,
+                                defaultValue: "100"
                             },
                         }
                     },
@@ -264,15 +268,9 @@
             const attribute = args.anchor;
             const costumewidth = Math.ceil(Scratch.Cast.toNumber(costume.size[0]));
             let newX = 0;
+            zoom = args.zoom / 100;
             if (args.frame === "stage"){
                 const stagewidth = Scratch.vm.runtime.stageWidth;
-                if (attribute === "left") {
-                    if (args.inCenterOut === "in") {
-                        newX = -stagewidth / 2 / costumewidth / 2 * (util.target.size/100) + args.margin;
-                    } else if (args.inCenterOut === "center") {
-                        newX = -stagewidth / 2;
-                    }              
-                }
                 if (attribute === "left") {
                     newX = -stagewidth / 2 / zoom + costumewidth / 2 * (util.target.size/100) + args.margin;
                 } else if (attribute === "right") {
