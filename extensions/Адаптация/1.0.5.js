@@ -29,10 +29,6 @@
     
       const vm = Scratch.vm;
     
-      /**
-       * @param {VM.RenderedTarget} target
-       * @param {VM.RenderedTarget} [originalTarget] If target is a clone, the original to copy from.
-       */
       const implementStretchForTarget = (target, originalTarget) => {
         if (STRETCH_X in target) {
           // Target already has stretch. Don't implement again.
