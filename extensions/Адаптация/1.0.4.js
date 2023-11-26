@@ -184,7 +184,7 @@
                     {
                         opcode: "setPosAncXSprite",
                         blockType: Scratch.BlockType.COMMAND,
-                        text: " | | | задать положение спрайта по x в: [frame] выравнить по: [anchor] [inCenterOut], если zoom: [zoom] with offset x: [margin] | | | [imga]",
+                        text: " | | | задать положение спрайта по x в: [frame] выравнить по: [anchor] [inCenterOut], если zoom: [zoom], дополнительно изменить x: [margin] | | | [imga]",
                         arguments: {
                             imga: {
                                 type: Scratch.ArgumentType.IMAGE,
@@ -217,7 +217,7 @@
                     {
                         opcode: "setPosAncYSprite",
                         blockType: Scratch.BlockType.COMMAND,
-                        text: " | | | set y on [frame] at [anchor] with offset y [margin] | | | [imga]",
+                        text: " | | | задать положение спрайта по y в: [frame] выравнить по: [anchor] [inCenterOut], если zoom: [zoom], дополнительно изменить y: [margin] | | | [imga]",
                         arguments: {
                             imga: {
                                 type: Scratch.ArgumentType.IMAGE,
@@ -232,6 +232,15 @@
                                 type: Scratch.ArgumentType.STRING,
                                 menu: "ANCHOR_Y",
                                 defaultValue: "center"
+                            },
+                            inCenterOut: {
+                                type: Scratch.ArgumentType.STRING,
+                                menu: "inCenterOut",
+                                defaultValue: "in"
+                            },
+                            zoom: {
+                                type: Scratch.ArgumentType.NUMBER,
+                                defaultValue: "100"
                             },
                             margin: {
                                 type: Scratch.ArgumentType.NUMBER
