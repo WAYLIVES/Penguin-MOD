@@ -41,8 +41,9 @@
         const original = target._getRenderedDirectionAndScale;
         target._getRenderedDirectionAndScale = function () {
           const result = original.call(this);
+            const costumewidth = Math.ceil(Scratch.Cast.toNumber(costume.size[0]));
     
-          result.scale[0] *= this[STRETCH_X] / 100;
+          result.scale[0] *= this[STRETCH_X] / 100 * (Scratch.vm.runtime.stageWidth / result.scale[0] / 100);
           result.scale[1] *= this[STRETCH_Y] / 100;
     
           return result;
