@@ -180,7 +180,7 @@
                         },
                         disableMontor: true,
                     },
-                    "---",
+                    "---",                    
                     {
                         opcode: "setPosAncXSprite",
                         blockType: Scratch.BlockType.COMMAND,
@@ -247,6 +247,8 @@
                             }
                         }
                     },
+
+                    "---",
 
 
                     
@@ -325,7 +327,7 @@
                     if (args.inCenterOut === "in") {
                         newX = stagewidth / 2 / zoom - costumewidth / 2 * (util.target.size/100) + args.margin;
                     } else if (args.inCenterOut === "center") {
-                        newX = stagewidth / 2 / zoom - costumewidth / 2 * (util.target.size/100) + args.margin;
+                        newX = stagewidth / 2 / zoom - (util.target.size/100) + args.margin;
                     } else if (args.inCenterOut === "out") {
                         newX = stagewidth / 2 / zoom + costumewidth / 2 * (util.target.size/100) + args.margin;
                     }
@@ -361,14 +363,30 @@
             let newY = 0;
             if (args.frame === "stage"){
                 const stageheight = Scratch.vm.runtime.stageHeight;
-                if (attribute === "bottom") {
-                    newY = -stageheight / 2 / zoom + costumeheight / 2 * (util.target.size/100) + args.margin;
-                } else if (attribute === "top") {
-                    newY = stageheight / 2 / zoom - costumeheight / 2 * (util.target.size/100) + args.margin;
-                } else if (attribute === "center") {
-                    newY = args.margin;
-                } else {
-                    newY = 0;
+                if (args.anchor === "bottom") {
+                    if (args.inCenterOut === "in") {
+                        newY = -stageheight / 2 / zoom + costumeheight / 2 * (util.target.size/100) + args.margin;
+                    } else if (args.inCenterOut === "center") {
+                        newY = -stageheight / 2 / zoom + (util.target.size/100) + args.margin;
+                    } else if (args.inCenterOut === "out") {
+                        newY = -stageheight / 2 / zoom - costumeheight / 2 * (util.target.size/100) + args.margin;
+                    }
+                } else if (args.anchor === "top") {
+                    if (args.inCenterOut === "in") {
+                        newY = stageheight / 2 / zoom - costumeheight / 2 * (util.target.size/100) + args.margin;
+                    } else if (args.inCenterOut === "center") {
+                        newY = stageheight / 2 / zoom - (util.target.size/100) + args.margin;
+                    } else if (args.inCenterOut === "out") {
+                        newY = stageheight / 2 / zoom + costumeheight / 2 * (util.target.size/100) + args.margin;
+                    }
+                } else if (args.anchor === "center") {
+                    if (args.inCenterOut === "in") {
+                        newY = args.margin;
+                    } else if (args.inCenterOut === "center") {
+                        newY = args.margin;
+                    } else if (args.inCenterOut === "out") {
+                        newY = args.margin;
+                    }
                 }
             } else {
                 const frame = frames[args.frame];
