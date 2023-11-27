@@ -346,11 +346,10 @@
                 target._getRenderedDirectionAndScale = function () {
                     const result = original.call(this);
                     
-                    const costumeSprite = util.target.sprite.costumes[util.target.currentCostume];
-                    const costumeWidthSprite = Math.ceil(Scratch.Cast.toNumber(costumeSprite.size[0]));                    
+                                      
             
-                    result.scale[0] *= this[STRETCH_X] / Scratch.vm.runtime.stageWidth / costumeWidthSprite / 100;
-                    result.scale[1] *= this[STRETCH_Y] / 100;
+                    result.scale[0] *= this[Symbol("stretch.x")] / 100;
+                    result.scale[1] *= this[Symbol("stretch.y")] / 100;
             
                     return result;
                 };
@@ -366,8 +365,11 @@
             const forceUpdateDirectionAndScale = (target) => {
                 target.setDirection(target.direction);
             };
+
+            const costumeSprite = util.target.sprite.costumes[util.target.currentCostume];
+            const costumeWidthSprite = Math.ceil(Scratch.Cast.toNumber(costumeSprite.size[0]));  
             
-            util.target[STRETCH_X] = Scratch.Cast.toNumber(args.X);
+            util.target[STRETCH_X] = this[Symbol("stretch.x")] / Scratch.vm.runtime.stageWidth / costumeWidthSprite / 100;
             util.target[STRETCH_Y] = Scratch.Cast.toNumber(args.Y);
             forceUpdateDirectionAndScale(util.target);
         }
