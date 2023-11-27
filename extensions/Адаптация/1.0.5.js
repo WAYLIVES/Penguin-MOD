@@ -25,13 +25,12 @@
 
 
     const STRETCH_X = Symbol("stretch.x");
-      const STRETCH_Y = Symbol("stretch.y");
+    const STRETCH_Y = Symbol("stretch.y");
     
-      const vm = Scratch.vm;
+    const vm = Scratch.vm;
     
-      const implementStretchForTarget = (target, originalTarget) => {
+    const implementStretchForTarget = (target, originalTarget) => {
         if (STRETCH_X in target) {
-          // Target already has stretch. Don't implement again.
           return;
         }
     
@@ -40,29 +39,25 @@
     
         const original = target._getRenderedDirectionAndScale;
         target._getRenderedDirectionAndScale = function () {
-          const result = original.call(this);
-            const costumewidth = Math.ceil(Scratch.Cast.toNumber(costume.size[0]));
+            const result = original.call(this);
     
-          result.scale[0] *= this[STRETCH_X] / 100 * Scratch.vm.runtime.stageWidth / 100;
-          result.scale[1] *= this[STRETCH_Y] / 100;
+            result.scale[0] *= this[STRETCH_X] / 100;
+            result.scale[1] *= this[STRETCH_Y] / 100;
     
-          return result;
+            return result;
         };
-      };
-      vm.runtime.targets.forEach((target) => implementStretchForTarget(target));
-      vm.runtime.on("targetWasCreated", (target, originalTarget) =>
+    };
+    vm.runtime.targets.forEach((target) => implementStretchForTarget(target));
+    vm.runtime.on("targetWasCreated", (target, originalTarget) =>
         implementStretchForTarget(target, originalTarget)
-      );
-      vm.runtime.on("PROJECT_LOADED", () => {
-        vm.runtime.targets.forEach((target) => implementStretchForTarget(target));
-      });
-    
-      /**
-       * @param {VM.RenderedTarget} target
-       */
-      const forceUpdateDirectionAndScale = (target) => {
+    );
+    vm.runtime.on("PROJECT_LOADED", () => {
+    vm.runtime.targets.forEach((target) => implementStretchForTarget(target));
+    });
+
+    const forceUpdateDirectionAndScale = (target) => {
         target.setDirection(target.direction);
-      };
+    };
 
 
     
