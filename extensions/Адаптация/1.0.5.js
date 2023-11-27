@@ -349,7 +349,7 @@
                     const costumeSprite = util.target.sprite.costumes[util.target.currentCostume];
                     const costumeWidthSprite = Math.ceil(Scratch.Cast.toNumber(costumeSprite.size[0]));                    
             
-                    result.scale[0] *= this[STRETCH_X] / 100 * Scratch.vm.runtime.stageWidth / costumeWidthSprite / 100;
+                    result.scale[0] *= this[STRETCH_X] / Scratch.vm.runtime.stageWidth / costumeWidthSprite / 100;
                     result.scale[1] *= this[STRETCH_Y] / 100;
             
                     return result;
