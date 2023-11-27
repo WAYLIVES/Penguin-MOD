@@ -363,9 +363,11 @@
         }
       
         setStretch(args, util) {
-          util.target[STRETCH_X] = Scratch.Cast.toNumber(args.X * Scratch.vm.runtime.stageWidth / 100);
-          util.target[STRETCH_Y] = Scratch.Cast.toNumber(args.Y);
-          forceUpdateDirectionAndScale(util.target);
+            const costumeSprite = util.target.sprite.costumes[util.target.currentCostume];
+            const costumeWidthSprite = Math.ceil(Scratch.Cast.toNumber(costumeSprite.size[0]));
+            util.target[STRETCH_X] = Scratch.Cast.toNumber(args.X * Scratch.vm.runtime.stageWidth / costumeWidthSprite / 100);
+            util.target[STRETCH_Y] = Scratch.Cast.toNumber(args.Y);
+            forceUpdateDirectionAndScale(util.target);
         }
 
         //Sprite
