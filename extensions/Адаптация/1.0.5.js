@@ -42,7 +42,7 @@
             const result = original.call(this);
             
     
-            result.scale[0] *= this[STRETCH_X] / 100 * Scratch.vm.runtime.stageWidth / 100;
+            result.scale[0] *= this[STRETCH_X] / 100;
             result.scale[1] *= this[STRETCH_Y] / 100;
     
             return result;
@@ -363,7 +363,7 @@
         }
       
         setStretch(args, util) {
-          util.target[STRETCH_X] = Scratch.Cast.toNumber(args.X);
+          util.target[STRETCH_X] = Scratch.Cast.toNumber(args.X * Scratch.vm.runtime.stageWidth / 100);
           util.target[STRETCH_Y] = Scratch.Cast.toNumber(args.Y);
           forceUpdateDirectionAndScale(util.target);
         }
