@@ -40,8 +40,9 @@
         const original = target._getRenderedDirectionAndScale;
         target._getRenderedDirectionAndScale = function () {
             const result = original.call(this);
+            
     
-            result.scale[0] *= this[STRETCH_X] / 100 *;
+            result.scale[0] *= this[STRETCH_X] / 100 * Scratch.vm.runtime.stageWidth / 100;
             result.scale[1] *= this[STRETCH_Y] / 100;
     
             return result;
