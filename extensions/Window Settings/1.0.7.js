@@ -29,14 +29,14 @@
     ru /*_РусскийЯзык_*/: {
       ExtensionName: "Настройки Окна",
       LabelA: "Window Settings:",
-      MoveWHXY: "окно [SC] [WHXY]: [WHXYA], [WHXYB] / / / ",
+      MoveWHXY: " | | | окно [SC] [WHXY]: [WHXYA], [WHXYB] | | | ",
         // [SC]:
           SCA: "задать",
           SCB: "изменить",
         // [WHXY]:
           WHXYA: "ширину, высоту",
           WHXYB: "позицию x, позицию y",
-      WindowSCWH: "окно [MenuSC] [MenuWH]: [WH] / / / ",
+      WindowSCWH: " | | | окно [MenuSC] [MenuWH]: [WH] | | | ",
         // [MenuSC]:
           MenuSCA: "задать",
           MenuSCB: "изменить",
@@ -45,7 +45,7 @@
           MenuWHB: "высоту",
           MenuWHC: "позицию x",
           MenuWHD: "позицию y",
-      moveToPresets: "переместить окно [PRESETS] / / / ",
+      moveToPresets: " | | | переместить окно [PRESETS] | | | ",
         // [PRESETS]:
           PRESETSA: "по центру",
           PRESETSB: "справа",
@@ -56,13 +56,13 @@
           PRESETSG: "в верхнем левом углу",
           PRESETSH: "в нижнем правом углу",
           PRESETSI: "в нижнем левом углу",
-      changeTitleTo: "задать окну имя [TITLE]",
-      WindowWHXY: "окно [MenuWindowWHXY]",
-      innerStageSize: "размер внутренней сцены [innerMenuSetChange] ширину: [innerWidth] высоту: [innerHeight] / / / ",
+      changeTitleTo: " | | | задать окну имя [TITLE] | | | ",
+      WindowWHXY: " | | | окно [MenuWindowWHXY] | | | ",
+      innerStageSize: " | | | размер внутренней сцены [innerMenuSetChange] ширину: [innerWidth] высоту: [innerHeight] | | | ",
         // [innerMenuSetChange]:
           innerMenuSetChangeA: "задать",
           innerMenuSetChangeB: "изменить",
-      innerStageSizeWidthHeight: "размер внутренней сцены [innerMenuSetChangeWH] [innerMenuWidthHeight]: [innerWidthHeight] / / / ",
+      innerStageSizeWidthHeight: " | | | размер внутренней сцены [innerMenuSetChangeWH] [innerMenuWidthHeight]: [innerWidthHeight] | | | ",
         // [innerMenuSetChangeWH]:
           innerMenuSetChangeWHA: "задать",
           innerMenuSetChangeWHB: "изменить",
@@ -176,7 +176,7 @@
           {
             opcode: "MoveWHXY",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "MoveWHXY", default: "window [SC] [WHXY]: [WHXYA], [WHXYB] / / / " }),
+            text: Scratch.translate({ id: "MoveWHXY", default: " | | | window [SC] [WHXY]: [WHXYA], [WHXYB] | | | " }),
             arguments: {
               SC: {
                 type: Scratch.ArgumentType.STRING,
@@ -200,7 +200,7 @@
           {
             opcode: "WindowSCWH",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "WindowSCWH", default: "window [MenuSC] [MenuWH]: [WH] / / / " }),
+            text: Scratch.translate({ id: "WindowSCWH", default: " | | | window [MenuSC] [MenuWH]: [WH] | | | " }),
             arguments: {
               MenuSC: {
                 type: Scratch.ArgumentType.STRING,
@@ -220,7 +220,7 @@
           {
             opcode: "moveToPresets",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "moveToPresets", default: "move window to the [PRESETS] / / / " }),
+            text: Scratch.translate({ id: "moveToPresets", default: " | | | move window to the [PRESETS] | | | " }),
             arguments: {
               PRESETS: {
                 type: Scratch.ArgumentType.STRING,
@@ -232,7 +232,7 @@
           {
             opcode: "changeTitleTo",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "changeTitleTo", default: "set window title to [TITLE] / / / " }),
+            text: Scratch.translate({ id: "changeTitleTo", default: " | | | set window title to [TITLE] | | | " }),
             arguments: {
               TITLE: {
                 type: Scratch.ArgumentType.STRING,
@@ -244,7 +244,7 @@
           {
             opcode: "WindowWHXY",
             blockType: Scratch.BlockType.REPORTER,
-            text: Scratch.translate({ id: "WindowWHXY", default: "window [MenuWindowWHXY] / / / " }),
+            text: Scratch.translate({ id: "WindowWHXY", default: " | | | window [MenuWindowWHXY] | | | " }),
             arguments: {
               MenuWindowWHXY: {
                 type: Scratch.ArgumentType.STRING,
@@ -260,7 +260,7 @@
           {
             opcode: "innerStageSize",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "innerStageSize", default: "inner stage size [innerMenuSetChange] width: [innerWidth] height: [innerHeight] / / / " }),
+            text: Scratch.translate({ id: "innerStageSize", default: " | | | inner stage size [innerMenuSetChange] width: [innerWidth] height: [innerHeight] | | | " }),
             arguments: {
               innerMenuSetChange: {
                 type: Scratch.ArgumentType.STRING,
@@ -280,7 +280,7 @@
           {
             opcode: "innerStageSizeWidthHeight",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "innerStageSizeWidthHeight", default: "inner stage size [innerMenuSetChangeWH] [innerMenuWidthHeight]: [innerWidthHeight] / / / " }),
+            text: Scratch.translate({ id: "innerStageSizeWidthHeight", default: " | | | inner stage size [innerMenuSetChangeWH] [innerMenuWidthHeight]: [innerWidthHeight] | | | " }),
             arguments: {
               innerMenuSetChangeWH: {
                 type: Scratch.ArgumentType.STRING,
@@ -300,7 +300,7 @@
           {
             opcode: "setDimensions",
             text: Scratch.translate(
-              "set stage size width: [width] height: [height]"
+              " | | | set stage size width: [width] height: [height] | | | "
             ),
             blockType: Scratch.BlockType.COMMAND,
             arguments: {
@@ -318,7 +318,7 @@
           {
             opcode: "getDimension",
             text: Scratch.translate({
-              default: "stage [dimension] / / / ",
+              default: " | | | stage [dimension] | | | ",
               description: "[dimension] is a dropdown of width and height",
             }),
             blockType: Scratch.BlockType.REPORTER,
@@ -336,7 +336,7 @@
           
           {
             opcode: "greenFlag",
-            text: Scratch.translate("run green flag [flag]"),
+            text: Scratch.translate(" | | | run green flag [flag] | | | "),
             blockType: Scratch.BlockType.COMMAND,
             arguments: {
               flag: {
@@ -349,7 +349,7 @@
           {
             opcode: "FullscreenEnterExit",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("fullscreen [MenuFEE] / / / "),
+            text: Scratch.translate(" | | | fullscreen [MenuFEE] | | | "),
             arguments: {
               MenuFEE: {
                 type: Scratch.ArgumentType.STRING,
@@ -362,13 +362,13 @@
             opcode: "closeWindow",
             blockType: Scratch.BlockType.COMMAND,
             isTerminal: true,
-            text: Scratch.translate("close window"),
+            text: Scratch.translate(" | | | close window | | | "),
           },  
           
           {
             opcode: "QuestionsWS",
             blockType: Scratch.BlockType.BOOLEAN,
-            text: Scratch.translate(" / / / [MenuQuestions] / / / "),
+            text: Scratch.translate(" | | | [MenuQuestions] | | | "),
             disableMonitor: true,
             arguments: {
               MenuQuestions: {
@@ -381,7 +381,7 @@
           {
             opcode: "ScreenWHXY",
             blockType: Scratch.BlockType.REPORTER,
-            text: Scratch.translate("screen [MenuScreenWHXY] / / / "),
+            text: Scratch.translate(" | | | screen [MenuScreenWHXY] | | | "),
             arguments: {
               MenuScreenWHXY: {
                 type: Scratch.ArgumentType.STRING,
@@ -394,7 +394,7 @@
 
           {
             opcode: "setEnabled",
-            text: Scratch.translate("set [thing] to [enabled] / / / "),
+            text: Scratch.translate(" | | | set [thing] to [enabled] | | | "),
             blockType: Scratch.BlockType.COMMAND,
             arguments: {
               thing: {
@@ -411,7 +411,7 @@
           },
           {
             opcode: "setFramerate",
-            text: Scratch.translate("set framerate limit to [fps] / / / "),
+            text: Scratch.translate(" | | | set framerate limit to [fps] | | | "),
             blockType: Scratch.BlockType.COMMAND,
             arguments: {
               fps: {
@@ -428,7 +428,7 @@
           {
             opcode: "showOption",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("show [OPTION]"),
+            text: Scratch.translate(" | | | show [OPTION] | | | "),
             arguments: {
               OPTION: {
                 type: Scratch.ArgumentType.STRING,
@@ -439,7 +439,7 @@
           {
             opcode: "hideOption",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate("hide [OPTION]"),
+            text: Scratch.translate(" | | | hide [OPTION] | | | "),
             arguments: {
               OPTION: {
                 type: Scratch.ArgumentType.STRING,
@@ -451,7 +451,7 @@
           {
             opcode: "optionShown",
             blockType: Scratch.BlockType.BOOLEAN,
-            text: Scratch.translate("[OPTION] shown?"),
+            text: Scratch.translate(" | | | [OPTION] shown? | | | "),
             arguments: {
               OPTION: {
                 type: Scratch.ArgumentType.STRING,
@@ -463,7 +463,7 @@
           {
             opcode: "optionExists",
             blockType: Scratch.BlockType.BOOLEAN,
-            text: Scratch.translate("[OPTION] exists?"),
+            text: Scratch.translate(" | | | [OPTION] exists? | | | "),
             arguments: {
               OPTION: {
                 type: Scratch.ArgumentType.STRING,
