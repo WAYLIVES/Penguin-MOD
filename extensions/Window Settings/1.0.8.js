@@ -447,6 +447,21 @@
               },
             },
           },
+          {
+            opcode: "hideOption",
+            blockType: Scratch.BlockType.COMMAND,
+            text: " | | | |  [SHOWHIDE] [OPTIONSH]  | | | | ",
+            arguments: {
+              SHOWHIDE: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "SHOWHIDE",
+              },
+              OPTIONSH: {
+                type: Scratch.ArgumentType.STRING,
+                menu: "OPTIONSH",
+              },
+            },
+          },
           "---",
           {
             opcode: "optionShown",
@@ -645,6 +660,48 @@
             items: [
               {
                 text: Scratch.translate("green flag"),
+                value: "green flag",
+              },
+              {
+                text: Scratch.translate("pause"),
+                value: "pause",
+              },
+              {
+                text: Scratch.translate("stop"),
+                value: "stop",
+              },
+              {
+                text: Scratch.translate("fullscreen"),
+                value: "fullscreen",
+              },
+            ],
+          },
+          SHOWHIDE: {
+            acceptReporters: false,
+            items: [
+              {
+                text: "показать",
+                value: "green flag",
+              },
+              {
+                text: Scratch.translate("pause"),
+                value: "pause",
+              },
+              {
+                text: Scratch.translate("stop"),
+                value: "stop",
+              },
+              {
+                text: Scratch.translate("fullscreen"),
+                value: "fullscreen",
+              },
+            ],
+          },
+          OPTIONSH: {
+            acceptReporters: false,
+            items: [
+              {
+                text: "показать",
                 value: "green flag",
               },
               {
