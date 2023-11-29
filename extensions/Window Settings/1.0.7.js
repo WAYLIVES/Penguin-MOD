@@ -176,7 +176,7 @@
           {
             opcode: "MoveWHXY",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "MoveWHXY", default: " | | | window [SC] [WHXY]: [WHXYA], [WHXYB] | | | " }),
+            text: Scratch.translate({ id: "MoveWHXY", default: " | | |  window [SC] [WHXY]: [WHXYA], [WHXYB]  | | | " }),
             arguments: {
               SC: {
                 type: Scratch.ArgumentType.STRING,
@@ -200,7 +200,7 @@
           {
             opcode: "WindowSCWH",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "WindowSCWH", default: " | | | window [MenuSC] [MenuWH]: [WH] | | | " }),
+            text: Scratch.translate({ id: "WindowSCWH", default: " | | |  window [MenuSC] [MenuWH]: [WH] | | |  " }),
             arguments: {
               MenuSC: {
                 type: Scratch.ArgumentType.STRING,
