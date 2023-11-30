@@ -29,14 +29,14 @@
     ru /*_РусскийЯзык_*/: {
       ExtensionName: "Настройки Окна",
       LabelA: "Window Settings:",
-      MoveWHXY: " | | | окно [SC] [WHXY]: [WHXYA], [WHXYB] | | | ",
+      MoveWHXY: " | | | |  окно [SC] [WHXY]: [WHXYA], [WHXYB]  | | | | ",
         // [SC]:
           SCA: "задать",
           SCB: "изменить",
         // [WHXY]:
           WHXYA: "ширину, высоту",
           WHXYB: "позицию x, позицию y",
-      WindowSCWH: " | | | окно [MenuSC] [MenuWH]: [WH] | | | ",
+      WindowSCWH: " | | | |  окно [MenuSC] [MenuWH]: [WH]  | | | | ",
         // [MenuSC]:
           MenuSCA: "задать",
           MenuSCB: "изменить",
