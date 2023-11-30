@@ -244,7 +244,7 @@
           {
             opcode: "WindowWHXY",
             blockType: Scratch.BlockType.REPORTER,
-            text: Scratch.translate({ id: "WindowWHXY", default: " | | | window [MenuWindowWHXY] | | | " }),
+            text: Scratch.translate({ id: "WindowWHXY", default: " | | | |  window [MenuWindowWHXY]  | | | | " }),
             arguments: {
               MenuWindowWHXY: {
                 type: Scratch.ArgumentType.STRING,
