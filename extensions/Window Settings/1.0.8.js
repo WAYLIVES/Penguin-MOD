@@ -680,20 +680,12 @@
             acceptReporters: false,
             items: [
               {
-                text: "показать",
-                value: "green flag",
+                text: "S",
+                value: "show",
               },
               {
-                text: Scratch.translate("pause"),
-                value: "pause",
-              },
-              {
-                text: Scratch.translate("stop"),
-                value: "stop",
-              },
-              {
-                text: Scratch.translate("fullscreen"),
-                value: "fullscreen",
+                text: "E",
+                value: "exists",
               },
             ],
           },
@@ -701,7 +693,7 @@
             acceptReporters: false,
             items: [
               {
-                text: "показать",
+                text: "flag",
                 value: "green flag",
               },
               {
