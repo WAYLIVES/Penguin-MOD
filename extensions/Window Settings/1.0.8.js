@@ -4,7 +4,7 @@
 // Id: WAYLIVES
 // Description: Thanks to this extension, you can customize the project window (this works if you package the project in the ".exe" format).
 // Created by: WAYLIVES (https://scratch.mit.edu/users/WAYLIVES/)
-// V-1.0.7
+// V-1.0.8
 
 // ________________________________________________________________________________________
 
