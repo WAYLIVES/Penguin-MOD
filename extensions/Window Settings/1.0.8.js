@@ -176,7 +176,7 @@
           {
             opcode: "MoveWHXY",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "MoveWHXY", default: " | | |  window [SC] [WHXY]: [WHXYA], [WHXYB]  | | | " }),
+            text: Scratch.translate({ id: "MoveWHXY", default: " | | | |  window [SC] [WHXY]: [WHXYA], [WHXYB]  | | | | " }),
             arguments: {
               SC: {
                 type: Scratch.ArgumentType.STRING,
