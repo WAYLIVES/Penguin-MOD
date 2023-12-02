@@ -475,17 +475,6 @@
             },
           },
           "---",
-          {
-            opcode: "optionExists",
-            blockType: Scratch.BlockType.BOOLEAN,
-            text: Scratch.translate(" | | | [OPTION] exists? | | | "),
-            arguments: {
-              OPTION: {
-                type: Scratch.ArgumentType.STRING,
-                menu: "OPTION",
-              },
-            },
-          },
           
           
         ],
@@ -982,20 +971,6 @@
         return stopButton.style.display !== "none";
       } else if (args.OPTION === "fullscreen" && fullScreen) {
         return fullScreen.style.display !== "none";
-      }
-      return false;
-    }
-
-    optionExists(args) {
-      getButtons();
-      if (args.OPTION === "green flag" && greenFlag) {
-        return true;
-      } else if (args.OPTION === "pause" && pauseButton) {
-        return true;
-      } else if (args.OPTION === "stop" && stopButton) {
-        return true;
-      } else if (args.OPTION === "fullscreen" && fullScreen) {
-        return true;
       }
       return false;
     }
