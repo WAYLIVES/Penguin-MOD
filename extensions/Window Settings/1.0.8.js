@@ -448,7 +448,7 @@
             },
           },
           {
-            opcode: "hideOption",
+            opcode: "showHideOption",
             blockType: Scratch.BlockType.COMMAND,
             text: " | | | |  [SHOWHIDE] [OPTIONSH]  | | | | ",
             arguments: {
