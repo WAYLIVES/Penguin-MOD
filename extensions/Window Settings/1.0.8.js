@@ -466,7 +466,7 @@
           {
             opcode: "optionShown",
             blockType: Scratch.BlockType.BOOLEAN,
-            text: Scratch.translate(" | | | [OPTION] shown? | | | "),
+            text: Scratch.translate(" | | | |  [OPTION] shown?  | | | | "),
             arguments: {
               OPTION: {
                 type: Scratch.ArgumentType.STRING,
