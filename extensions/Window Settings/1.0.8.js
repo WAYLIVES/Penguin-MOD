@@ -424,29 +424,7 @@
 
           "---",  
 
-
-          {
-            opcode: "showOption",
-            blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate(" | | | show [OPTION] | | | "),
-            arguments: {
-              OPTION: {
-                type: Scratch.ArgumentType.STRING,
-                menu: "OPTION",
-              },
-            },
-          },
-          {
-            opcode: "hideOption",
-            blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate(" | | | hide [OPTION] | | | "),
-            arguments: {
-              OPTION: {
-                type: Scratch.ArgumentType.STRING,
-                menu: "OPTION",
-              },
-            },
-          },
+          
           {
             opcode: "showHideOption",
             blockType: Scratch.BlockType.COMMAND,
@@ -462,7 +440,6 @@
               },
             },
           },
-          "---",
           {
             opcode: "optionShown",
             blockType: Scratch.BlockType.BOOLEAN,
