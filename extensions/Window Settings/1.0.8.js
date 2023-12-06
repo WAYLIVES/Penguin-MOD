@@ -166,9 +166,9 @@
       return {              
         id: "WindowSettings",
         name: Scratch.translate({ id: "ExtensionName", default: "Window Settings" }),
-        color1: "#81AE00",
-        color2: "#729A00",
-        color3: "#587700",
+        color1: "#5D607A",
+        color2: "#536E8E",
+        color3: "#1F202C",
         menuIconURI: menuIconURI,
         
         blocks: [
