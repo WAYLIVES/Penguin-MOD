@@ -176,7 +176,10 @@
           {
             opcode: "MoveWHXY",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "MoveWHXY", default: " | | | |  window [SC] [WHXY]: [WHXYA], [WHXYB]  | | | | " }),
+            text: Scratch.translate({ 
+              id: "MoveWHXY", 
+              default: " | | | |  window [SC] [WHXY]: [WHXYA], [WHXYB]  | | | | " 
+            }),
             arguments: {
               SC: {
                 type: Scratch.ArgumentType.STRING,
@@ -200,7 +203,10 @@
           {
             opcode: "WindowSCWH",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "WindowSCWH", default: " | | |  window [MenuSC] [MenuWH]: [WH] | | |  " }),
+            text: Scratch.translate({ 
+              id: "WindowSCWH", 
+              default: " | | |  window [MenuSC] [MenuWH]: [WH] | | | " 
+            }),
             arguments: {
               MenuSC: {
                 type: Scratch.ArgumentType.STRING,
@@ -220,7 +226,10 @@
           {
             opcode: "moveToPresets",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "moveToPresets", default: " | | | move window to the [PRESETS] | | | " }),
+            text: Scratch.translate({ 
+              id: "moveToPresets", 
+              default: " | | | move window to the [PRESETS] | | | " 
+            }),
             arguments: {
               PRESETS: {
                 type: Scratch.ArgumentType.STRING,
@@ -232,7 +241,10 @@
           {
             opcode: "changeTitleTo",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "changeTitleTo", default: " | | | set window title to [TITLE] | | | " }),
+            text: Scratch.translate({ 
+              id: "changeTitleTo", 
+              default: " | | | set window title to [TITLE] | | | " 
+            }),
             arguments: {
               TITLE: {
                 type: Scratch.ArgumentType.STRING,
@@ -244,7 +256,10 @@
           {
             opcode: "WindowWHXY",
             blockType: Scratch.BlockType.REPORTER,
-            text: Scratch.translate({ id: "WindowWHXY", default: " | | | |  window [MenuWindowWHXY]  | | | | " }),
+            text: Scratch.translate({ 
+              id: "WindowWHXY", 
+              default: " | | | |  window [MenuWindowWHXY]  | | | | " 
+            }),
             arguments: {
               MenuWindowWHXY: {
                 type: Scratch.ArgumentType.STRING,
@@ -258,7 +273,10 @@
           {
             opcode: "innerStageSize",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "innerStageSize", default: " | | | inner stage size [innerMenuSetChange] width: [innerWidth] height: [innerHeight] | | | " }),
+            text: Scratch.translate({ 
+              id: "innerStageSize", 
+              default: " | | | inner stage size [innerMenuSetChange] width: [innerWidth] height: [innerHeight] | | | " 
+            }),
             arguments: {
               innerMenuSetChange: {
                 type: Scratch.ArgumentType.STRING,
@@ -278,7 +296,10 @@
           {
             opcode: "innerStageSizeWidthHeight",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate({ id: "innerStageSizeWidthHeight", default: " | | | inner stage size [innerMenuSetChangeWH] [innerMenuWidthHeight]: [innerWidthHeight] | | | " }),
+            text: Scratch.translate({ 
+              id: "innerStageSizeWidthHeight", 
+              default: " | | | inner stage size [innerMenuSetChangeWH] [innerMenuWidthHeight]: [innerWidthHeight] | | | " 
+            }),
             arguments: {
               innerMenuSetChangeWH: {
                 type: Scratch.ArgumentType.STRING,
