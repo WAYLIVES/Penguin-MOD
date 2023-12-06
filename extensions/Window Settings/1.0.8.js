@@ -673,8 +673,8 @@
                 value: "show",
               },
               {
-                text: "E",
-                value: "exists",
+                text: "H",
+                value: "hide",
               },
             ],
           },
@@ -683,7 +683,7 @@
             items: [
               {
                 text: "flag",
-                value: "green flag",
+                value: "flag",
               },
               {
                 text: Scratch.translate("pause"),
@@ -931,39 +931,36 @@
     setFramerate({ fps }) {
       fps = Scratch.Cast.toNumber(fps);
       Scratch.vm.setFramerate(fps);
-    }
-
-
-
-    showOption(args) {
+    }    
+    
+    showHideOption(args) {
       getButtons();
-      if (args.OPTION === "green flag" && greenFlag) {
-        greenFlag.style.display = "block";
-      } else if (args.OPTION === "pause" && pauseButton) {
-        pauseButton.style.display = "block";
-      } else if (args.OPTION === "stop" && stopButton) {
-        stopButton.style.display = "block";
-      } else if (args.OPTION === "fullscreen" && fullScreen) {
-        fullScreen.style.display = "block";
+      if (args.SHOWHIDE === "show") {
+        if (args.OPTIONSH === "flag" && greenFlag) {
+          greenFlag.style.display = "block";
+        } else if (args.OPTIONSH === "pause" && pauseButton) {
+          pauseButton.style.display = "block";
+        } else if (args.OPTIONSH === "stop" && stopButton) {
+          stopButton.style.display = "block";
+        } else if (args.OPTIONSH === "fullscreen" && fullScreen) {
+          fullScreen.style.display = "block";
+        }
+      } else if (args.SHOWHIDE === "hide") {
+        if (args.OPTIONSH === "flag" && greenFlag) {
+          greenFlag.style.display = "none";
+        } else if (args.OPTIONSH === "pause" && pauseButton) {
+          pauseButton.style.display = "none";
+        } else if (args.OPTIONSH === "stop" && stopButton) {
+          stopButton.style.display = "none";
+        } else if (args.OPTIONSH === "fullscreen" && fullScreen) {
+          fullScreen.style.display = "none";
+        }
       }
-    }
-
-    hideOption(args) {
-      getButtons();
-      if (args.OPTION === "green flag" && greenFlag) {
-        greenFlag.style.display = "none";
-      } else if (args.OPTION === "pause" && pauseButton) {
-        pauseButton.style.display = "none";
-      } else if (args.OPTION === "stop" && stopButton) {
-        stopButton.style.display = "none";
-      } else if (args.OPTION === "fullscreen" && fullScreen) {
-        fullScreen.style.display = "none";
-      }
-    }
+    }  
 
     optionShown(args) {
       getButtons();
-      if (args.OPTION === "green flag" && greenFlag) {
+      if (args.OPTION === "flag" && greenFlag) {
         return greenFlag.style.display !== "none";
       } else if (args.OPTION === "pause" && pauseButton) {
         return pauseButton.style.display !== "none";
