@@ -236,7 +236,7 @@
             arguments: {
               TITLE: {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: Scratch.translate("WAYLIVES"),
+                defaultValue: "WAYLIVES",
               },
             },
           },  
@@ -251,11 +251,9 @@
                 menu: "MenuWindowWHXY",
               },
             },
-          },
-          
+          },          
 
-          "---",
-          
+          "---",          
 
           {
             opcode: "innerStageSize",
@@ -299,9 +297,7 @@
 
           {
             opcode: "setDimensions",
-            text: Scratch.translate(
-              " | | | set stage size width: [width] height: [height] | | | "
-            ),
+            text: Scratch.translate(" | | | set stage size width: [width] height: [height] | | | "),
             blockType: Scratch.BlockType.COMMAND,
             arguments: {
               width: {
@@ -317,10 +313,7 @@
           
           {
             opcode: "getDimension",
-            text: Scratch.translate({
-              default: " | | | stage [dimension] | | | ",
-              description: "[dimension] is a dropdown of width and height",
-            }),
+            text: " | | | stage [dimension] | | | ",
             blockType: Scratch.BlockType.REPORTER,
             arguments: {
               dimension: {
@@ -329,14 +322,13 @@
                 menu: "dimension",
               },
             },
-          },  
-          
+          },            
 
           "---",
           
           {
             opcode: "greenFlag",
-            text: Scratch.translate(" | | | run green flag [flag] | | | "),
+            text: Scratch.translate(" | | | run flag [flag] | | | "),
             blockType: Scratch.BlockType.COMMAND,
             arguments: {
               flag: {
