@@ -45,7 +45,7 @@
           MenuWHB: "высоту",
           MenuWHC: "позицию x",
           MenuWHD: "позицию y",
-      moveToPresets: " | | | переместить окно [PRESETS] | | | ",
+      moveToPresets: " | | | |  переместить окно [PRESETS]  | | | | ",
         // [PRESETS]:
           PRESETSA: "по центру",
           PRESETSB: "справа",
@@ -56,13 +56,13 @@
           PRESETSG: "в верхнем левом углу",
           PRESETSH: "в нижнем правом углу",
           PRESETSI: "в нижнем левом углу",
-      changeTitleTo: " | | | задать окну имя [TITLE] | | | ",
-      WindowWHXY: " | | | окно [MenuWindowWHXY] | | | ",
-      innerStageSize: " | | | размер внутренней сцены [innerMenuSetChange] ширину: [innerWidth] высоту: [innerHeight] | | | ",
+      changeTitleTo: " | | | |  задать окну имя [TITLE]  | | | | ",
+      WindowWHXY: " | | | |  окно [MenuWindowWHXY]  | | | | ",
+      innerStageSize: " | | | |  размер внутренней сцены [innerMenuSetChange] ширину: [innerWidth] высоту: [innerHeight]  | | | | ",
         // [innerMenuSetChange]:
           innerMenuSetChangeA: "задать",
           innerMenuSetChangeB: "изменить",
-      innerStageSizeWidthHeight: " | | | размер внутренней сцены [innerMenuSetChangeWH] [innerMenuWidthHeight]: [innerWidthHeight] | | | ",
+      innerStageSizeWidthHeight: " | | | |  размер внутренней сцены [innerMenuSetChangeWH] [innerMenuWidthHeight]: [innerWidthHeight]  | | | | ",
         // [innerMenuSetChangeWH]:
           innerMenuSetChangeWHA: "задать",
           innerMenuSetChangeWHB: "изменить",
