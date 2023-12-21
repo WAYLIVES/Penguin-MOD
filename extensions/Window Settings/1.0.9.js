@@ -77,6 +77,12 @@
           FullscreenEnter: "включить",
           FullscreenExit: "выключить",
       closeWindow: " | | | |  закрыть окно  | | | | ",
+      QuestionsWS: " | | | | [MenuQuestions] | | | | ",
+        // [MenuQuestions]:
+          MenuQuestionsA: "касается ли окно края экрана?",
+          MenuQuestionsB: "сфокусировано ли окно?",
+          MenuQuestionsC: "является ли окно полноэкранным?",
+      ScreenWHXY: " | | | |  экран [MenuScreenWHXY] | | | | ",
     },
   }); 
 /* ________________________________________________________________________________________ */
@@ -405,7 +411,10 @@
           {
             opcode: "QuestionsWS",
             blockType: Scratch.BlockType.BOOLEAN,
-            text: Scratch.translate(" | | | [MenuQuestions] | | | "),
+            text: Scratch.translate({ 
+              id: "QuestionsWS", 
+              default: " | | | | [MenuQuestions] | | | | " 
+            }),
             disableMonitor: true,
             arguments: {
               MenuQuestions: {
@@ -418,7 +427,10 @@
           {
             opcode: "ScreenWHXY",
             blockType: Scratch.BlockType.REPORTER,
-            text: Scratch.translate(" | | | screen [MenuScreenWHXY] | | | "),
+            text: Scratch.translate({ 
+              id: "ScreenWHXY", 
+              default: " | | | |  screen [MenuScreenWHXY] | | | | " 
+            }),
             arguments: {
               MenuScreenWHXY: {
                 type: Scratch.ArgumentType.STRING,
@@ -600,9 +612,9 @@
           MenuQuestions: {
             acceptReporters: false,
             items: [
-              { text: "is window touching screen edge?", value: "A" },
-              { text: "is window focused?", value: "B" },
-              { text: "is window fullscreen?", value: "C" },
+              { text: Scratch.translate({ id: "MenuQuestionsA", default: "is window touching screen edge" }), value: "A" },
+              { text: Scratch.translate({ id: "MenuQuestionsB", default: "is window focused?" }), value: "B" },
+              { text: Scratch.translate({ id: "MenuQuestionsC", default: "is window fullscreen?" }), value: "C" },
             ],
           },
           MenuScreenWHXY: {
