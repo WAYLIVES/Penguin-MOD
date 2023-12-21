@@ -71,6 +71,7 @@
           innerMenuWidthHeightB: "высоту",
       setDimensions: " | | | |  задать сцену по ширине: [width] по высоте: [height]  | | | | ",
       getDimension: " | | | |  сцена [dimension] | | | | ",
+      greenFlag: " | | | |  нажать на флаг [flag] | | | | ",
     },
   }); 
 /* ________________________________________________________________________________________ */
@@ -95,7 +96,7 @@
  
   // иконки блоков:
   const MoveWHXY = "data:image/gif;base64,";
-  const greenFlagURI="data:image/gif;base64,";
+  const greenFlagURI="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAxNiAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zIDAuNUMzIDAuMjIzODU4IDIuNzc2MTQgMCAyLjUgMEgxLjVDMC42NzE1NzMgMCAwIDAuNjcxNTczIDAgMS41VjE4LjVDMCAxOS4zMjg0IDAuNjcxNTczIDIwIDEuNSAyMFYyMEMyLjMyODQzIDIwIDMgMTkuMzI4NCAzIDE4LjVWMTVDMyAxMy44OTU0IDMuODk1NDMgMTMgNSAxM0gxNEMxNS4xMDQ2IDEzIDE2IDEyLjEwNDYgMTYgMTFWM0MxNiAxLjg5NTQzIDE1LjEwNDYgMSAxNCAxSDMuNUMzLjIyMzg2IDEgMyAwLjc3NjE0MiAzIDAuNVYwLjVaIiBmaWxsPSIjMTgxRDBEIi8+Cjwvc3ZnPgo=";
 /* ________________________________________________________________________________________ */
 
 
@@ -358,8 +359,11 @@
           
           {
             opcode: "greenFlag",
-            text: Scratch.translate(" | | | run flag [flag] | | | "),
             blockType: Scratch.BlockType.COMMAND,
+            text: Scratch.translate({ 
+              id: "greenFlag", 
+              default: " | | | |  run flag [flag] | | | | " 
+            }),
             arguments: {
               flag: {
                 type: Scratch.ArgumentType.IMAGE,
