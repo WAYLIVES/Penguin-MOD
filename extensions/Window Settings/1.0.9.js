@@ -83,6 +83,14 @@
           MenuQuestionsB: "сфокусировано ли окно?",
           MenuQuestionsC: "является ли окно полноэкранным?",
       ScreenWHXY: " | | | |  экран [MenuScreenWHXY] | | | | ",
+      setEnabled: " | | | |  задать [thing] [enabled] | | | | ",
+        // [thing]:
+          thingA: "🗲 турбо режим",
+          thingB: "интерполяция",
+          thingC: "убрать рамку сцены",
+          thingD: "убрать разные ограничения",
+          thingE: "перо в высоком качестве",
+        // [enabled]:
     },
   }); 
 /* ________________________________________________________________________________________ */
@@ -443,18 +451,21 @@
 
           {
             opcode: "setEnabled",
-            text: Scratch.translate(" | | | set [thing] to [enabled] | | | "),
             blockType: Scratch.BlockType.COMMAND,
+            text: Scratch.translate({ 
+              id: "setEnabled", 
+              default: " | | | |  set [thing] to [enabled] | | | | "
+            }),
             arguments: {
               thing: {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: TURBO_MODE,
                 menu: "thing",
+                defaultValue: "TURBO_MODE",
               },
               enabled: {
                 type: Scratch.ArgumentType.STRING,
-                defaultValue: "true",
                 menu: "enabled",
+                defaultValue: "true",
               },
             },
           },
@@ -631,26 +642,11 @@
           thing: {
             acceptReporters: false,
             items: [
-              {
-                text: Scratch.translate("turbo mode"),
-                value: TURBO_MODE,
-              },
-              {
-                text: Scratch.translate("interpolation"),
-                value: INTERPOLATION,
-              },
-              {
-                text: Scratch.translate("remove fencing"),
-                value: REMOVE_FENCING,
-              },
-              {
-                text: Scratch.translate("remove misc limits"),
-                value: REMOVE_MISC_LIMITS,
-              },
-              {
-                text: Scratch.translate("high quality pen"),
-                value: HIGH_QUALITY_PEN,
-              },
+              { text: Scratch.translate({ id: "thingA", default: "🗲 turbo mode" }), value: "TURBO_MODE" },
+              { text: Scratch.translate({ id: "thingB", default: "interpolation" }), value: "INTERPOLATION" },
+              { text: Scratch.translate({ id: "thingC", default: "remove fencing" }), value: "REMOVE_FENCING" },
+              { text: Scratch.translate({ id: "thingD", default: "remove misc limits" }), value: "REMOVE_MISC_LIMITS" },
+              { text: Scratch.translate({ id: "thingE", default: "high quality pen" }), value: "HIGH_QUALITY_PEN" },
             ],
           },
 
