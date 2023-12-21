@@ -72,6 +72,11 @@
       setDimensions: " | | | |  задать сцену по ширине: [width] по высоте: [height]  | | | | ",
       getDimension: " | | | |  сцена [dimension] | | | | ",
       greenFlag: " | | | |  нажать на флаг [flag] | | | | ",
+      FullscreenEnterExit: " | | | |  полноэкранный режим [MenuFEE] | | | | ",
+        // [MenuFEE]:
+          FullscreenEnter: "включить",
+          FullscreenExit: "выключить",
+      closeWindow: " | | | |  закрыть окно  | | | | ",
     },
   }); 
 /* ________________________________________________________________________________________ */
@@ -375,7 +380,10 @@
           {
             opcode: "FullscreenEnterExit",
             blockType: Scratch.BlockType.COMMAND,
-            text: Scratch.translate(" | | | fullscreen [MenuFEE] | | | "),
+            text: Scratch.translate({ 
+              id: "FullscreenEnterExit", 
+              default: " | | | |  fullscreen [MenuFEE] | | | | " 
+            }),
             arguments: {
               MenuFEE: {
                 type: Scratch.ArgumentType.STRING,
@@ -388,7 +396,10 @@
             opcode: "closeWindow",
             blockType: Scratch.BlockType.COMMAND,
             isTerminal: true,
-            text: Scratch.translate(" | | | close window | | | "),
+            text: Scratch.translate({ 
+              id: "closeWindow", 
+              default: " | | | |  close window  | | | | " 
+            }),
           },  
           
           {
@@ -582,8 +593,8 @@
           MenuFEE: {
             acceptReporters: false,
             items: [
-              { text: "enter", value: "Enter" },
-              { text: "exit", value: "Exit" },
+              { text: Scratch.translate({ id: "FullscreenEnter", default: "width" }), value: "Enter" },
+              { text: Scratch.translate({ id: "FullscreenExit", default: "height" }), value: "Exit" },
             ],
           },
           MenuQuestions: {
