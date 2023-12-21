@@ -227,7 +227,7 @@
             blockType: Scratch.BlockType.COMMAND,
             text: Scratch.translate({ 
               id: "WindowSCWH", 
-              default: " | | |  window [MenuSC] [MenuWH]: [WH] | | | " 
+              default: " | | | |  window [MenuSC] [MenuWH]: [WH] | | | | " 
             }),
             arguments: {
               MenuSC: {
@@ -250,7 +250,7 @@
             blockType: Scratch.BlockType.COMMAND,
             text: Scratch.translate({ 
               id: "moveToPresets", 
-              default: " | | | move window to the [PRESETS] | | | " 
+              default: " | | | |  move window to the [PRESETS] | | | | " 
             }),
             arguments: {
               PRESETS: {
@@ -265,7 +265,7 @@
             blockType: Scratch.BlockType.COMMAND,
             text: Scratch.translate({ 
               id: "changeTitleTo", 
-              default: " | | | set window title to [TITLE] | | | " 
+              default: " | | | |  set window title to [TITLE] | | | | " 
             }),
             arguments: {
               TITLE: {
