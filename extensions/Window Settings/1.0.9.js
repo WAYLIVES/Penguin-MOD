@@ -69,6 +69,8 @@
         // [innerMenuWidthHeight]:
           innerMenuWidthHeightA: "ширину",
           innerMenuWidthHeightB: "высоту",
+      setDimensions: " | | | |  задать сцену по ширине: [width] по высоте: [height]  | | | | ",
+      getDimension: " | | | |  сцена [dimension] | | | | ",
     },
   }); 
 /* ________________________________________________________________________________________ */
@@ -318,8 +320,11 @@
 
           {
             opcode: "setDimensions",
-            text: Scratch.translate(" | | | set stage size width: [width] height: [height] | | | "),
             blockType: Scratch.BlockType.COMMAND,
+            text: Scratch.translate({ 
+              id: "setDimensions", 
+              default: " | | | |  set stage size width: [width] height: [height]  | | | | " 
+            }),
             arguments: {
               width: {
                 type: Scratch.ArgumentType.NUMBER,
@@ -336,6 +341,10 @@
             opcode: "getDimension",
             text: " | | | stage [dimension] | | | ",
             blockType: Scratch.BlockType.REPORTER,
+            text: Scratch.translate({ 
+              id: "getDimension", 
+              default: " | | | |  stage [dimension] | | | | " 
+            }),
             arguments: {
               dimension: {
                 type: Scratch.ArgumentType.STRING,
