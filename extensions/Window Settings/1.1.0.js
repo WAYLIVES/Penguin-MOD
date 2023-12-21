@@ -4,7 +4,7 @@
 // Id: WAYLIVES
 // Description: Thanks to this extension, you can customize the project window (this works if you package the project in the ".exe" format).
 // Created by: WAYLIVES (https://scratch.mit.edu/users/WAYLIVES/)
-// V-1.0.9
+// V-1.1.0
 
 // ________________________________________________________________________________________
 
@@ -91,6 +91,11 @@
           thingD: "убрать разные ограничения",
           thingE: "перо в высоком качестве",
         // [enabled]:
+      setFramerate: " | | | |  задать ограничение частоты кадров на: [fps] | | | | ",
+      showHideOption: " | | | | [SHOWHIDE] [OPTIONSH] | | | | ",
+        // [SHOWHIDE]:
+          show: "показать",
+          hide: "скрыть",
     },
   }); 
 /* ________________________________________________________________________________________ */
@@ -448,7 +453,7 @@
           },
 
           "---",
-
+/*
           {
             opcode: "setEnabled",
             blockType: Scratch.BlockType.COMMAND,
@@ -469,10 +474,14 @@
               },
             },
           },
+*/
           {
             opcode: "setFramerate",
-            text: Scratch.translate(" | | | set framerate limit to [fps] | | | "),
             blockType: Scratch.BlockType.COMMAND,
+            text: Scratch.translate({ 
+              id: "setFramerate", 
+              default: " | | | |  set framerate limit to [fps] | | | | " 
+            }),
             arguments: {
               fps: {
                 type: Scratch.ArgumentType.NUMBER,
