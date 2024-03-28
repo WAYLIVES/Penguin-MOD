@@ -4,7 +4,7 @@ class GitPenguin {
         return {
             "id": "gitpenguin",
             "name": "GitHub File Extension",
-            "color1": "#303030",
+            "color1": "#766A77",
             "color2": "#212121",
             "color3": "#212121",
             "blocks": [
